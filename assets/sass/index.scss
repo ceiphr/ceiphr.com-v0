@@ -133,8 +133,15 @@ $coverWidth: 100%;
   padding: 0 12px 0 12px;
 }
 
-.card-image img {
-  @include no-highlight;
+.card-image {
+  overflow: hidden;
+  max-height: 200px;
+  img {
+    @include no-highlight;
+    position: relative;
+    min-height: 100%;
+    min-width: 100%;
+  }
 }
 
 @media only screen and (max-width: 600px) {

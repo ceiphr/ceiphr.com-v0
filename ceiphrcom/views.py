@@ -81,7 +81,7 @@ class BlogPost(TemplateView):
     def get_context_data(self, slug, *args, **kwargs):
         context = super().get_context_data(**kwargs)
         context = IndexMetadata.get_context_data(context)
-        context["articles"] = Article.objects.all()
+        context["articles"] = Article.objects.exclude(slug=slug)
         context["contents"] = Article.objects.get(slug=slug)
         context["view"] = "Blog"
         return context

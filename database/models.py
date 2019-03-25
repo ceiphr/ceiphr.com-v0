@@ -8,7 +8,7 @@ class Metadata(models.Model):
 
 class Article(models.Model):
     title = models.CharField(default="", max_length=255)
-    preview = models.CharField(default="", max_length=100)
+    preview = models.CharField(default="", max_length=200)
     slug = models.SlugField(default="", unique=True)
     image = models.FileField(upload_to='articles/%Y/%m/%d')
     content = models.TextField(default="", max_length=20000)
