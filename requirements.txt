@@ -1,0 +1,8 @@
+Django==2.1.7
+django-pipeline==1.6.14
+django-recaptcha2==1.4.1
+django-otp==0.5.2
+mistune==0.8.4
+Pygments==2.3.1
+qrcode==6.1
+gunicorn==19.9.0

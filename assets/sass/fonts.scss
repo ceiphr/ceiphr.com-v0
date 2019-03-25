@@ -1,0 +1,42 @@
+// League Mono
+@font-face {
+    font-family: 'League Mono Light';
+    font-display: swap;
+    font-weight: 300;
+    src:
+        local('League-Mono-Light'),
+        url('../fonts/league-mono/webfonts/LeagueMono-Light.woff2') format('woff2'),
+        url('../fonts/league-mono/webfonts/LeagueMono-Light.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'League Mono Regular';
+    font-display: swap;
+    font-weight: 300;
+    src:
+        local('League-Mono-Regular'),
+        url('../fonts/league-mono/webfonts/LeagueMono-Regular.woff2') format('woff2'),
+        url('../fonts/league-mono/webfonts/LeagueMono-Regular.woff') format('woff');
+}
+
+@font-face {
+    font-family: 'League Mono Bold';
+    font-display: swap;
+    font-weight: 300;
+    src:
+        local('League-Mono-Bold'),
+        url('../fonts/league-mono/webfonts/LeagueMono-Bold.woff2') format('woff2'),
+        url('../fonts/league-mono/webfonts/LeagueMono-Bold.woff') format('woff');
+}
+
+// League Spartan
+@font-face {
+    font-family: 'League Spartan Bold';
+    font-style: bold;
+    font-display: swap;
+    font-weight: 300;
+    src:
+        local('League-Spartan-Bold'),
+        url('../fonts/league-spartan/_webfonts/leaguespartan-bold.woff2') format('woff2'),
+        url('../fonts/league-spartan/_webfonts/leaguespartan-bold.woff') format('woff');
+}

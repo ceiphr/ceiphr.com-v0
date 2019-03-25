@@ -1,0 +1,102 @@
+// Colors used for theming
+$primary-color: #29323c !default;
+$secondary-color: #03a9f4 !default;
+
+// Margins/Padding
+$sd-margin: 24px;
+$sd-padding: 12px;
+
+// Font sizes
+$h1-size: 32px;
+$h2-size: 24px;
+$h3-size: 18px;
+$p-size: 16px;
+
+// Font families
+$h-font-reg: "League Mono Regular";
+$h-font-lit: "League Mono Light";
+$h-font-bol: "League Mono Bold";
+$a-font-bol: "League Spartan Bold";
+$p-font-reg: "Open Sans";
+
+// Text Related
+@mixin no-highlight {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+
+::selection,
+::-moz-selection {
+  color: white;
+  background: $secondary-color;
+}
+
+a::selection,
+a::-moz-selection {
+  color: $primary-color;
+  background: $secondary-color;
+}
+
+.highlight pre::selection,
+.highlight pre::-moz-selection,
+.highlight pre span::selection,
+.highlight pre span::-moz-selection {
+  color: inherit;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.highlight pre::selection:window-inactive,
+.highlight pre span::selection:window-inactive {
+  color: inherit;
+  background: rgba(255, 255, 255, 0.25);
+}
+
+// Animation/Transition durations
+$qk-duration: 0.15s;
+$lg-duration: 0.5s;
+
+// Body
+html,
+body {
+  font-family: $p-font-reg !important;
+  background: white;
+  color: $primary-color;
+  min-height: 100vh;
+  max-width: 100vw;
+
+  a {
+    outline: 0 !important;
+  }
+}
+
+// Cards
+.card-title {
+  font-family: $h-font-lit;
+}
+
+// Navigation
+.brand-logo img {
+  height: 64px;
+  padding: 14px;
+}
+
+.background {
+  background: $primary-color;
+}
+
+nav {
+  position: absolute;
+  background: transparent !important;
+  box-shadow: none !important;
+  z-index: 100;
+}
+
+.brand-logo {
+  left: 8px;
+  height: 64px;
+}

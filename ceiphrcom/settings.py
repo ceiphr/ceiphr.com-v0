@@ -1,0 +1,233 @@
+import os, ceiphrcom.production_config
+
+# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+# Quick-start development settings - unsuitable for production
+# See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/
+
+# SECURITY WARNING: keep the secret key used in production secret!
+
+SECRET_KEY = ceiphrcom.production_config.secretKey
+
+# SECURITY WARNING: don't run with debug turned on in production!
+
+DEBUG = True
+ADMIN_ENABLED = True
+ALLOWED_HOSTS = ['ceiphr.com', '127.0.0.1', 'localhost', '0.0.0.0']
+OTP_TOTP_ISSUER = 'Ceiphr'
+
+# Application definition
+
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'database',
+    'snowpenguin.django.recaptcha2',
+    'pipeline',
+    'django_otp',
+    'django_otp.plugins.otp_totp',
+]
+
+MIDDLEWARE = [
+    'django.middleware.security.SecurityMiddleware',
+    'django.contrib.sessions.middleware.SessionMiddleware',
+    'django.middleware.common.CommonMiddleware',
+    'django.middleware.csrf.CsrfViewMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django.contrib.messages.middleware.MessageMiddleware',
+    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    'django_otp.middleware.OTPMiddleware',
+    # 'django.middleware.gzip.GZipMiddleware',
+    # 'pipeline.middleware.MinifyHTMLMiddleware',
+]
+
+ROOT_URLCONF = 'ceiphrcom.urls'
+
+TEMPLATES = [
+    {
+        'BACKEND': 'django.template.backends.django.DjangoTemplates',
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'APP_DIRS': True,
+        'OPTIONS': {
+            'context_processors': [
+                'django.template.context_processors.debug',
+                'django.template.context_processors.request',
+                'django.contrib.auth.context_processors.auth',
+                'django.contrib.messages.context_processors.messages',
+            ],
+        },
+    },
+]
+
+WSGI_APPLICATION = 'ceiphrcom.wsgi.application'
+
+# Database
+# https://docs.djangoproject.com/en/2.0/ref/settings/#databases
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
+
+# Password validation
+# https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators
+
+AUTH_PASSWORD_VALIDATORS = [
+    {
+        'NAME':
+        'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+    },
+    {
+        'NAME':
+        'django.contrib.auth.password_validation.MinimumLengthValidator',
+    },
+    {
+        'NAME':
+        'django.contrib.auth.password_validation.CommonPasswordValidator',
+    },
+    {
+        'NAME':
+        'django.contrib.auth.password_validation.NumericPasswordValidator',
+    },
+]
+
+# Internationalization
+# https://docs.djangoproject.com/en/2.0/topics/i18n/
+
+LANGUAGE_CODE = 'en-us'
+
+TIME_ZONE = 'UTC'
+
+USE_I18N = True
+
+USE_L10N = True
+
+USE_TZ = True
+
+# Static files (CSS, JavaScript, Images)
+# https://docs.djangoproject.com/en/2.0/howto/static-files/
+
+STATICFILES_STORAGE = 'pipeline.storage.PipelineCachedStorage'
+
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    'pipeline.finders.PipelineFinder',
+)
+
+PIPELINE = {
+    # Convert Sass files to four minimized CSS files
+    'STYLESHEETS': {
+        'critical': {
+            'source_filenames': (
+                'sass/index.scss', 
+                'sass/base.scss', 
+            ),
+            'output_filename': 
+            'css/index.css',
+        },
+        'frameworks': {
+            'source_filenames': (
+                'node_modules/materialize-css/sass/materialize.scss', 
+            ),
+            'output_filename': 
+            'css/frameworks.css',
+        },
+        'fonts': {
+            'source_filenames': (
+                'sass/fonts.scss',
+                'node_modules/typeface-open-sans/index.css', 
+                'node_modules/material-design-icons/iconfont/material-icons.css', 
+            ),
+            'output_filename': 
+            'css/fonts.css',
+        },
+        'rain': {
+            'source_filenames': (
+                'sass/rain.scss', 
+            ),
+            'output_filename': 
+            'css/rain.css',
+        },
+    }, 
+
+    # Minimize and condense javascript into two files
+    'JAVASCRIPT': {
+        'critical': {
+            'source_filenames': (
+                'node_modules/jquery/dist/jquery.min.js',
+            ),
+            'output_filename':
+            'js/index.js',
+        },
+        'frameworks': {
+            'source_filenames': (
+                'node_modules/materialize-css/dist/js/materialize.min.js',
+                'js/base.js',
+            ),
+            'output_filename':
+            'js/frameworks.js',
+        }
+    }
+}
+
+PIPELINE['COMPILERS'] = (
+  'pipeline.compilers.sass.SASSCompiler',
+)
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'assets'),)
+
+STATIC_URL = '/static/'
+
+# Media files
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+MEDIA_URL = '/media/'
+
+# Security for production server use.
+# See https://docs.djangoproject.com/en/2.0/ref/middleware/#module-django.middleware.security for details.
+
+if not DEBUG:
+    SECURE_SSL_REDIRECT = True
+
+    SESSION_COOKIE_SECURE = True
+
+    CSRF_COOKIE_SECURE = True
+
+    SECURE_CONTENT_TYPE_NOSNIFF = True
+
+    SECURE_BROWSER_XSS_FILTER = True
+
+    SECURE_HSTS_SECONDS = 15552000
+
+    SECURE_HSTS_PRELOAD = True
+
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+
+    X_FRAME_OPTIONS = 'DENY'
+
+# ReCaptcha System
+
+if DEBUG:
+
+    RECAPTCHA_PUBLIC_KEY = ""
+
+    RECAPTCHA_PRIVATE_KEY = ""
+
+else:
+
+    RECAPTCHA_PUBLIC_KEY = ceiphrcom.production_config.ReCapSiteKey
+
+    RECAPTCHA_PRIVATE_KEY = ceiphrcom.production_config.ReCapPrivateKey

@@ -1,0 +1,167 @@
+{% load static %} {% load pipeline %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% comment %} Metadata {% endcomment %}
+
+    {% comment %} Generic {% endcomment %}
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible"      content="ie=edge">
+    <meta name="description"                content="{{ metadata.desc }}" />
+    <meta name="viewport"                   content="width=device-width, initial-scale=1" />
+    {% if view != "FrontPage" %}
+    <title>{{ name }} - {{ view }} | {{ username }}</title>
+    {% else %}
+    <title>{{ name }} - {{ metadata.slogan }} | {{ username }}</title>
+    {% endif %}
+
+    {% comment %} Disable tap highlight on IE {% endcomment %}
+    <meta name="msapplication-tap-highlight" content="no">
+
+    {% comment %} Mobile Google Chrome {% endcomment %}
+    <meta name="theme-color"                content="#29323c" />
+    <meta name="mobile-web-app-capable"     content="yes">
+    <meta name="application-name"           content="{{ username }}">
+
+    {% comment %} Mobile Safari {% endcomment %}
+    <meta name="apple-mobile-web-app-capable"content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="{{ username }}" />
+    <link rel="apple-touch-icon" href="{% static 'img/ceiphr.png' %}" />
+    <link rel="apple-touch-startup-image" href="{% static 'img/ceiphr.png' %}"/>
+
+    {% comment %} Google / Search Engine Tags {% endcomment %}
+    <meta itemprop="name"                   content="{{ username }} - {{ view }}">
+    <meta itemprop="description"            content="" />
+    <meta itemprop="image"                  content="{% static 'img/ceiphr.png' %}">
+
+    {% comment %} Facebook Meta Tags {% endcomment %}
+    <meta property="og:url"                 content="https://ceiphr.com" />
+    <meta property="og:title"               content="{{ name }} - {{ view }} | {{ username }}" />
+    <meta property="og:description"         content="{{ metadata.desc }}" />
+    <meta property="og:site_name"           content="{{ name }} | {{ username }}" />
+    <meta property="og:image"               content="{% static 'img/ceiphr.png' %}">
+    <meta property="og:type"                content="website" /> 
+    <meta property="og:locale"              content="en_US" /> 
+
+    {% comment %} Twitter Meta Tags {% endcomment %}
+    <meta name="twitter:card"               content="summary">
+    <meta name="twitter:creator"            content="@ceiphr">
+
+    {% comment %} Tile icon for Win8 (144x144 + tile color) {% endcomment %}
+    <meta name="msapplication-TileImage"    content="{% static 'img/ceiphr.png' %}">
+    <meta name="msapplication-TileColor"    content="#2F3BA2">
+
+    {% comment %} SEO {% endcomment %}
+    <link rel="canonical" href="https://ceiphr.com/">
+
+    {% comment %} Favicon {% endcomment %}
+    <link rel="shortcut icon" type="image/png" href="{% static 'img/favicon.png' %}"/>
+
+    {% comment %} Critical CSS {% endcomment %}
+    {% stylesheet 'fonts' %}
+    {% stylesheet 'critical' %}
+</head>
+
+<body>
+
+
+    {% comment %} Desktop navigation {% endcomment %}
+    <nav>
+        <div class="nav-wrapper container">
+            <a href="#" data-target="slide-out" class="sidenav-trigger">
+                <i class="material-icons">menu</i>
+            </a>
+
+            <ul class="left hide-on-med-and-down">
+                <li>
+                    <a href="/" class="brand-logo"><img alt="{{ username }}" src="{% static 'img/ceiphr_alt.svg' %}"></a>
+                </li>
+            </ul>
+
+            <ul class="right hide-on-med-and-down">
+                <li class="{% if view == "Projects" %} active {% endif %}">
+                    <a href="/projects">Projects</a>
+                </li>
+                <li class="{% if view == "Blog" %} active {% endif %}">
+                        <a href="/blog">Blog</a>
+                </li>    
+                <li class="{% if view == "Events" %} active {% endif %}">
+                    <a href="/events">Events</a>
+                </li>
+                <li class="{% if view == "Skills" %} active {% endif %}">
+                    <a href="/skills">Skills</a>
+                </li>
+                <li class="{% if view == "Contact" %} active {% endif %}">
+                    <a href="/contact">Contact</a>
+                </li>
+                <li>
+                    <a href="https://changelog.ceiphr.com"><i
+                        class="material-icons right">track_changes</i>Changelog</a>
+                </li>  
+                <li>
+                    <a href="{{ document.url }}" target="_blank" class="waves-effect waves-light btn"><i class="material-icons right">file_download</i>Resume</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+    {% comment %} Mobile slideout navigation {% endcomment %}
+    <ul id="slide-out" class="sidenav">
+        <li>
+            <div class="user-view">
+                <div class="background">
+                </div>
+                <a href="/">
+                    <img class="circle" alt="{{ username }}" src="{% static 'img/ceiphr.png' %}">
+                </a>
+                <span class="white-text name">{{ name }}</span>
+                <span class="white-text email">{{ email }}</span>
+            </div>
+        </li>
+
+        <li>
+            <a href="/projects" class="waves-effect">
+                <i class="material-icons">collections</i>Projects</a>
+        </li>
+        <li>
+            <a href="/blog" class="waves-effect">
+                <i class="material-icons">notes</i>Blog</a>
+        </li>
+        <li>
+            <a href="/events" class="waves-effect">
+                <i class="material-icons">event</i>Events</a>
+        </li>
+        <li>
+            <a href="/skills" class="waves-effect">
+                <i class="material-icons">school</i>Skills</a>
+        </li>
+        <li>
+            <a href="/contact" class="waves-effect">
+                <i class="material-icons">email</i>Contact</a>
+        </li>
+        <li>
+            <div class="divider" class="waves-effect"></div>
+        </li>
+        <li>
+            <a href="https://changelog.ceiphr.com" class="waves-effect">
+                <i class="material-icons">track_changes</i>Changelog</a>
+        </li>  
+        <li>
+            <a class="waves-effect" href="{{ document.url }}" target="_blank"><i class="material-icons light-blue-text">file_download</i>Resume</a>
+        </li>
+    </ul>
+    {% block content %}
+    {% endblock content %}
+
+    {% comment %} Imported CSS and JS frameworks {% endcomment %}
+    {% stylesheet 'frameworks' %}
+    {% stylesheet 'rain' %}
+    {% javascript 'critical' %}
+    {% javascript 'frameworks' %}
+    {% javascript 'fonts' %}
+
+</body>
+</html>
