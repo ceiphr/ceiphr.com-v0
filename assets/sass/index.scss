@@ -244,9 +244,14 @@ $coverWidth: 100%;
     padding: 12px;
   }
 
+  img {
+    max-width: 100%;
+  }
+
   table,
   blockquote,
-  .highlight pre {
+  .highlight pre,
+  img {
     padding: 12px;
   }
 

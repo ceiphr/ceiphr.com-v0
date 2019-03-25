@@ -189,26 +189,28 @@
                 </p>
             </div>
             <div class="section">
-                <h1 class="feed-header">Latest Posts</h1>
+                <h1 class="feed-header">More Posts</h1>
                 <div class="card-container">
-                    {% for article in articles|slice:":4" %}
-                    <div class="card-object">
-                        <div class="card">
-                            <div class="card-image">
-                                <img class="dim-image" alt="{{ article.title }}" src="{{ article.image.url }}">
-                                <span class="card-title">{{ article.title }}</span>
-                            </div>
-                            <div class="card-content">
-                                <p>{{ article.preview }}</p>
-                            </div>
-                            <div class="card-action">
-                                <a href="/blog/{{ article.slug }}">Read Post</a>
-                                <div class="grey-text right">
-                                    {{ article.modified }}
+                    {% for article in articles|slice:":2" %}
+                        {% if article.slug != contents.slug %}
+                        <div class="card-object">
+                            <div class="card">
+                                <div class="card-image">
+                                    <img class="dim-image" alt="{{ article.title }}" src="{{ article.image.url }}">
+                                    <span class="card-title">{{ article.title }}</span>
+                                </div>
+                                <div class="card-content">
+                                    <p>{{ article.preview }}</p>
+                                </div>
+                                <div class="card-action">
+                                    <a href="/blog/{{ article.slug }}">Read Post</a>
+                                    <div class="grey-text right">
+                                        {{ article.modified }}
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                        {% endif %}
                     {% endfor %}
                 </div>
             </div>
@@ -239,7 +241,9 @@
             .article__heading,
             .article__body,
             a,
-            code {
+            code,
+            .highlight pre,
+            .highlight pre * {
                 color: #000000 !important;
                 line-height: 2rem !important;
             }
@@ -295,6 +299,21 @@
     {% javascript 'critical' %}
     {% javascript 'frameworks' %}
     {% javascript 'fonts' %}
+    <!-- Fathom - simple website analytics - https://github.com/usefathom/fathom -->
+    <script>
+        (function(f, a, t, h, o, m){
+            a[h]=a[h]||function(){
+                (a[h].q=a[h].q||[]).push(arguments)
+            };
+            o=f.createElement('script'),
+            m=f.getElementsByTagName('script')[0];
+            o.async=1; o.src=t; o.id='fathom-script';
+            m.parentNode.insertBefore(o,m)
+        })(document, window, '//stats.ceiphr.com/tracker.js', 'fathom');
+        fathom('set', 'siteId', 'JSMOD');
+        fathom('trackPageview');
+    </script>
+    <!-- / Fathom -->
 </body>
 
 </html>
