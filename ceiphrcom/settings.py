@@ -46,8 +46,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django_otp.middleware.OTPMiddleware',
-    # 'django.middleware.gzip.GZipMiddleware',
-    # 'pipeline.middleware.MinifyHTMLMiddleware',
+    'django.middleware.gzip.GZipMiddleware',
+    'pipeline.middleware.MinifyHTMLMiddleware',
 ]
 
 ROOT_URLCONF = 'ceiphrcom.urls'
@@ -150,6 +150,9 @@ PIPELINE = {
             ),
             'output_filename':
             'css/index.css',
+            'extra_context': {
+                'async': True,
+            },
         },
         'frameworks': {
             'source_filenames': (
