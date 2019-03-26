@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.text import slugify
 import datetime
 
 # Header metadata and slogan options (randomized in views.py)
@@ -9,10 +10,14 @@ class Metadata(models.Model):
 class Article(models.Model):
     title = models.CharField(default="", max_length=255)
     preview = models.CharField(default="", max_length=200)
-    slug = models.SlugField(default="", unique=True)
+    slug = models.SlugField(blank=True)
     image = models.FileField(upload_to='articles/%Y/%m/%d')
     content = models.TextField(default="", max_length=20000)
-    modified = models.DateField(default=datetime.date.today)  
+    modified = models.DateField(default=datetime.date.today) 
+    def save(self, *args, **kwargs):
+        if not self.id:
+            self.slug = slugify(self.title)
+        super(Article, self).save(*args, **kwargs) 
     class Meta:
         ordering = ['-modified']
     def __str__(self):
