@@ -1,4 +1,5 @@
-import os, ceiphrcom.production_config
+import os
+import ceiphrcom.production_config
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 
@@ -130,59 +131,56 @@ PIPELINE = {
     'STYLESHEETS': {
         'critical': {
             'source_filenames': (
-                'sass/index.scss', 
-                'sass/base.scss', 
+                'sass/index.scss',
+                'sass/fonts.scss',
+                'node_modules/typeface-open-sans/index.css',
+                'node_modules/material-design-icons/iconfont/material-icons.css',
             ),
-            'output_filename': 
+            'output_filename':
             'css/index.css',
         },
         'frameworks': {
             'source_filenames': (
-                'node_modules/materialize-css/sass/materialize.scss', 
+                'node_modules/materialize-css/sass/materialize.scss',
             ),
-            'output_filename': 
+            'output_filename':
             'css/frameworks.css',
+            'extra_context': {
+                'defer': True,
+            },
         },
-        'fonts': {
+        'misc': {
             'source_filenames': (
-                'sass/fonts.scss',
-                'node_modules/typeface-open-sans/index.css', 
-                'node_modules/material-design-icons/iconfont/material-icons.css', 
+                'sass/rain.scss',
+                'sass/monokai.scss',
             ),
-            'output_filename': 
-            'css/fonts.css',
+            'output_filename':
+            'css/misc.css',
+            'extra_context': {
+                'defer': True,
+            },
         },
-        'rain': {
-            'source_filenames': (
-                'sass/rain.scss', 
-            ),
-            'output_filename': 
-            'css/rain.css',
-        },
-    }, 
+    },
 
     # Minimize and condense javascript into two files
     'JAVASCRIPT': {
-        'critical': {
-            'source_filenames': (
-                'node_modules/jquery/dist/jquery.min.js',
-            ),
-            'output_filename':
-            'js/index.js',
-        },
         'frameworks': {
             'source_filenames': (
+                'node_modules/jquery/dist/jquery.min.js',
                 'node_modules/materialize-css/dist/js/materialize.min.js',
                 'js/base.js',
             ),
             'output_filename':
             'js/frameworks.js',
+            'extra_context': {
+                'defer': True,
+            },
         }
     }
 }
 
 PIPELINE['COMPILERS'] = (
-  'pipeline.compilers.sass.SASSCompiler',
+    'pipeline.compilers.sass.SASSCompiler',
 )
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')

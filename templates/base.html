@@ -60,7 +60,6 @@
     <link rel="shortcut icon" type="image/png" href="{% static 'img/favicon.png' %}"/>
 
     {% comment %} Critical CSS {% endcomment %}
-    {% stylesheet 'fonts' %}
     {% stylesheet 'critical' %}
 </head>
 
@@ -158,8 +157,7 @@
 
     {% comment %} Imported CSS and JS frameworks {% endcomment %}
     {% stylesheet 'frameworks' %}
-    {% stylesheet 'rain' %}
-    {% javascript 'critical' %}
+    {% stylesheet 'misc' %}
     {% javascript 'frameworks' %}
 
 </body>
