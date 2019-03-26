@@ -148,6 +148,7 @@
     </ul>
     {% load staticfiles %}
     {% load markdownify %}
+    {% load thumbnail %}
 
 
     {% comment %} Rain background {% endcomment %}
@@ -180,6 +181,12 @@
                 <p class="grey-text text-lighten-1"><i>Last Modified: <b>{{ contents.modified }}</b></i></p>
             </div>
             <div class="article__cover_image">
+                {% comment %} 
+                TODO 
+                {% thumbnail contents.image "1200x600" as im %}
+                <img class="dim-image" alt="{{ contents.title }}" src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+                {% endthumbnail %}
+                {% endcomment %}
                 <img class="dim-image" src="{{ contents.image.url }}" />
             </div>
             <div class="article__body">
@@ -194,7 +201,9 @@
                     <div class="card-object">
                         <div class="card">
                             <div class="card-image">
-                                <img class="dim-image" alt="{{ article.title }}" src="{{ article.image.url }}">
+                                {% thumbnail article.image "1200x600" as im %}
+                                <img class="dim-image" alt="{{ article.title }}" src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+                                {% endthumbnail %}
                                 <span class="card-title">{{ article.title }}</span>
                             </div>
                             <div class="card-content">
