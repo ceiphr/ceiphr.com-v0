@@ -5,7 +5,7 @@ django-otp==0.5.2
 mistune==0.8.4
 Pygments==2.3.1
 qrcode==6.1
-orl-thumbnail==12.5.0
+sorl-thumbnail==12.5.0
 Pillow==5.4.1
 gunicorn==19.9.0
 psycopg2-binary==2.7.7
