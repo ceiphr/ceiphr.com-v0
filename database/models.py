@@ -20,7 +20,7 @@ class Article(models.Model):
             self.slug = slugify(self.title)
         super(Article, self).save(*args, **kwargs) 
     class Meta:
-        ordering = ['-modified']
+        ordering = ['modified']
     def __str__(self):
         return 'Article: ' + self.title
 
