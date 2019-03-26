@@ -38,7 +38,7 @@
             {% comment %} FrontPage overview feed {% endcomment %}
             {% if view == "FrontPage" %}
             <div class="section">
-                <span class="section__view_more"><h1 class="feed-header">Projects</h1><a href="/projects" class="waves-effect grey-text btn-flat">View All</a></span>
+                <span class="section__view_more"><h1 class="feed-header">Projects</h1><a href="/projects" class="waves-effect grey-text text-darken-1 btn-flat">View All</a></span>
                 <div class="card-container">
                     {% for project in projects|slice:":2" %}
                     <div class="card-object">
@@ -61,7 +61,7 @@
                 </div>
             </div>
             <div class="section">
-                <span class="section__view_more"><h1 class="feed-header">Blog</h1><a href="/blog" class="waves-effect grey-text btn-flat">View All</a></span>
+                <span class="section__view_more"><h1 class="feed-header">Blog</h1><a href="/blog" class="waves-effect grey-text text-darken-1 btn-flat">View All</a></span>
                 <div class="card-container">
                     {% for article in articles|slice:":4" %}
                     <div class="card-object">
@@ -77,7 +77,7 @@
                             </div>
                             <div class="card-action">
                                 <a href="/blog/{{ article.slug }}">Read Post</a>
-                                <div class="grey-text right">
+                                <div class="grey-text text-darken-1 right">
                                     {{ article.modified }}
                                 </div>
                             </div>
@@ -87,7 +87,7 @@
                 </div>
             </div>
             <div class="section">
-                <span class="section__view_more"><h1 class="feed-header">Events</h1><a href="/events" class="waves-effect grey-text btn-flat">View All</a></span>
+                <span class="section__view_more"><h1 class="feed-header">Events</h1><a href="/events" class="waves-effect grey-text text-darken-1 btn-flat">View All</a></span>
                 <div class="card-container">
                     {% for event in events|slice:":2" %}
                     <div class="card-object">
@@ -103,7 +103,7 @@
                             </div>
                             <div class="card-action">
                                 <a target="_blank" href="{{ event.link }}">View Event</a>
-                                <div class="tooltipped grey-text right" data-position="bottom"
+                                <div class="tooltipped grey-text text-darken-1 right" data-position="bottom"
                                     data-tooltip="{{ event.start_date }} - {{ event.end_date }}">
                                     {{ event.end_date }}
                                 </div>
@@ -163,7 +163,7 @@
                             </div>
                             <div class="card-action">
                                 <a href="/blog/{{ article.slug }}">Read Post</a>
-                                <div class="grey-text right">
+                                <div class="grey-text text-darken-1 right">
                                     {{ article.modified }}
                                 </div>
                             </div>
@@ -194,7 +194,7 @@
                             </div>
                             <div class="card-action">
                                 <a target="_blank" href="{{ event.link }}">View Event</a>
-                                <div class="tooltipped grey-text right" data-position="bottom"
+                                <div class="tooltipped grey-text text-darken-1 right" data-position="bottom"
                                     data-tooltip="{{ event.start_date }} - {{ event.end_date }}">
                                     {{ event.end_date }}
                                 </div>
