@@ -49,7 +49,7 @@ if settings.ADMIN_ENABLED:
 # For test server during development - allows for media to be retrieved
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-else:
-    # TOTP for production
-    admin.site.__class__ = OTPAdminSite
+# else:
+#     # TOTP for production
+#     admin.site.__class__ = OTPAdminSite
 
