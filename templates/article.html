@@ -20,20 +20,20 @@
     <meta name="theme-color" content="#29323c" />
 
     {% comment %} Mobile Safari {% endcomment %}
-    <link rel="apple-touch-icon" href="{% static 'img/ceiphr.png' %}" />
-    <link rel="apple-touch-startup-image" href="{% static 'img/ceiphr.png' %}" />
+    <link rel="apple-touch-icon" href="{% static 'img/ceiphr.webp' %}" />
+    <link rel="apple-touch-startup-image" href="{% static 'img/ceiphr.webp' %}" />
 
     {% comment %} Google / Search Engine Tags {% endcomment %}
     <meta itemprop="name" content="{{ contents.title }} | {{ username }}">
     <meta itemprop="description" content="{{ contents.preview }}" />
-    <meta itemprop="image" content="{% static 'img/ceiphr.png' %}">
+    <meta itemprop="image" content="{% static 'img/ceiphr.webp' %}">
 
     {% comment %} Facebook Meta Tags {% endcomment %}
     <meta property="og:url" content="https://ceiphr.com" />
     <meta property="og:title" content="{{ contents.title }}" />
     <meta property="og:description" content="{{ contents.preview }}" />
     <meta property="og:site_name" content="{{ name }} | {{ username }}" />
-    <meta property="og:image" content="{% static 'img/ceiphr.png' %}">
+    <meta property="og:image" content="{{ contents.image.url }}">
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="en_US" />
 
@@ -42,7 +42,7 @@
     <meta name="twitter:creator" content="@ceiphr">
 
     {% comment %} Tile icon for Win8 (144x144 + tile color) {% endcomment %}
-    <meta name="msapplication-TileImage" content="{% static 'img/ceiphr.png' %}">
+    <meta name="msapplication-TileImage" content="{% static 'img/ceiphr.webp' %}">
     <meta name="msapplication-TileColor" content="#2F3BA2">
 
     {% comment %} SEO {% endcomment %}
@@ -108,7 +108,7 @@
                 <div class="background">
                 </div>
                 <a href="/">
-                    <img class="circle" alt="{{ username }}" src="{% static 'img/ceiphr.png' %}">
+                    <img class="circle" alt="{{ username }}" src="{% static 'img/ceiphr.webp' %}">
                 </a>
                 <span class="white-text name">{{ name }}</span>
                 <span class="white-text email">{{ email }}</span>
