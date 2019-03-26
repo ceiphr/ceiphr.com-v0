@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     'database',
     'snowpenguin.django.recaptcha2',
     'pipeline',
+    'sorl.thumbnail',
     'django_otp',
     'django_otp.plugins.otp_totp',
 ]

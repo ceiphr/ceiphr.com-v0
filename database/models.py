@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.text import slugify
+from sorl.thumbnail import ImageField
 import datetime
 
 # Header metadata and slogan options (randomized in views.py)
@@ -11,7 +12,7 @@ class Article(models.Model):
     title = models.CharField(default="", max_length=255)
     preview = models.CharField(default="", max_length=200)
     slug = models.SlugField(blank=True)
-    image = models.FileField(upload_to='articles/%Y/%m/%d')
+    image = ImageField(upload_to='articles/%Y/%m/%d')
     content = models.TextField(default="", max_length=20000)
     modified = models.DateField(default=datetime.date.today) 
     def save(self, *args, **kwargs):
@@ -26,7 +27,7 @@ class Article(models.Model):
 class Project(models.Model):
     title = models.CharField(default="", max_length=50)
     summary = models.CharField(default="", max_length=100)
-    image = models.FileField(upload_to='img/projects/')
+    image = ImageField(upload_to='img/projects/')
     link = models.CharField(default="", max_length=50)
     published = models.DateField(default=datetime.date.today)
     class Meta:
@@ -39,7 +40,7 @@ class Event(models.Model):
     desc = models.CharField(default="", max_length=400)
     start_date = models.DateField(default=datetime.date.today)
     end_date = models.DateField(default=datetime.date.today)
-    image = models.FileField(upload_to='img/events/')
+    image = ImageField(upload_to='img/events/')
     link = models.CharField(default="", max_length=100)
     class Meta:
         ordering = ['-end_date']

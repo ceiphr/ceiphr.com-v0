@@ -3,6 +3,7 @@
 <body>
     {% block content %}
     {% load static %}
+    {% load thumbnail %}
 
 
     {% comment %} Rain background {% endcomment %}
@@ -43,7 +44,9 @@
                     <div class="card-object">
                         <div class="card">
                             <div class="card-image">
-                                <img alt="{{ project.title }}" src="{{ project.image.url }}">
+                                {% thumbnail project.image "300x150" as im %}
+                                <img alt="{{ project.title }}" src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+                                {% endthumbnail %}
                             </div>
                             <div class="card-content">
                                 <span class="card-title">{{ project.title }}</span>
@@ -64,7 +67,9 @@
                     <div class="card-object">
                         <div class="card">
                             <div class="card-image">
-                                <img class="dim-image" alt="{{ article.title }}" src="{{ article.image.url }}">
+                                {% thumbnail article.image "300x150" as im %}
+                                <img class="dim-image" alt="{{ article.title }}" src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+                                {% endthumbnail %}
                                 <span class="card-title">{{ article.title }}</span>
                             </div>
                             <div class="card-content">
@@ -88,7 +93,9 @@
                     <div class="card-object">
                         <div class="card">
                             <div class="card-image">
-                                <img class="dim-image" alt="{{ event.title }}" src="{{ event.image.url }}">
+                                {% thumbnail event.image "300x150" as im %}
+                                <img class="dim-image" alt="{{ event.title }}" src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+                                {% endthumbnail %}
                                 <span class="card-title">{{ event.title }}</span>
                             </div>
                             <div class="card-content">
@@ -118,7 +125,9 @@
                     <div class="card-object">
                         <div class="card">
                             <div class="card-image">
-                                <img alt="{{ project.title }}" src="{{ project.image.url }}">
+                                {% thumbnail project.image "300x150" as im %}
+                                <img alt="{{ project.title }}" src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+                                {% endthumbnail %}
                             </div>
                             <div class="card-content">
                                 <span class="card-title">{{ project.title }}</span>
@@ -144,7 +153,9 @@
                     <div class="card-object">
                         <div class="card">
                             <div class="card-image">
-                                <img class="dim-image" alt="{{ article.title }}" src="{{ article.image.url }}">
+                                {% thumbnail article.image "300x150" as im %}
+                                <img class="dim-image" alt="{{ article.title }}" src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+                                {% endthumbnail %}    
                                 <span class="card-title">{{ article.title }}</span>
                             </div>
                             <div class="card-content">
@@ -173,7 +184,9 @@
                     <div class="card-object">
                         <div class="card">
                             <div class="card-image">
-                                <img class="dim-image" alt="{{ event.title }}" src="{{ event.image.url }}">
+                                {% thumbnail event.image "300x150" as im %}
+                                <img class="dim-image" alt="{{ event.title }}" src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+                                {% endthumbnail %}    
                                 <span class="card-title">{{ event.title }}</span>
                             </div>
                             <div class="card-content">
