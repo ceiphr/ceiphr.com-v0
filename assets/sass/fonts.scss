@@ -1,7 +1,7 @@
 // League Mono
 @font-face {
     font-family: 'League Mono Light';
-    font-display: swap;
+    font-display: auto;
     font-weight: 300;
     src:
         local('League-Mono-Light'),
@@ -11,7 +11,7 @@
 
 @font-face {
     font-family: 'League Mono Regular';
-    font-display: swap;
+    font-display: auto;
     font-weight: 300;
     src:
         local('League-Mono-Regular'),
@@ -21,7 +21,7 @@
 
 @font-face {
     font-family: 'League Mono Bold';
-    font-display: swap;
+    font-display: auto;
     font-weight: 300;
     src:
         local('League-Mono-Bold'),
@@ -33,7 +33,7 @@
 @font-face {
     font-family: 'League Spartan Bold';
     font-style: bold;
-    font-display: swap;
+    font-display: auto;
     font-weight: 300;
     src:
         local('League-Spartan-Bold'),
