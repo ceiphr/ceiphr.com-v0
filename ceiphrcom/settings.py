@@ -147,12 +147,10 @@ PIPELINE = {
                 'sass/fonts.scss',
                 'node_modules/typeface-open-sans/index.css',
                 'node_modules/material-design-icons/iconfont/material-icons.css',
+                'node_modules/fg-loadcss/dist/loadCSS.min.js'
             ),
             'output_filename':
             'css/index.css',
-            'extra_context': {
-                'async': True,
-            },
         },
         'frameworks': {
             'source_filenames': (
@@ -161,7 +159,7 @@ PIPELINE = {
             'output_filename':
             'css/frameworks.css',
             'extra_context': {
-                'defer': True,
+                'rel': 'preload',
             },
         },
         'misc': {
@@ -172,7 +170,7 @@ PIPELINE = {
             'output_filename':
             'css/misc.css',
             'extra_context': {
-                'defer': True,
+                'rel': 'preload',
             },
         },
     },
