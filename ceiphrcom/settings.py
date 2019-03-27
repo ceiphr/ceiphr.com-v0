@@ -14,7 +14,7 @@ SECRET_KEY = ceiphrcom.production_config.secretKey
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-DEBUG = True
+DEBUG = ceiphrcom.production_config.debug
 ADMIN_ENABLED = True
 ALLOWED_HOSTS = ['ceiphr.com', 'ceiphr.io', '127.0.0.1', 'localhost', '0.0.0.0']
 OTP_TOTP_ISSUER = 'Ceiphr'
