@@ -183,12 +183,13 @@ PIPELINE = {
             'source_filenames': (
                 'node_modules/jquery/dist/jquery.min.js',
                 'node_modules/materialize-css/dist/js/materialize.min.js',
+                'node_modules/lazysizes/lazysizes.js',
                 'js/base.js',
             ),
             'output_filename':
             'js/frameworks.js',
             'extra_context': {
-                'defer': True,
+                'async': True,
             },
         }
     }

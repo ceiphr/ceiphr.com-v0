@@ -44,8 +44,8 @@
                     <div class="card-object">
                         <div class="card">
                             <div class="card-image">
-                                {% thumbnail project.image "1200x600" format="WEBP" as im %}
-                                <img alt="{{ project.title }}" src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+                                {% thumbnail project.image "500x250" format="WEBP" as im %}
+                                <img alt="{{ project.title }}" class="lazyload" data-src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
                                 {% endthumbnail %}
                             </div>
                             <div class="card-content">
@@ -67,8 +67,8 @@
                     <div class="card-object">
                         <div class="card">
                             <div class="card-image">
-                                {% thumbnail article.image "1200x600" format="WEBP" as im %}
-                                <img class="dim-image" alt="{{ article.title }}" src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+                                {% thumbnail article.image "500x250" format="WEBP" as im %}
+                                <img class="dim-image lazyload" alt="{{ article.title }}" data-src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
                                 {% endthumbnail %}
                                 <span class="card-title">{{ article.title }}</span>
                             </div>
@@ -93,8 +93,8 @@
                     <div class="card-object">
                         <div class="card">
                             <div class="card-image">
-                                {% thumbnail event.image "1200x600" format="WEBP" as im %}
-                                <img class="dim-image" alt="{{ event.title }}" src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+                                {% thumbnail event.image "500x250" format="WEBP" as im %}
+                                <img class="dim-image lazyload" alt="{{ event.title }}" data-src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
                                 {% endthumbnail %}
                                 <span class="card-title">{{ event.title }}</span>
                             </div>
@@ -125,8 +125,8 @@
                     <div class="card-object">
                         <div class="card">
                             <div class="card-image">
-                                {% thumbnail project.image "1200x600" format="WEBP" as im %}
-                                <img alt="{{ project.title }}" src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+                                {% thumbnail project.image "500x250" format="WEBP" as im %}
+                                <img alt="{{ project.title }}" class="lazyload" data-src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
                                 {% endthumbnail %}
                             </div>
                             <div class="card-content">
@@ -153,8 +153,8 @@
                     <div class="card-object">
                         <div class="card">
                             <div class="card-image">
-                                {% thumbnail article.image "1200x600" format="WEBP" as im %}
-                                <img class="dim-image" alt="{{ article.title }}" src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+                                {% thumbnail article.image "500x250" format="WEBP" as im %}
+                                <img class="dim-image lazyload" alt="{{ article.title }}" data-src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
                                 {% endthumbnail %}    
                                 <span class="card-title">{{ article.title }}</span>
                             </div>
@@ -184,8 +184,8 @@
                     <div class="card-object">
                         <div class="card">
                             <div class="card-image">
-                                {% thumbnail event.image "1200x600" format="WEBP" as im %}
-                                <img class="dim-image" alt="{{ event.title }}" src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+                                {% thumbnail event.image "500x250" format="WEBP" as im %}
+                                <img class="dim-image lazyload" alt="{{ event.title }}" data-src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
                                 {% endthumbnail %}    
                                 <span class="card-title">{{ event.title }}</span>
                             </div>

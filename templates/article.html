@@ -202,7 +202,7 @@
                         <div class="card">
                             <div class="card-image">
                                 {% thumbnail article.image "1200x600" as im %}
-                                <img class="dim-image" alt="{{ article.title }}" src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+                                <img class="dim-image lazyload" alt="{{ article.title }}" src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
                                 {% endthumbnail %}
                                 <span class="card-title">{{ article.title }}</span>
                             </div>
