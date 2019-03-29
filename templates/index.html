@@ -132,7 +132,7 @@
                         <div class="card-image fade-box">
                             {% thumbnail project.image "600x300" format="WEBP" as webp %}
                                 {% thumbnail project.image "600x300" format="JPEG" as jpeg %}
-                                    <img class="dim-image lazyload" alt="{{ project.title }}" data-srcset="{{ webp.url }}, {{ jpeg.url }}"">
+                                    <img class="lazyload" alt="{{ project.title }}" data-srcset="{{ webp.url }}, {{ jpeg.url }}"">
                                 {% endthumbnail %}
                             {% endthumbnail %}
                         </div>
