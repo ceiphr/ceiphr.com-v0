@@ -37,13 +37,12 @@
             <p class="grey-text text-lighten-1"><i>Last Modified: <b>{{ contents.modified }}</b></i></p>
         </div>
         <div class="article__cover_image">
-            {% comment %} 
-            TODO 
-            {% thumbnail contents.image "1200x600" as im %}
-            <img class="dim-image" alt="{{ contents.title }}" src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+            {% thumbnail contents.image "1920x960" format="WEBP" as webp %}
+                {% thumbnail contents.image "1920x960" format="JPEG" as jpeg %}
+                    <img class="dim-image lazyload" alt="{{ contents.title }}" data-srcset="{{ webp.url }}, {{ jpeg.url }}"">
+                {% endthumbnail %}
             {% endthumbnail %}
-            {% endcomment %}
-            <img class="dim-image" src="{{ contents.image.url }}" />
+            <!-- <img class="dim-image" src="{{ contents.image.url }}" /> -->
         </div>
         <div class="article__body">
             <p>
