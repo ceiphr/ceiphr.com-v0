@@ -34,6 +34,8 @@ INSTALLED_APPS = [
     'sorl.thumbnail',
     'django_otp',
     'django_otp.plugins.otp_totp',
+    'django_otp.plugins.otp_hotp',
+    'django_otp.plugins.otp_static',
 ]
 
 MIDDLEWARE = [

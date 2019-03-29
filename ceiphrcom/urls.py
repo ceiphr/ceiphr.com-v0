@@ -7,6 +7,10 @@ from ceiphrcom.views import *
 from django_otp.admin import OTPAdminSite
 import ceiphrcom.production_config
 
+# Admin site details
+admin.site.site_header = 'Ceiphr Control Panel'
+admin.site.site_title = 'Ceiphr'
+
 # Django 404 and 500 error catcher
 handler404 = 'ceiphrcom.views.handler404'
 handler500 = 'ceiphrcom.views.handler500'
