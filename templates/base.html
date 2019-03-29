@@ -1,4 +1,6 @@
-{% load static %} {% load pipeline %} 
+{% load static %} 
+{% load thumbnail %}
+{% load pipeline %} 
 <!DOCTYPE html>
 <html lang="en">
 
@@ -87,7 +89,7 @@
 
             <ul class="left hide-on-med-and-down">
                 <li>
-                    <a href="/" class="brand-logo"><img alt="{{ username }}" src="{% static 'img/ceiphr_alt.svg' %}"></a>
+                    <a href="/" class="brand-logo"><img class="lazyload" alt="{{ username }}" src="{% static 'img/ceiphr_alt.svg' %}"></a>
                 </li>
             </ul>
 
