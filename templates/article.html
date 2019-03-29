@@ -1,323 +1,149 @@
-{% load static %} {% load pipeline %}
-<!DOCTYPE html>
-<html lang="en">
+{% extends "base.html" %}
 
-<head>
-    {% comment %} Metadata {% endcomment %}
+{% block content %}
+{% load staticfiles %}
+{% load markdownify %}
+{% load thumbnail %}
 
-    {% comment %} Generic {% endcomment %}
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="description" content="{{ metadata.desc }}" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>{{ contents.title }} | {{ username }}</title>
 
-    {% comment %} Disable tap highlight on IE {% endcomment %}
-    <meta name="msapplication-tap-highlight" content="no">
-
-    {% comment %} Mobile Google Chrome {% endcomment %}
-    <meta name="theme-color" content="#29323c" />
-
-    {% comment %} Mobile Safari {% endcomment %}
-    <link rel="apple-touch-icon" href="{% static 'img/ceiphr.webp' %}" />
-    <link rel="apple-touch-startup-image" href="{% static 'img/ceiphr.webp' %}" />
-
-    {% comment %} Google / Search Engine Tags {% endcomment %}
-    <meta itemprop="name" content="{{ contents.title }} | {{ username }}">
-    <meta itemprop="description" content="{{ contents.preview }}" />
-    <meta itemprop="image" content="{% static 'img/ceiphr.webp' %}">
-
-    {% comment %} Facebook Meta Tags {% endcomment %}
-    <meta property="og:url" content="https://ceiphr.com" />
-    <meta property="og:title" content="{{ contents.title }}" />
-    <meta property="og:description" content="{{ contents.preview }}" />
-    <meta property="og:site_name" content="{{ name }} | {{ username }}" />
-    <meta property="og:image" content="{{ contents.image.url }}">
-    <meta property="og:type" content="website" />
-    <meta property="og:locale" content="en_US" />
-
-    {% comment %} Twitter Meta Tags {% endcomment %}
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:creator" content="@ceiphr">
-
-    {% comment %} Tile icon for Win8 (144x144 + tile color) {% endcomment %}
-    <meta name="msapplication-TileImage" content="{% static 'img/ceiphr.webp' %}">
-    <meta name="msapplication-TileColor" content="#2F3BA2">
-
-    {% comment %} SEO {% endcomment %}
-    <link rel="canonical" href="https://ceiphr.io/">
-
-    {% comment %} Favicon {% endcomment %}
-    <link rel="shortcut icon" type="image/png" href="{% static 'img/favicon.png' %}" />
-
-    {% comment %} Critical CSS {% endcomment %}
-    {% stylesheet 'critical' %}
-</head>
-
-<body>
-
-    {% comment %} Desktop navigation {% endcomment %}
-    <nav>
-        <div class="nav-wrapper container">
-            <a href="#" data-target="slide-out" class="sidenav-trigger">
-                <i class="material-icons">menu</i>
-            </a>
-
-            <ul class="left hide-on-med-and-down">
-                <li>
-                    <a href="/" class="brand-logo"><img alt="{{ username }}"
-                            src="{% static 'img/ceiphr_alt.svg' %}"></a>
-                </li>
-            </ul>
-
-            <ul class="right hide-on-med-and-down">
-                <li class="{% if view == "Projects" %} active {% endif %}">
-                    <a href="/projects">Projects</a>
-                </li>
-                <li class="{% if view == "Blog" %} active {% endif %}">
-                    <a href="/blog">Blog</a>
-                </li>
-                <li class="{% if view == "Events" %} active {% endif %}">
-                    <a href="/events">Events</a>
-                </li>
-                <li class="{% if view == "Skills" %} active {% endif %}">
-                    <a href="/skills">Skills</a>
-                </li>
-                <li class="{% if view == "Contact" %} active {% endif %}">
-                    <a href="/contact">Contact</a>
-                </li>
-                <li>
-                    <a href="https://changelog.ceiphr.com"><i
-                            class="material-icons right">track_changes</i>Changelog</a>
-                </li>
-                <li>
-                    <a href="{{ document.url }}" target="_blank" class="waves-effect waves-light btn"><i
-                            class="material-icons right">file_download</i>Resume</a>
-                </li>
-            </ul>
+{% comment %} Rain background {% endcomment %}
+<div id="cover">
+    <div id="rain__wrapper">
+        <div id="rain">
+            {% for i in rain_range %}
+            <i class="rain__drop"></i>
+            {% endfor %}
         </div>
-    </nav>
+    </div>
+</div>
 
 
-    {% comment %} Mobile slideout navigation {% endcomment %}
-    <ul id="slide-out" class="sidenav">
-        <li>
-            <div class="user-view">
-                <div class="background">
+{% comment %} Article contents {% endcomment %}
+<div id="feed">
+    <div class="container">
+        <div id="cover__content">
+            <div id="cover__text">
+                <div id="cover__title">
+                    {{ name }}
                 </div>
-                <a href="/">
-                    <img class="circle" alt="{{ username }}" src="{% static 'img/ceiphr.webp' %}">
-                </a>
-                <span class="white-text name">{{ name }}</span>
-                <span class="white-text email">{{ email }}</span>
+                <div id="cover__subtext">
+                    {{ metadata.slogan }}
+                </div>
             </div>
-        </li>
-
-        <li>
-            <a href="/projects" class="waves-effect">
-                <i class="material-icons">collections</i>Projects</a>
-        </li>
-        <li>
-            <a href="/blog" class="waves-effect">
-                <i class="material-icons">notes</i>Blog</a>
-        </li>
-        <li>
-            <a href="/events" class="waves-effect">
-                <i class="material-icons">event</i>Events</a>
-        </li>
-        <li>
-            <a href="/skills" class="waves-effect">
-                <i class="material-icons">school</i>Skills</a>
-        </li>
-        <li>
-            <a href="/contact" class="waves-effect">
-                <i class="material-icons">email</i>Contact</a>
-        </li>
-        <li>
-            <div class="divider" class="waves-effect"></div>
-        </li>
-        <li>
-            <a href="https://changelog.ceiphr.com" class="waves-effect">
-                <i class="material-icons">track_changes</i>Changelog</a>
-        </li>
-        <li>
-            <a class="waves-effect" href="{{ document.url }}" target="_blank"><i
-                    class="material-icons light-blue-text">file_download</i>Resume</a>
-        </li>
-    </ul>
-    {% load staticfiles %}
-    {% load markdownify %}
-    {% load thumbnail %}
-
-
-    {% comment %} Rain background {% endcomment %}
-    <div id="cover">
-        <div id="rain__wrapper">
-            <div id="rain">
-                {% for i in rain_range %}
-                <i class="rain__drop"></i>
+        </div>
+        <div class="article__heading">
+            <h1>{{ contents.title }}</h1>
+            <p class="grey-text text-lighten-1"><i>Last Modified: <b>{{ contents.modified }}</b></i></p>
+        </div>
+        <div class="article__cover_image">
+            {% comment %} 
+            TODO 
+            {% thumbnail contents.image "1200x600" as im %}
+            <img class="dim-image" alt="{{ contents.title }}" src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+            {% endthumbnail %}
+            {% endcomment %}
+            <img class="dim-image" src="{{ contents.image.url }}" />
+        </div>
+        <div class="article__body">
+            <p>
+                {{ contents.content | markdown | safe }}
+            </p>
+        </div>
+        <div class="section">
+            <h1 class="feed-header">More Posts</h1>
+            <div class="card-container">
+                {% for article in articles|slice:":2" %}
+                <div class="card-object">
+                    <div class="card">
+                        <div class="card-image">
+                            {% thumbnail article.image "600x300" format="WEBP" as webp %}
+                                {% thumbnail article.image "600x300" format="JPEG" as jpeg %}
+                                    <img class="dim-image lazyload" alt="{{ article.title }}" data-srcset="{{ webp.url }}, {{ jpeg.url }}"">
+                                {% endthumbnail %}
+                            {% endthumbnail %}
+                            <span class="card-title">{{ article.title }}</span>
+                        </div>
+                        <div class="card-content">
+                            <p>{{ article.preview }}</p>
+                        </div>
+                        <div class="card-action">
+                            <a href="/blog/{{ article.slug }}">Read Post</a>
+                            <div class="grey-text text-darken-1 right">
+                                {{ article.modified }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 {% endfor %}
             </div>
         </div>
     </div>
-
-
-    {% comment %} Article contents {% endcomment %}
-    <div id="feed">
-        <div class="container">
-            <div id="cover__content">
-                <div id="cover__text">
-                    <div id="cover__title">
-                        {{ name }}
-                    </div>
-                    <div id="cover__subtext">
-                        {{ metadata.slogan }}
-                    </div>
-                </div>
-            </div>
-            <div class="article__heading">
-                <h1>{{ contents.title }}</h1>
-                <p class="grey-text text-lighten-1"><i>Last Modified: <b>{{ contents.modified }}</b></i></p>
-            </div>
-            <div class="article__cover_image">
-                {% comment %} 
-                TODO 
-                {% thumbnail contents.image "1200x600" as im %}
-                <img class="dim-image" alt="{{ contents.title }}" src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
-                {% endthumbnail %}
-                {% endcomment %}
-                <img class="dim-image" src="{{ contents.image.url }}" />
-            </div>
-            <div class="article__body">
-                <p>
-                    {{ contents.content | markdown | safe }}
-                </p>
-            </div>
-            <div class="section">
-                <h1 class="feed-header">More Posts</h1>
-                <div class="card-container">
-                    {% for article in articles|slice:":2" %}
-                    <div class="card-object">
-                        <div class="card">
-                            <div class="card-image">
-                                {% thumbnail article.image "1200x600" as im %}
-                                <img class="dim-image lazyload" alt="{{ article.title }}" src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
-                                {% endthumbnail %}
-                                <span class="card-title">{{ article.title }}</span>
-                            </div>
-                            <div class="card-content">
-                                <p>{{ article.preview }}</p>
-                            </div>
-                            <div class="card-action">
-                                <a href="/blog/{{ article.slug }}">Read Post</a>
-                                <div class="grey-text text-darken-1 right">
-                                    {{ article.modified }}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    {% endfor %}
-                </div>
-            </div>
-            {% comment %} Footer contents {% endcomment %}
-            <div class="footer__wrapper">
-                <footer class="footer">
-                    <div class="footer__text">
-                        {% for link in links %}
-                        <a href="{{ link.url }}" target="_blank">{{ link.title }}</a>
-                        {% endfor %}<br>
-                        © 2016 - {{ thisYear }} {{ name }} ({{ username }}). All Rights Reserved.
-                    </div>
-                </footer>
-            </div>
-        </div>
-    </div>
-    <style type="text/css">
-        @media print {
-            .article__heading {
-                position: initial;
-                transform: translateY(0%);
-            }
-
-            .article__body {
-                margin-top: 0%;
-            }
-
-            .article__heading,
-            .article__body,
-            a,
-            code,
-            .highlight pre,
-            .highlight pre * {
-                color: #000000 !important;
-                line-height: 2rem !important;
-            }
-
-            h1 {
-                font-size: 2.5rem !important;
-            }
-
-            h2 {
-                font-size: 2rem !important;
-            }
-
-            h3 {
-                font-size: 1.5rem !important;
-            }
-
-            h4 {
-                font-size: 1rem !important;
-            }
-
-            h5 {
-                font-size: 1rem !important;
-            }
-
-            h6 {
-                font-size: 1rem !important;
-            }
-
-            p {
-                font-size: 12px !important;
-            }
-
-            #cover,
-            #cover__content,
-            nav,
-            .feed-header,
-            .card-container,
-            .article__cover_image,
-            .footer__wrapper {
-                display: none !important;
-            }
-
-            #feed,
-            .container,
-            .article__body {
-                width: 100% !important;
-            }
+</div>
+<style type="text/css">
+    @media print {
+        .article__heading {
+            position: initial;
+            transform: translateY(0%);
         }
-    </style>
-    {% comment %} Imported CSS and JS frameworks {% endcomment %}
-    {% stylesheet 'frameworks' %}
-    {% stylesheet 'misc' %}
-    {% javascript 'frameworks' %}
-    <!-- Fathom - simple website analytics - https://github.com/usefathom/fathom -->
-    <script>
-        (function(f, a, t, h, o, m){
-            a[h]=a[h]||function(){
-                (a[h].q=a[h].q||[]).push(arguments)
-            };
-            o=f.createElement('script'),
-            m=f.getElementsByTagName('script')[0];
-            o.async=1; o.src=t; o.id='fathom-script';
-            m.parentNode.insertBefore(o,m)
-        })(document, window, '//stats.ceiphr.com/tracker.js', 'fathom');
-        fathom('set', 'siteId', 'JSMOD');
-        fathom('trackPageview');
-    </script>
-    <!-- / Fathom -->
-</body>
 
-</html>
+        .article__body {
+            margin-top: 0%;
+        }
+
+        .article__heading,
+        .article__body,
+        a,
+        code,
+        .highlight pre,
+        .highlight pre * {
+            color: #000000 !important;
+            line-height: 2rem !important;
+        }
+
+        h1 {
+            font-size: 2.5rem !important;
+        }
+
+        h2 {
+            font-size: 2rem !important;
+        }
+
+        h3 {
+            font-size: 1.5rem !important;
+        }
+
+        h4 {
+            font-size: 1rem !important;
+        }
+
+        h5 {
+            font-size: 1rem !important;
+        }
+
+        h6 {
+            font-size: 1rem !important;
+        }
+
+        p {
+            font-size: 12px !important;
+        }
+
+        #cover,
+        #cover__content,
+        nav,
+        .feed-header,
+        .card-container,
+        .article__cover_image,
+        .footer__wrapper {
+            display: none !important;
+        }
+
+        #feed,
+        .container,
+        .article__body {
+            width: 100% !important;
+        }
+    }
+</style>
+{% endblock content %}

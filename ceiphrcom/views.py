@@ -13,8 +13,13 @@ import datetime
 
 
 class IndexMetadata(object):
-    def get_context_data(context):
+    def get_context_data(context, slug=""):
         # Page metadata
+        if slug:
+            context["article_metadata"] = Article.objects.values("title", "preview").get(slug=slug)
+            context["is_article"] = True
+        else:
+            context["is_article"] = False
         context["metadata"] = random.choice(Metadata.objects.all())
         context["thisYear"] = datetime.date.today().year
         # Portfolio owner details
@@ -80,7 +85,7 @@ class BlogPost(TemplateView):
 
     def get_context_data(self, slug, *args, **kwargs):
         context = super().get_context_data(**kwargs)
-        context = IndexMetadata.get_context_data(context)
+        context = IndexMetadata.get_context_data(context, slug)
         context["articles"] = Article.objects.exclude(slug=slug)
         context["contents"] = Article.objects.get(slug=slug)
         context["view"] = "Blog"

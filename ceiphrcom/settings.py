@@ -151,6 +151,16 @@ PIPELINE = {
             'output_filename':
             'css/index.css',
         },
+        'article': {
+            'source_filenames': (
+                'sass/article.scss',
+                'sass/monokai.scss',
+                'node_modules/typeface-open-sans/index.css',
+                'node_modules/material-design-icons/iconfont/material-icons.css',
+            ),
+            'output_filename':
+            'css/article.css',
+        },
         'frameworks': {
             'source_filenames': (
                 'node_modules/materialize-css/sass/materialize.scss',
@@ -161,7 +171,6 @@ PIPELINE = {
         'misc': {
             'source_filenames': (
                 'sass/rain.scss',
-                'sass/monokai.scss',
             ),
             'output_filename':
             'css/misc.css',
@@ -175,10 +184,22 @@ PIPELINE = {
                 'node_modules/jquery/dist/jquery.min.js',
                 'node_modules/materialize-css/dist/js/materialize.min.js',
                 'node_modules/lazysizes/lazysizes.js',
+                'node_modules/mathjax/MathJax.js',
                 'js/base.js',
             ),
             'output_filename':
             'js/frameworks.js',
+            'extra_context': {
+                'async': True,
+            },
+        },
+        'article': {
+            'source_filenames': (
+                'node_modules/mathjax/MathJax.js',
+                'node_modules/mathjax/config/TeX-MML-AM_CHTML.js',
+            ),
+            'output_filename':
+            'js/article.js',
             'extra_context': {
                 'async': True,
             },

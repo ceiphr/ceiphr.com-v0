@@ -1,20 +1,37 @@
-{% load static %} {% load pipeline %}
+{% load static %} {% load pipeline %} 
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     {% comment %} Metadata {% endcomment %}
 
+    {% comment %} Page-based {% endcomment %}
+
+    {% if view == "FrontPage" %}
+    <meta name="description"                content="{{ metadata.desc }}" />
+    <meta itemprop="name"                   content="{{ name }} - {{ metadata.slogan }} | {{ username }}">
+    <meta property="og:title"               content="{{ name }} - {{ metadata.desc }} | {{ username }}" />
+    <meta property="og:description"         content="{{ metadata.desc }}" />
+    <title>{{ name }} - {{ metadata.slogan }} | {{ username }}</title>
+    {% elif is_article %}
+    <meta name="description"                content="{{ article_metadata.preview }}" />
+    <meta itemprop="name"                   content="{{ article_metadata.title }} | {{ username }}">
+    <meta property="og:title"               content="{{ article_metadata.title }} | {{ username }}" />
+    <meta property="og:description"         content="{{ article_metadata.preview }}" />
+    <title>{{ article_metadata.title }} | {{ username }}</title>
+    {% else %}
+    <meta name="description"                content="{{ metadata.desc }}" />
+    <meta itemprop="name"                   content="{{ name }} - {{ metadata.slogan }} | {{ username }}">
+    <meta property="og:title"               content="{{ name }} - {{ metadata.desc }} | {{ username }}" />
+    <meta property="og:description"         content="{{ metadata.desc }}" />
+    <title>{{ name }} - {{ view }} | {{ username }}</title>
+    {% endif %}
+
+
     {% comment %} Generic {% endcomment %}
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible"      content="ie=edge">
-    <meta name="description"                content="{{ metadata.desc }}" />
     <meta name="viewport"                   content="width=device-width, initial-scale=1" />
-    {% if view != "FrontPage" %}
-    <title>{{ name }} - {{ view }} | {{ username }}</title>
-    {% else %}
-    <title>{{ name }} - {{ metadata.slogan }} | {{ username }}</title>
-    {% endif %}
 
     {% comment %} Disable tap highlight on IE {% endcomment %}
     <meta name="msapplication-tap-highlight" content="no">
@@ -32,14 +49,11 @@
     <link rel="apple-touch-startup-image" href="{% static 'img/ceiphr.webp' %}"/>
 
     {% comment %} Google / Search Engine Tags {% endcomment %}
-    <meta itemprop="name"                   content="{{ username }} - {{ view }}">
     <meta itemprop="description"            content="" />
     <meta itemprop="image"                  content="{% static 'img/ceiphr.webp' %}">
 
     {% comment %} Facebook Meta Tags {% endcomment %}
     <meta property="og:url"                 content="https://ceiphr.com" />
-    <meta property="og:title"               content="{{ name }} - {{ view }} | {{ username }}" />
-    <meta property="og:description"         content="{{ metadata.desc }}" />
     <meta property="og:site_name"           content="{{ name }} | {{ username }}" />
     <meta property="og:image"               content="{% static 'img/ceiphr.webp' %}">
     <meta property="og:type"                content="website" /> 
@@ -64,12 +78,10 @@
 </head>
 
 <body>
-
-
     {% comment %} Desktop navigation {% endcomment %}
     <nav>
         <div class="nav-wrapper container">
-            <a href="#" data-target="slide-out" class="sidenav-trigger">
+            <a href="" data-target="slide-out" class="sidenav-trigger">
                 <i class="material-icons">menu</i>
             </a>
 
@@ -154,11 +166,40 @@
     </ul>
     {% block content %}
     {% endblock content %}
-
+    {% comment %} Footer contents {% endcomment %}
+    <div class="footer__wrapper">
+        <footer class="footer">
+            <div class="footer__text">
+                {% for link in links %}
+                <a href="{{ link.url }}" target="_blank">{{ link.title }}</a>
+                {% endfor %}<br>
+                © 2016 - {{ thisYear }} {{ name }} ({{ username }}). All Rights Reserved.
+            </div>
+        </footer>
+    </div>
     {% comment %} Imported CSS and JS frameworks {% endcomment %}
     {% stylesheet 'frameworks' %}
     {% stylesheet 'misc' %}
     {% javascript 'frameworks' %}
-
+    {% if is_article %}
+        {% stylesheet 'article' %}
+        {% javascript 'frameworks' %}
+    {% endif %}
+    <!-- Fathom - simple website analytics - https://github.com/usefathom/fathom -->
+    <script>
+            (function(f, a, t, h, o, m){
+                a[h]=a[h]||function(){
+                    (a[h].q=a[h].q||[]).push(arguments)
+                };
+                o=f.createElement('script'),
+                m=f.getElementsByTagName('script')[0];
+                o.async=1; o.src=t; o.id='fathom-script';
+                m.parentNode.insertBefore(o,m)
+            })(document, window, '//stats.ceiphr.com/tracker.js', 'fathom');
+            fathom('set', 'siteId', 'JSMOD');
+            fathom('trackPageview');
+    </script>
+    <!-- / Fathom -->
+    
 </body>
 </html>

@@ -1,325 +1,306 @@
 {% extends "base.html" %}
 
-<body>
-    {% block content %}
-    {% load static %}
-    {% load thumbnail %}
+{% block content %}
+{% load static %}
+{% load thumbnail %}
 
 
-    {% comment %} Rain background {% endcomment %}
-    <div id="cover">
-        <div id="rain__wrapper">
-            <div id="rain">
-                {% for i in rain_range %}
-                <i class="rain__drop"></i>
+{% comment %} Rain background {% endcomment %}
+<div id="cover">
+    <div id="rain__wrapper">
+        <div id="rain">
+            {% for i in rain_range %}
+            <i class="rain__drop"></i>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+{% comment %} Feed contents {% endcomment %}
+<div id="feed">
+    <div class="container">
+
+        {% comment %} Cover contents {% endcomment %}
+        <div id="cover__content">
+            <div id="cover__text">
+                <div id="cover__title">
+                    {{ name }}
+                </div>
+                <div id="cover__subtext">
+                    {{ metadata.slogan }}
+                </div>
+            </div>
+        </div>
+
+
+        {% comment %} FrontPage overview feed {% endcomment %}
+        {% if view == "FrontPage" %}
+        <div class="section">
+            <span class="section__view_more"><h1 class="feed-header">Projects</h1><a href="/projects" class="waves-effect grey-text text-darken-1 btn-flat">View All</a></span>
+            <div class="card-container">
+                {% for project in projects|slice:":2" %}
+                <div class="card-object">
+                    <div class="card">
+                        <div class="card-image">
+                            {% thumbnail project.image "600x300" format="WEBP" as webp %}
+                                {% thumbnail project.image "600x300" format="JPEG" as jpeg %}
+                                    <img class="lazyload" alt="{{ project.title }}" data-srcset="{{ webp.url }}, {{ jpeg.url }}"">
+                                {% endthumbnail %}
+                            {% endthumbnail %}
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title">{{ project.title }}</span>
+                            <p>{{ project.summary }}</p>
+                        </div>
+                        <div class="card-action">
+                            <a href="{{ project.link }}">View Project</a>
+                        </div>
+                    </div>
+                </div>
                 {% endfor %}
             </div>
         </div>
-    </div>
-
-
-    {% comment %} Feed contents {% endcomment %}
-    <div id="feed">
-        <div class="container">
-
-            {% comment %} Cover contents {% endcomment %}
-            <div id="cover__content">
-                <div id="cover__text">
-                    <div id="cover__title">
-                        {{ name }}
-                    </div>
-                    <div id="cover__subtext">
-                        {{ metadata.slogan }}
-                    </div>
-                </div>
-            </div>
-
-
-            {% comment %} FrontPage overview feed {% endcomment %}
-            {% if view == "FrontPage" %}
-            <div class="section">
-                <span class="section__view_more"><h1 class="feed-header">Projects</h1><a href="/projects" class="waves-effect grey-text text-darken-1 btn-flat">View All</a></span>
-                <div class="card-container">
-                    {% for project in projects|slice:":2" %}
-                    <div class="card-object">
-                        <div class="card">
-                            <div class="card-image">
-                                {% thumbnail project.image "500x250" format="WEBP" as im %}
-                                <img alt="{{ project.title }}" class="lazyload" data-src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
+        <div class="section">
+            <span class="section__view_more"><h1 class="feed-header">Blog</h1><a href="/blog" class="waves-effect grey-text text-darken-1 btn-flat">View All</a></span>
+            <div class="card-container">
+                {% for article in articles|slice:":4" %}
+                <div class="card-object">
+                    <div class="card">
+                        <div class="card-image fade-box">
+                            {% thumbnail article.image "600x300" format="WEBP" as webp %}
+                                {% thumbnail article.image "600x300" format="JPEG" as jpeg %}
+                                    <img class="dim-image lazyload" alt="{{ article.title }}" data-srcset="{{ webp.url }}, {{ jpeg.url }}"">
                                 {% endthumbnail %}
-                            </div>
-                            <div class="card-content">
-                                <span class="card-title">{{ project.title }}</span>
-                                <p>{{ project.summary }}</p>
-                            </div>
-                            <div class="card-action">
-                                <a href="{{ project.link }}">View Project</a>
-                            </div>
+                            {% endthumbnail %}
+                            <span class="card-title">{{ article.title }}</span>
                         </div>
-                    </div>
-                    {% endfor %}
-                </div>
-            </div>
-            <div class="section">
-                <span class="section__view_more"><h1 class="feed-header">Blog</h1><a href="/blog" class="waves-effect grey-text text-darken-1 btn-flat">View All</a></span>
-                <div class="card-container">
-                    {% for article in articles|slice:":4" %}
-                    <div class="card-object">
-                        <div class="card">
-                            <div class="card-image">
-                                {% thumbnail article.image "500x250" format="WEBP" as im %}
-                                <img class="dim-image lazyload" alt="{{ article.title }}" data-src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
-                                {% endthumbnail %}
-                                <span class="card-title">{{ article.title }}</span>
-                            </div>
-                            <div class="card-content">
-                                    <p>{{ article.preview }}</p>
-                            </div>
-                            <div class="card-action">
-                                <a href="/blog/{{ article.slug }}">Read Post</a>
-                                <div class="grey-text text-darken-1 right">
-                                    {{ article.modified }}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    {% endfor %}
-                </div>
-            </div>
-            <div class="section">
-                <span class="section__view_more"><h1 class="feed-header">Events</h1><a href="/events" class="waves-effect grey-text text-darken-1 btn-flat">View All</a></span>
-                <div class="card-container">
-                    {% for event in events|slice:":2" %}
-                    <div class="card-object">
-                        <div class="card">
-                            <div class="card-image">
-                                {% thumbnail event.image "500x250" format="WEBP" as im %}
-                                <img class="dim-image lazyload" alt="{{ event.title }}" data-src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
-                                {% endthumbnail %}
-                                <span class="card-title">{{ event.title }}</span>
-                            </div>
-                            <div class="card-content">
-                                <p>{{ event.desc }}</p>
-                            </div>
-                            <div class="card-action">
-                                <a href="{{ event.link }}">View Event</a>
-                                <div class="tooltipped grey-text text-darken-1 right" data-position="bottom"
-                                    data-tooltip="{{ event.start_date }} - {{ event.end_date }}">
-                                    {{ event.end_date }}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    {% endfor %}
-                </div>
-            </div>
-            {% endif %}
-
-
-            {% comment %} Projects feed {% endcomment %}
-            {% if view == "Projects" %}
-            <div class="section">
-                <h1 class="feed-header">Projects</h1>
-                <div class="card-container">
-                    {% for project in contents %}
-                    <div class="card-object">
-                        <div class="card">
-                            <div class="card-image">
-                                {% thumbnail project.image "500x250" format="WEBP" as im %}
-                                <img alt="{{ project.title }}" class="lazyload" data-src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
-                                {% endthumbnail %}
-                            </div>
-                            <div class="card-content">
-                                <span class="card-title">{{ project.title }}</span>
-                                <p>{{ project.summary }}</p>
-                            </div>
-                            <div class="card-action">
-                                <a href="{{ project.link }}">View Project</a>
-                            </div>
-                        </div>
-                    </div>
-                    {% endfor %}
-                </div>
-            </div>
-            {% endif %}
-
-
-            {% comment %} Blog feed {% endcomment %}
-            {% if view == "Blog" %}
-            <div class="section">
-                <h1 class="feed-header">Blog</h1>
-                <div class="card-container">
-                    {% for article in contents %}
-                    <div class="card-object">
-                        <div class="card">
-                            <div class="card-image">
-                                {% thumbnail article.image "500x250" format="WEBP" as im %}
-                                <img class="dim-image lazyload" alt="{{ article.title }}" data-src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
-                                {% endthumbnail %}    
-                                <span class="card-title">{{ article.title }}</span>
-                            </div>
-                            <div class="card-content">
+                        <div class="card-content">
                                 <p>{{ article.preview }}</p>
-                            </div>
-                            <div class="card-action">
-                                <a href="/blog/{{ article.slug }}">Read Post</a>
-                                <div class="grey-text text-darken-1 right">
-                                    {{ article.modified }}
-                                </div>
+                        </div>
+                        <div class="card-action">
+                            <a href="/blog/{{ article.slug }}">Read Post</a>
+                            <div class="grey-text text-darken-1 right">
+                                {{ article.modified }}
                             </div>
                         </div>
                     </div>
-                    {% endfor %}
                 </div>
+                {% endfor %}
             </div>
-            {% endif %}
-
-
-            {% comment %} Events feed {% endcomment %}
-            {% if view == "Events" %}
-            <div class="section">
-                <h1 class="feed-header">Events</h1>
-                <div class="card-container">
-                    {% for event in contents %}
-                    <div class="card-object">
-                        <div class="card">
-                            <div class="card-image">
-                                {% thumbnail event.image "500x250" format="WEBP" as im %}
-                                <img class="dim-image lazyload" alt="{{ event.title }}" data-src="{{ im.url }}" width="{{ im.width }}" height="{{ im.height }}">
-                                {% endthumbnail %}    
-                                <span class="card-title">{{ event.title }}</span>
-                            </div>
-                            <div class="card-content">
-                                <p>{{ event.desc }}</p>
-                            </div>
-                            <div class="card-action">
-                                <a href="{{ event.link }}">View Event</a>
-                                <div class="tooltipped grey-text text-darken-1 right" data-position="bottom"
-                                    data-tooltip="{{ event.start_date }} - {{ event.end_date }}">
-                                    {{ event.end_date }}
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    {% endfor %}
-                </div>
-            </div>
-            {% endif %}
-
-
-            {% comment %} Skill feed {% endcomment %}
-            {% if view == "Skills" %}
-            <div class="section">
-                <h1 class="feed-header">Skills</h1>
-                <div class="row">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Skill</th>
-                                <th>Experience</th>
-                                <th>Last Used</th>
-                            </tr>
-                        </thead>
-
-                        <tbody>
-                            {% for skill in contents %}
-                            <tr>
-                                <td>{{ skill.title }}</td>
-                                <td>
-                                    {% if skill.experience == 0 %} < 1 
-                                    {% else %} {{ skill.experience }} 
-                                    {% endif %}
-                                    {% if skill.experience <= 1 %} Year 
-                                    {% else %} Years 
-                                    {% endif %} 
-                                </td> 
-                                <td>
-                                    {% if skill.last_used == 0 %} < 1 
-                                    {% else %} {{ skill.last_used }} 
-                                    {% endif %}
-                                    {% if skill.last_used <= 1 %} Year 
-                                    {% else %} Years {% endif %} Ago 
-                                </td>
-                            </tr> 
-                            {% endfor %} 
-                        </tbody> 
-                    </table> 
-                </div> 
-            </div> 
-            {% endif %} 
-
-            {% comment %} Contact page contents {% endcomment %} 
-            {% if view == "Contact" %}
-            {% load recaptcha2 %} {% recaptcha_init %} 
-            <div class="section">
-                <div class="contact__wrapper">
-                    <h1 class="feed-header center">Contact Me</h1>
-                    <div class="row">
-                        <form class="col s12 m12" method="post" action="/contact">
-                            {% csrf_token %}
-                            {% if incomplete_form == True %}
-                            <div class="input-field col s12">
-                                <div class="chip">
-                                    Email not sent. Please retry.
-                                    <i class="close material-icons">close</i>
-                                </div>
-                            </div>
-                            {% endif %}
-                            <div class="input-field col s12 l6 offset-l3">
-                                <i class="material-icons prefix">email</i>
-                                {{ contents.sender }}
-                                <label for="sender">Email</label>
-                            </div>
-                            <div class="input-field col s12 l6 offset-l3">
-                                {{ contents.subject }}
-                                <label for="subject">Subject</label>
-                            </div>
-                            <div class="input-field col s12 l6 offset-l3">
-                                {{ contents.message }}
-                                <label for="message">Message</label>
-                            </div>
-                            <div class="input-field col s12 l6 offset-l3">
-                                {{ contents.captcha }}
-                            </div>
-                            <div class="input-field col s12 l6 offset-l3">
-                                <button type="submit" class="btn btn-default"><i
-                                        class="material-icons right">send</i>Send</button>
-                                </di>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            {% endif %}
-
-
-            {% comment %} Footer contents {% endcomment %}
-            <div class="footer__wrapper">
-                <footer class="footer">
-                    <div class="footer__text">
-                        {% for link in links %}
-                        <a href="{{ link.url }}" target="_blank">{{ link.title }}</a>
-                        {% endfor %}<br>
-                        © 2016 - {{ thisYear }} {{ name }} ({{ username }}). All Rights Reserved.
-                    </div>
-                </footer>
-            </div>
-
         </div>
+        <div class="section">
+            <span class="section__view_more"><h1 class="feed-header">Events</h1><a href="/events" class="waves-effect grey-text text-darken-1 btn-flat">View All</a></span>
+            <div class="card-container">
+                {% for event in events|slice:":2" %}
+                <div class="card-object">
+                    <div class="card">
+                        <div class="card-image fade-box">
+                            {% thumbnail event.image "600x300" format="WEBP" as webp %}
+                                {% thumbnail event.image "600x300" format="JPEG" as jpeg %}
+                                    <img class="dim-image lazyload" alt="{{ event.title }}" data-srcset="{{ webp.url }}, {{ jpeg.url }}"">
+                                {% endthumbnail %}
+                            {% endthumbnail %}
+                            <span class="card-title">{{ event.title }}</span>
+                        </div>
+                        <div class="card-content">
+                            <p>{{ event.desc }}</p>
+                        </div>
+                        <div class="card-action">
+                            <a href="{{ event.link }}">View Event</a>
+                            <div class="tooltipped grey-text text-darken-1 right" data-position="bottom"
+                                data-tooltip="{{ event.start_date }} - {{ event.end_date }}">
+                                {{ event.end_date }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
+
+        {% comment %} Projects feed {% endcomment %}
+        {% if view == "Projects" %}
+        <div class="section">
+            <h1 class="feed-header">Projects</h1>
+            <div class="card-container">
+                {% for project in contents %}
+                <div class="card-object">
+                    <div class="card">
+                        <div class="card-image fade-box">
+                            {% thumbnail project.image "600x300" format="WEBP" as webp %}
+                                {% thumbnail project.image "600x300" format="JPEG" as jpeg %}
+                                    <img class="dim-image lazyload" alt="{{ project.title }}" data-srcset="{{ webp.url }}, {{ jpeg.url }}"">
+                                {% endthumbnail %}
+                            {% endthumbnail %}
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title">{{ project.title }}</span>
+                            <p>{{ project.summary }}</p>
+                        </div>
+                        <div class="card-action">
+                            <a href="{{ project.link }}">View Project</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
+
+        {% comment %} Blog feed {% endcomment %}
+        {% if view == "Blog" %}
+        <div class="section">
+            <h1 class="feed-header">Blog</h1>
+            <div class="card-container">
+                {% for article in contents %}
+                <div class="card-object">
+                    <div class="card">
+                        <div class="card-image fade-box">
+                            {% thumbnail article.image "600x300" format="WEBP" as webp %}
+                                {% thumbnail article.image "600x300" format="JPEG" as jpeg %}
+                                    <img class="dim-image lazyload" alt="{{ article.title }}" data-srcset="{{ webp.url }}, {{ jpeg.url }}"">
+                                {% endthumbnail %}
+                            {% endthumbnail %}
+                            <span class="card-title">{{ article.title }}</span>
+                        </div>
+                        <div class="card-content">
+                            <p>{{ article.preview }}</p>
+                        </div>
+                        <div class="card-action">
+                            <a href="/blog/{{ article.slug }}">Read Post</a>
+                            <div class="grey-text text-darken-1 right">
+                                {{ article.modified }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
+
+        {% comment %} Events feed {% endcomment %}
+        {% if view == "Events" %}
+        <div class="section">
+            <h1 class="feed-header">Events</h1>
+            <div class="card-container">
+                {% for event in contents %}
+                <div class="card-object">
+                    <div class="card">
+                        <div class="card-image fade-box">
+                            {% thumbnail event.image "600x300" format="WEBP" as webp %}
+                                {% thumbnail event.image "600x300" format="JPEG" as jpeg %}
+                                    <img class="dim-image lazyload" alt="{{ event.title }}" data-srcset="{{ webp.url }}, {{ jpeg.url }}"">
+                                {% endthumbnail %}
+                            {% endthumbnail %}
+                            <span class="card-title">{{ event.title }}</span>
+                        </div>
+                        <div class="card-content">
+                            <p>{{ event.desc }}</p>
+                        </div>
+                        <div class="card-action">
+                            <a href="{{ event.link }}">View Event</a>
+                            <div class="tooltipped grey-text text-darken-1 right" data-position="bottom"
+                                data-tooltip="{{ event.start_date }} - {{ event.end_date }}">
+                                {{ event.end_date }}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
+
+        {% comment %} Skill feed {% endcomment %}
+        {% if view == "Skills" %}
+        <div class="section">
+            <h1 class="feed-header">Skills</h1>
+            <div class="row">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Skill</th>
+                            <th>Experience</th>
+                            <th>Last Used</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        {% for skill in contents %}
+                        <tr>
+                            <td>{{ skill.title }}</td>
+                            <td>
+                                {% if skill.experience == 0 %} < 1 
+                                {% else %} {{ skill.experience }} 
+                                {% endif %}
+                                {% if skill.experience <= 1 %} Year 
+                                {% else %} Years 
+                                {% endif %} 
+                            </td> 
+                            <td>
+                                {% if skill.last_used == 0 %} < 1 
+                                {% else %} {{ skill.last_used }} 
+                                {% endif %}
+                                {% if skill.last_used <= 1 %} Year 
+                                {% else %} Years {% endif %} Ago 
+                            </td>
+                        </tr> 
+                        {% endfor %} 
+                    </tbody> 
+                </table> 
+            </div> 
+        </div> 
+        {% endif %} 
+
+        {% comment %} Contact page contents {% endcomment %} 
+        {% if view == "Contact" %}
+        {% load recaptcha2 %} {% recaptcha_init %} 
+        <div class="section">
+            <div class="contact__wrapper">
+                <h1 class="feed-header center">Contact Me</h1>
+                <div class="row">
+                    <form class="col s12 m12" method="post" action="/contact">
+                        {% csrf_token %}
+                        {% if incomplete_form == True %}
+                        <div class="input-field col s12">
+                            <div class="chip">
+                                Email not sent. Please retry.
+                                <i class="close material-icons">close</i>
+                            </div>
+                        </div>
+                        {% endif %}
+                        <div class="input-field col s12 l6 offset-l3">
+                            <i class="material-icons prefix">email</i>
+                            {{ contents.sender }}
+                            <label for="sender">Email</label>
+                        </div>
+                        <div class="input-field col s12 l6 offset-l3">
+                            {{ contents.subject }}
+                            <label for="subject">Subject</label>
+                        </div>
+                        <div class="input-field col s12 l6 offset-l3">
+                            {{ contents.message }}
+                            <label for="message">Message</label>
+                        </div>
+                        <div class="input-field col s12 l6 offset-l3">
+                            {{ contents.captcha }}
+                        </div>
+                        <div class="input-field col s12 l6 offset-l3">
+                            <button type="submit" class="btn btn-default"><i
+                                    class="material-icons right">send</i>Send</button>
+                            </di>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {% endif %}
     </div>
-    {% endblock content %}
-    <!-- Fathom - simple website analytics - https://github.com/usefathom/fathom -->
-    <script>
-        (function(f, a, t, h, o, m){
-            a[h]=a[h]||function(){
-                (a[h].q=a[h].q||[]).push(arguments)
-            };
-            o=f.createElement('script'),
-            m=f.getElementsByTagName('script')[0];
-            o.async=1; o.src=t; o.id='fathom-script';
-            m.parentNode.insertBefore(o,m)
-        })(document, window, '//stats.ceiphr.com/tracker.js', 'fathom');
-        fathom('set', 'siteId', 'JSMOD');
-        fathom('trackPageview');
-    </script>
-    <!-- / Fathom -->
-</body>
+</div>
+{% endblock content %}

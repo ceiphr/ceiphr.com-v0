@@ -20,7 +20,7 @@ class Article(models.Model):
             self.slug = slugify(self.title)
         super(Article, self).save(*args, **kwargs) 
     class Meta:
-        ordering = ['modified']
+        ordering = ['-modified']
     def __str__(self):
         return 'Article: ' + self.title
 
@@ -52,7 +52,7 @@ class Skill(models.Model):
     experience = models.IntegerField(default=0)
     last_used = models.IntegerField(default=0)   
     class Meta:
-        ordering = ['last_used']
+        ordering = ['-experience']
     def __str__(self):
         return 'Skill: ' + self.title
 

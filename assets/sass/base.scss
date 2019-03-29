@@ -56,6 +56,17 @@ a::-moz-selection {
   background: rgba(255, 255, 255, 0.25);
 }
 
+// Lazy loading transition
+.lazyload,
+.lazyloading {
+  background-color: $primary-color;
+	opacity: 0;
+}
+.lazyloaded {
+  opacity: 1;
+	transition: opacity 400ms;
+}
+
 // Animation/Transition durations
 $qk-duration: 0.15s;
 $lg-duration: 0.5s;
@@ -80,9 +91,13 @@ body {
 }
 
 // Navigation
-.brand-logo img {
+.brand-logo {
+  left: 8px;
   height: 64px;
-  padding: 14px;
+  img {
+    height: 64px;
+    padding: 16px;
+  }
 }
 
 .background {
@@ -96,7 +111,120 @@ nav {
   z-index: 100;
 }
 
-.brand-logo {
-  left: 8px;
-  height: 64px;
+// Load animation for feed contents
+// Desktop
+@media only screen and (min-width: 992px) {
+  .section,
+  .footer,
+  .article__body {
+    animation-name: slide;
+    animation-duration: 1s;
+  }
+
+  @keyframes slide {
+    from {
+      transform: translateY(10px);
+      opacity: 0;
+    }
+
+    to {
+      transform: translateY(0px);
+      opacity: 1;
+    }
+  }
+}
+
+// Footer
+$footer-text-color: rgba(0, 0, 0, 0.75);
+
+.footer {
+  margin: $sd-margin/2;
+  padding-bottom: 24px;
+  color: $footer-text-color;
+  text-align: center;
+
+  a {
+    color: $footer-text-color;
+    transition-duration: $qk-duration;
+
+    &:hover {
+      color: rgba(0, 0, 0, 1);
+    }
+
+    &:nth-of-type(1n)::after {
+      content: " - ";
+      color: $footer-text-color;
+    }
+
+    &:nth-last-of-type(1)::after {
+      content: "";
+    }
+  }
+}
+
+// Contact form
+input,
+textarea {
+  color: #29323c;
+
+  /* label color */
+  .input-field label {
+    color: #29323c;
+  }
+
+  /* label focus color */
+  .input-field input[type="text"]:focus + label {
+    color: #29323c;
+  }
+
+  /* label underline focus color */
+  .input-field input[type="text"]:focus {
+    border-bottom: 1px solid #29323c;
+    box-shadow: 0 1px 0 0 #29323c;
+  }
+
+  /* valid color */
+  .input-field input[type="text"].valid {
+    border-bottom: 1px solid #29323c;
+    box-shadow: 0 1px 0 0 #29323c;
+  }
+
+  /* invalid color */
+  .input-field input[type="text"].invalid {
+    border-bottom: 1px solid #29323c;
+    box-shadow: 0 1px 0 0 #29323c;
+  }
+
+  /* icon prefix focus color */
+  .input-field .prefix.active {
+    color: #29323c;
+  }
+}
+
+// Skills
+.skill-detail {
+  @media only screen and (min-width: 980px) {
+    float: right;
+  }
+}
+
+// Full Page Tweaks
+#full-wrapper {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+
+  #full__content {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  #full__text {
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
 }
