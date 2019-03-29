@@ -193,13 +193,27 @@ PIPELINE = {
                 'async': True,
             },
         },
-        'article': {
+        'mathjax': {
             'source_filenames': (
                 'node_modules/mathjax/MathJax.js',
-                'node_modules/mathjax/config/TeX-MML-AM_CHTML.js',
+                'node_modules/mathjax/config/TeX-AMS_HTML.js',
+                'node_modules/mathjax/jax/input/TeX/config.js',
+                'node_modules/mathjax/jax/input/TeX/jax.js',
+                'node_modules/mathjax/jax/element/mml/jax.js',
+                'node_modules/mathjax/jax/output/CommonHTML/jax.js',
+                'node_modules/mathjax/jax/output/CommonHTML/fonts/TeX/fontdata.js',
+                'node_modules/mathjax/jax/output/PreviewHTML/jax.js',
+                'node_modules/mathjax/extensions/a11y/accessibility-menu.js',
+                'node_modules/mathjax/extensions/AssistiveMML.js',
+                'node_modules/mathjax/extensions/fast-preview.js',
+                'node_modules/mathjax/extensions/MathEvents.js',
+                'node_modules/mathjax/extensions/MathMenu.js',
+                'node_modules/mathjax/extensions/MathZoom.js',
+                'node_modules/mathjax/extensions/tex2jax.js',
+                'node_modules/mathjax/extensions/toMathML.js',
             ),
             'output_filename':
-            'js/article.js',
+            'js/mathjax.js',
             'extra_context': {
                 'async': True,
             },
