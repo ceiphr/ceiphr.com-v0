@@ -168,12 +168,13 @@ class Contact(View):
                             +form.cleaned_data['message']\
                             +'"\n\nThis is an automated response. I will get back to you shortly.\n\nBest Regards,\nAri'
                 subject = form.cleaned_data['subject']
-                sender = form.cleaned_data['sender']
-                recipients = ['ceiphr.com@pm.me', sender]
-                headers = {'Reply-To': sender}
+                contact = form.cleaned_data['sender']
+                sender = "noreply@ceiphr.io"
+                recipients = ['contact@ceiphr.com', contact]
+                headers = {'Reply-To': contact}
                 try:
                     # Send email to my business email address
-                    send_mail(subject, message, sender, recipients, headers)
+                    send_mail(subject, message, sender, recipients, headers, fail_silently=False)
                     return True
                 except BadHeaderError:
                     return False
