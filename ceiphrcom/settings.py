@@ -15,8 +15,11 @@ SECRET_KEY = ceiphrcom.production_config.secretKey
 # SECURITY WARNING: don't run with debug turned on in production!
 
 DEBUG = ceiphrcom.production_config.debug
+
 ADMIN_ENABLED = True
+
 ALLOWED_HOSTS = ['ceiphr.com', 'ceiphr.io', '127.0.0.1', 'localhost', '0.0.0.0']
+
 OTP_TOTP_ISSUER = 'Ceiphr'
 
 # Application definition
@@ -215,6 +218,32 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 MEDIA_URL = '/media/'
 
+# Email System
+
+if not DEBUG:
+    EMAIL_HOST = 'smtp.sendgrid.net'
+
+    EMAIL_HOST_USER = 'ceiphrcom'
+
+    EMAIL_HOST_PASSWORD = ceiphrcom.production_config.sendgridPW
+
+    EMAIL_PORT = 587
+
+    EMAIL_USE_TLS = True
+
+else:
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+    DEFAULT_FROM_EMAIL = 'testing@example.com'
+
+    EMAIL_HOST_USER = ''
+
+    EMAIL_HOST_PASSWORD = ''
+
+    EMAIL_USE_TLS = False
+
+    EMAIL_PORT = 1025
+
 # Security for production server use.
 # See https://docs.djangoproject.com/en/2.0/ref/middleware/#module-django.middleware.security for details.
 
@@ -239,14 +268,13 @@ if not DEBUG:
 
 # ReCaptcha System
 
-if DEBUG:
+if not DEBUG:
+    RECAPTCHA_PUBLIC_KEY = ceiphrcom.production_config.ReCapSiteKey
 
+    RECAPTCHA_PRIVATE_KEY = ceiphrcom.production_config.ReCapPrivateKey
+
+else:
     RECAPTCHA_PUBLIC_KEY = ""
 
     RECAPTCHA_PRIVATE_KEY = ""
 
-else:
-
-    RECAPTCHA_PUBLIC_KEY = ceiphrcom.production_config.ReCapSiteKey
-
-    RECAPTCHA_PRIVATE_KEY = ceiphrcom.production_config.ReCapPrivateKey

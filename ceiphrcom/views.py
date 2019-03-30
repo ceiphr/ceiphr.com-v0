@@ -23,6 +23,7 @@ class IndexMetadata(object):
         
         if Metadata.objects.all():
             context["metadata"] = random.choice(Metadata.objects.all())
+
         if Detail.objects.all():
             # Portfolio owner details
             context["username"] = Detail.objects.first().user_name
@@ -32,6 +33,7 @@ class IndexMetadata(object):
             context["email"] = Detail.objects.first().email
             context["document"] = Document.objects.first().document
             context["links"] = SocialLink.objects.all()
+
         context["thisYear"] = datetime.date.today().year
         # Sass rain droplet elements
         dropletCount = 30
@@ -163,14 +165,16 @@ class Contact(View):
             if form.is_valid():
                 # process the data in form.cleaned_data as required
                 sender = 'noreply@ceiphr.com'
-                message = 'Thank you for the email. Here is a copy of what you sent: \n\n'\
-                    +form.cleaned_data['message']\
-                    +'\n\nI will get back to you shortly.\n\nBest Regards,\nAri'
+                message = 'Thank you for the email. Here is a copy of what you sent me: \n\n"'\
+                            +form.cleaned_data['message']\
+                            +'"\n\nThis is an automated response. I will get back to you shortly.\n\nBest Regards,\nAri'
                 subject = form.cleaned_data['subject']
-                recipients = ['ceiphr.com@pm.me', form.cleaned_data['sender']]
+                sender = form.cleaned_data['sender']
+                recipients = ['ceiphr.com@pm.me', sender]
+                headers = {'Reply-To': sender}
                 try:
                     # Send email to my business email address
-                    send_mail(subject, message, sender, recipients)
+                    send_mail(subject, message, sender, recipients, headers)
                     return True
                 except BadHeaderError:
                     return False
