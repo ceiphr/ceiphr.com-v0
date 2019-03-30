@@ -172,18 +172,18 @@
     </ul>
     {% block content %}
     {% endblock content %}
-    {% if view != "404" or view != "Thanks" %}
-    {% comment %} Footer contents {% endcomment %}
-    <div class="footer__wrapper">
-        <footer class="footer">
-            <div class="footer__text">
-                {% for link in links %}
-                <a href="{{ link.url }}">{{ link.title }}</a>
-                {% endfor %}<br>
-                © 2016 - {{ thisYear }} {{ name }} ({{ username }}). All Rights Reserved.
-            </div>
-        </footer>
-    </div>
+    {% if view != "Thanks" and view != "404" %}
+        {% comment %} Footer contents {% endcomment %}
+        <div class="footer__wrapper">
+            <footer class="footer">
+                <div class="footer__text">
+                    {% for link in links %}
+                    <a href="{{ link.url }}">{{ link.title }}</a>
+                    {% endfor %}<br>
+                    © 2016 - {{ thisYear }} {{ name }} ({{ username }}). All Rights Reserved.
+                </div>
+            </footer>
+        </div>
     {% endif %}
     {% comment %} Imported CSS and JS frameworks {% endcomment %}
     {% stylesheet 'frameworks' %}

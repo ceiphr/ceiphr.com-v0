@@ -43,6 +43,7 @@ class EmailSent(View):
     def get(self, request, view="projects"):
         context = dict()
         context["view"] = "Thanks"
+        print("here")
         context = IndexMetadata.get_context_data(context)
         return render(request, 'thanks.html', context)
 
