@@ -16,7 +16,7 @@ class IndexMetadata(object):
     def get_context_data(context, slug=""):
         # Page metadata
         if slug:
-            context["article_metadata"] = Article.objects.values("title", "preview").get(slug=slug)
+            context["article_metadata"] = Article.objects.values("title", "preview", "image").get(slug=slug)
             context["is_article"] = True
         else:
             context["is_article"] = False

@@ -12,19 +12,31 @@
     {% if view == "FrontPage" %}
     <meta name="description"                content="{{ metadata.desc }}" />
     <meta itemprop="name"                   content="{{ name }} - {{ metadata.slogan }} | {{ username }}">
-    <meta property="og:title"               content="{{ name }} - {{ metadata.desc }} | {{ username }}" />
+    <meta itemprop="description"            content="{{ metadata.desc }}" />
+    {% thumbnail logo "120x120" format="JPEG" as jpeg %}
+    <meta itemprop="image"                  content="{{ jpeg.url }}">
+    {% endthumbnail %}
+    <meta property="og:title"               content="{{ name }} - {{ metadata.slogan }} | {{ username }}" />
     <meta property="og:description"         content="{{ metadata.desc }}" />
     <title>{{ name }} - {{ metadata.slogan }} | {{ username }}</title>
     {% elif is_article %}
     <meta name="description"                content="{{ article_metadata.preview }}" />
     <meta itemprop="name"                   content="{{ article_metadata.title }} | {{ username }}">
+    <meta itemprop="description"            content="{{ article_metadata.preview }}" />
+    {% thumbnail article_metadata.image "120x120" format="JPEG" as jpeg %}
+    <meta itemprop="image"                  content="{{ jpeg.url }}">
+    {% endthumbnail %}
     <meta property="og:title"               content="{{ article_metadata.title }} | {{ username }}" />
     <meta property="og:description"         content="{{ article_metadata.preview }}" />
     <title>{{ article_metadata.title }} | {{ username }}</title>
     {% else %}
     <meta name="description"                content="{{ metadata.desc }}" />
-    <meta itemprop="name"                   content="{{ name }} - {{ metadata.slogan }} | {{ username }}">
-    <meta property="og:title"               content="{{ name }} - {{ metadata.desc }} | {{ username }}" />
+    <meta itemprop="name"                   content="{{ name }} - {{ view }} | {{ username }}">
+    <meta itemprop="description"            content="{{ metadata.desc }}" />
+    {% thumbnail logo "120x120" format="JPEG" as jpeg %}
+    <meta itemprop="image"                  content="{{ jpeg.url }}">
+    {% endthumbnail %}
+    <meta property="og:title"               content="{{ name }} - {{ view }} | {{ username }}" />
     <meta property="og:description"         content="{{ metadata.desc }}" />
     <title>{{ name }} - {{ view }} | {{ username }}</title>
     {% endif %}
@@ -47,17 +59,17 @@
     <meta name="apple-mobile-web-app-capable"content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-title" content="{{ username }}" />
+    {% thumbnail logo "120x120" format="JPEG" as jpeg %}
     <link rel="apple-touch-icon" href="{% static 'img/ceiphr.webp' %}" />
-    <link rel="apple-touch-startup-image" href="{% static 'img/ceiphr.webp' %}"/>
-
-    {% comment %} Google / Search Engine Tags {% endcomment %}
-    <meta itemprop="description"            content="" />
-    <meta itemprop="image"                  content="{% static 'img/ceiphr.webp' %}">
+    {% endthumbnail %}
+    <link rel="apple-touch-startup-image" href="{{ jpeg.url }}"/>
 
     {% comment %} Facebook Meta Tags {% endcomment %}
-    <meta property="og:url"                 content="https://ceiphr.com" />
+    <meta property="og:url"                 content="https://{{ request.get_host }}{{ request.get_full_path }}" />
     <meta property="og:site_name"           content="{{ name }} | {{ username }}" />
-    <meta property="og:image"               content="{% static 'img/ceiphr.webp' %}">
+    {% thumbnail logo "120x120" format="JPEG" as jpeg %}
+    <meta property="og:image"               content="{{ jpeg.url }}">
+    {% endthumbnail %}
     <meta property="og:type"                content="website" /> 
     <meta property="og:locale"              content="en_US" /> 
 
@@ -66,7 +78,9 @@
     <meta name="twitter:creator"            content="@ceiphr">
 
     {% comment %} Tile icon for Win8 (144x144 + tile color) {% endcomment %}
-    <meta name="msapplication-TileImage"    content="{% static 'img/ceiphr.webp' %}">
+    {% thumbnail logo "120x120" format="JPEG" as jpeg %}
+    <meta name="msapplication-TileImage"    content="{{ jpeg.url }}">
+    {% endthumbnail %}
     <meta name="msapplication-TileColor"    content="#2F3BA2">
 
     {% comment %} SEO {% endcomment %}
