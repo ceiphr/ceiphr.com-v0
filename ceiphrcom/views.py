@@ -170,14 +170,14 @@ class Contact(View):
                             +'"\n\nThis is an automated response. I will get back to you shortly.\n\nBest Regards,\nAri'
                 receiver_subject = form.cleaned_data['subject']
                 receiver_copy = form.cleaned_data['message']
-                mail_server = "noreply@ceiphr.io"
+                mail_server = "Ari Birnbaum (Ceiphr) <noreply@ceiphr.io>"
                 receiver = ["contact@ceiphr.com"]
                 headers = {'Reply-To': sender}
 
                 # Make copy of message for the sender
                 sender_email = EmailMessage(sender_subject, sender_copy, mail_server, sender)
                 # Make copy of message for my email address
-                receiver_email = EmailMessage(receiver_subject, receiver_copy, mail_server, receiver, headers)
+                receiver_email = EmailMessage(receiver_subject, receiver_copy, mail_server, receiver, reply_to=sender)
                 try:
                     sender_email.send(fail_silently=False)
                     receiver_email.send(fail_silently=False)
