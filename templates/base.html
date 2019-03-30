@@ -144,7 +144,11 @@
                 <a href="/" aria-label="Return to front page">
                     {% thumbnail logo "120x120" format="WEBP" as webp %}
                         {% thumbnail logo "120x120" format="JPEG" as jpeg %}
-                            <img class="circle lazyload" alt="{{ username }}" data-srcset="{{ webp.url }}, {{ jpeg.url }}"">
+                            <picture>
+                                <source data-srcset="{{ webp.url }}" type="image/webp">
+                                <source data-srcset="{{ jpeg.url }}" type="image/jpeg">
+                                <img class="circle lazyload" alt="{{ username }}">
+                            </picture>
                         {% endthumbnail %}
                     {% endthumbnail %}
                 </a>

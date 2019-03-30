@@ -45,7 +45,11 @@
                         <div class="card-image">
                             {% thumbnail project.image "600x300" format="WEBP" as webp %}
                                 {% thumbnail project.image "600x300" format="JPEG" as jpeg %}
-                                    <img class="lazyload" alt="{{ project.title }}" data-srcset="{{ webp.url }}, {{ jpeg.url }}"">
+                                    <picture>
+                                        <source data-srcset="{{ webp.url }}" type="image/webp">
+                                        <source data-srcset="{{ jpeg.url }}" type="image/jpeg">
+                                        <img class="lazyload" alt="{{ project.title }}">
+                                    </picture>
                                 {% endthumbnail %}
                             {% endthumbnail %}
                         </div>
@@ -72,7 +76,11 @@
                         <div class="card-image fade-box">
                             {% thumbnail article.image "600x300" format="WEBP" as webp %}
                                 {% thumbnail article.image "600x300" format="JPEG" as jpeg %}
-                                    <img class="dim-image lazyload" alt="{{ article.title }}" data-srcset="{{ webp.url }}, {{ jpeg.url }}"">
+                                    <picture>
+                                        <source data-srcset="{{ webp.url }}" type="image/webp">
+                                        <source data-srcset="{{ jpeg.url }}" type="image/jpeg">
+                                        <img class="dim-image lazyload" alt="{{ article.title }}">
+                                    </picture>
                                 {% endthumbnail %}
                             {% endthumbnail %}
                             <span class="card-title">{{ article.title }}</span>
@@ -102,7 +110,11 @@
                         <div class="card-image fade-box">
                             {% thumbnail event.image "600x300" format="WEBP" as webp %}
                                 {% thumbnail event.image "600x300" format="JPEG" as jpeg %}
-                                    <img class="dim-image lazyload" alt="{{ event.title }}" data-srcset="{{ webp.url }}, {{ jpeg.url }}"">
+                                    <picture>
+                                        <source data-srcset="{{ webp.url }}" type="image/webp">
+                                        <source data-srcset="{{ jpeg.url }}" type="image/jpeg">
+                                        <img class="dim-image lazyload" alt="{{ event.title }}">
+                                    </picture>
                                 {% endthumbnail %}
                             {% endthumbnail %}
                             <span class="card-title">{{ event.title }}</span>
@@ -138,7 +150,11 @@
                         <div class="card-image fade-box">
                             {% thumbnail project.image "600x300" format="WEBP" as webp %}
                                 {% thumbnail project.image "600x300" format="JPEG" as jpeg %}
-                                    <img class="lazyload" alt="{{ project.title }}" data-srcset="{{ webp.url }}, {{ jpeg.url }}"">
+                                    <picture>
+                                        <source data-srcset="{{ webp.url }}" type="image/webp">
+                                        <source data-srcset="{{ jpeg.url }}" type="image/jpeg">
+                                        <img class="lazyload" alt="{{ project.title }}">
+                                    </picture>
                                 {% endthumbnail %}
                             {% endthumbnail %}
                         </div>
@@ -170,7 +186,11 @@
                         <div class="card-image fade-box">
                             {% thumbnail article.image "600x300" format="WEBP" as webp %}
                                 {% thumbnail article.image "600x300" format="JPEG" as jpeg %}
-                                    <img class="dim-image lazyload" alt="{{ article.title }}" data-srcset="{{ webp.url }}, {{ jpeg.url }}"">
+                                    <picture>
+                                        <source data-srcset="{{ webp.url }}" type="image/webp">
+                                        <source data-srcset="{{ jpeg.url }}" type="image/jpeg">
+                                        <img class="dim-image lazyload" alt="{{ article.title }}">
+                                    </picture>
                                 {% endthumbnail %}
                             {% endthumbnail %}
                             <span class="card-title">{{ article.title }}</span>
@@ -205,7 +225,11 @@
                         <div class="card-image fade-box">
                             {% thumbnail event.image "600x300" format="WEBP" as webp %}
                                 {% thumbnail event.image "600x300" format="JPEG" as jpeg %}
-                                    <img class="dim-image lazyload" alt="{{ event.title }}" data-srcset="{{ webp.url }}, {{ jpeg.url }}"">
+                                    <picture>
+                                        <source data-srcset="{{ webp.url }}" type="image/webp">
+                                        <source data-srcset="{{ jpeg.url }}" type="image/jpeg">
+                                        <img class="dim-image lazyload" alt="{{ event.title }}">
+                                    </picture>
                                 {% endthumbnail %}
                             {% endthumbnail %}
                             <span class="card-title">{{ event.title }}</span>

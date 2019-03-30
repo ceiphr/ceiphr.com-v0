@@ -39,7 +39,11 @@
         <div class="article__cover_image">
             {% thumbnail contents.image "1920x960" format="WEBP" as webp %}
                 {% thumbnail contents.image "1920x960" format="JPEG" as jpeg %}
-                    <img class="dim-image lazyload" alt="{{ contents.title }}" data-srcset="{{ webp.url }}, {{ jpeg.url }}"">
+                    <picture>
+                        <source data-srcset="{{ webp.url }}" type="image/webp">
+                        <source data-srcset="{{ jpeg.url }}" type="image/jpeg">
+                        <img class="dim-image lazyload" alt="{{ contents.title }}">
+                    </picture>
                 {% endthumbnail %}
             {% endthumbnail %}
             <!-- <img class="dim-image" src="{{ contents.image.url }}" /> -->
@@ -58,7 +62,11 @@
                         <div class="card-image">
                             {% thumbnail article.image "600x300" format="WEBP" as webp %}
                                 {% thumbnail article.image "600x300" format="JPEG" as jpeg %}
-                                    <img class="dim-image lazyload" alt="{{ article.title }}" data-srcset="{{ webp.url }}, {{ jpeg.url }}"">
+                                    <picture>
+                                        <source data-srcset="{{ webp.url }}" type="image/webp">
+                                        <source data-srcset="{{ jpeg.url }}" type="image/jpeg">            
+                                        <img class="dim-image lazyload" alt="{{ article.title }}">
+                                    </picture>
                                 {% endthumbnail %}
                             {% endthumbnail %}
                             <span class="card-title">{{ article.title }}</span>
