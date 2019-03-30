@@ -19,6 +19,8 @@ class Article(models.Model):
         if not self.id:
             self.slug = slugify(self.title)
         super(Article, self).save(*args, **kwargs) 
+    def get_absolute_url(self):
+        return "/blog/%s" % self.slug
     class Meta:
         ordering = ['-modified']
     def __str__(self):
