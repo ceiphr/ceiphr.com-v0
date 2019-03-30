@@ -58,6 +58,8 @@
                         </div>
                     </div>
                 </div>
+                {% empty %}
+                <p>I've done nothing with my life!</p>
                 {% endfor %}
             </div>
         </div>
@@ -86,6 +88,8 @@
                         </div>
                     </div>
                 </div>
+                {% empty %}
+                <p>I have nothing to say!</p>
                 {% endfor %}
             </div>
         </div>
@@ -115,6 +119,8 @@
                         </div>
                     </div>
                 </div>
+                {% empty %}
+                <p>I have never left my house before!</p>
                 {% endfor %}
             </div>
         </div>
@@ -145,6 +151,8 @@
                         </div>
                     </div>
                 </div>
+                {% empty %}
+                <p>I've done nothing with my life!</p>
                 {% endfor %}
             </div>
         </div>
@@ -178,6 +186,8 @@
                         </div>
                     </div>
                 </div>
+                {% empty %}
+                <p>I have nothing to say!</p>
                 {% endfor %}
             </div>
         </div>
@@ -212,6 +222,8 @@
                         </div>
                     </div>
                 </div>
+                {% empty %}
+                <p>I have never left my house before!</p>
                 {% endfor %}
             </div>
         </div>
@@ -252,6 +264,12 @@
                                 {% else %} Years {% endif %} Ago 
                             </td>
                         </tr> 
+                        {% empty %}
+                        <tr>
+                            <td>It looks like I don't have any skills. Please hire me anyway!</td>
+                            <td>42 Years</td>
+                            <td>42 Years Ago</td>
+                        </tr>
                         {% endfor %} 
                     </tbody> 
                 </table> 

@@ -20,16 +20,19 @@ class IndexMetadata(object):
             context["is_article"] = True
         else:
             context["is_article"] = False
-        context["metadata"] = random.choice(Metadata.objects.all())
+        
+        if Metadata.objects.all():
+            context["metadata"] = random.choice(Metadata.objects.all())
+        if Detail.objects.all():
+            # Portfolio owner details
+            context["username"] = Detail.objects.first().user_name
+            context["name"] = Detail.objects.first().legal_name
+            context["logo"] = Detail.objects.first().logo
+            context["phone"] = Detail.objects.first().phone
+            context["email"] = Detail.objects.first().email
+            context["document"] = Document.objects.first().document
+            context["links"] = SocialLink.objects.all()
         context["thisYear"] = datetime.date.today().year
-        # Portfolio owner details
-        context["username"] = Detail.objects.first().user_name
-        context["name"] = Detail.objects.first().legal_name
-        context["logo"] = Detail.objects.first().logo
-        context["phone"] = Detail.objects.first().phone
-        context["email"] = Detail.objects.first().email
-        context["document"] = Document.objects.first().document
-        context["links"] = SocialLink.objects.all()
         # Sass rain droplet elements
         dropletCount = 30
         context["rain_range"] = range(dropletCount)

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from django.urls import path
+from django.urls import include, path, re_path
 from django.views.generic import TemplateView
 from django.conf.urls.static import static
 from django.conf import settings
@@ -47,6 +47,8 @@ urlpatterns = [
 # If admin setting is enabled, the admin URL is available to manage Django's DB
 if settings.ADMIN_ENABLED:
     urlpatterns += [
+        path('jet/', include('jet.urls', 'jet')),  # Django JET URLS
+        path('jet/dashboard/', include('jet.dashboard.urls', 'jet-dashboard')),
         path(ceiphrcom.production_config.adminURLHash+'/admin', admin.site.urls),
     ]
 

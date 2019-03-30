@@ -179,6 +179,7 @@
                 <div class="footer__text">
                     {% for link in links %}
                     <a href="{{ link.url }}">{{ link.title }}</a>
+                    {% empty %}
                     {% endfor %}<br>
                     © 2016 - {{ thisYear }} {{ name }} ({{ username }}). All Rights Reserved.
                 </div>
