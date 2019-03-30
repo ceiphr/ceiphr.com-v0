@@ -164,18 +164,22 @@ class Contact(View):
             if form.is_valid():
                 # process the data in form.cleaned_data as required
                 sender = [form.cleaned_data['sender']]
+
                 sender_subject = "%s | Ceiphr" % form.cleaned_data['subject']
                 sender_copy = 'Thank you for the email. Here is a copy of what you sent me: \n\n"'\
                             +form.cleaned_data['message']\
                             +'"\n\nThis is an automated response. I will get back to you shortly.\n\nBest Regards,\nAri'
+
+                receiver = ["contact@ceiphr.com"]
+
                 receiver_subject = form.cleaned_data['subject']
                 receiver_copy = form.cleaned_data['message']
+  
                 mail_server = "Ari Birnbaum (Ceiphr) <noreply@ceiphr.io>"
-                receiver = ["contact@ceiphr.com"]
-                headers = {'Reply-To': sender}
 
                 # Make copy of message for the sender
-                sender_email = EmailMessage(sender_subject, sender_copy, mail_server, sender)
+                sender_email = EmailMessage(sender_subject, sender_copy, mail_server, sender, reply_to=receiver)
+                
                 # Make copy of message for my email address
                 receiver_email = EmailMessage(receiver_subject, receiver_copy, mail_server, receiver, reply_to=sender)
                 try:
