@@ -172,6 +172,7 @@
     </ul>
     {% block content %}
     {% endblock content %}
+    {% if view != "404" or view != "Thanks" %}
     {% comment %} Footer contents {% endcomment %}
     <div class="footer__wrapper">
         <footer class="footer">
@@ -183,6 +184,7 @@
             </div>
         </footer>
     </div>
+    {% endif %}
     {% comment %} Imported CSS and JS frameworks {% endcomment %}
     {% stylesheet 'frameworks' %}
     {% stylesheet 'misc' %}
