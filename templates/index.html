@@ -287,8 +287,8 @@
                     <form class="col s12 m12" method="post" action="/contact">
                         {% csrf_token %}
                         {% if incomplete_form == True %}
-                        <div class="input-field col s12">
-                            <div class="chip">
+                        <div class="input-field col s12 l6 offset-l3">
+                            <div class="chip red lighten-4">
                                 Email not sent. Please retry.
                                 <i class="close material-icons">close</i>
                             </div>

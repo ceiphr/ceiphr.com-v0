@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.views.generic.base import View
 from django.views.generic import TemplateView
 from database.models import Detail, Document, SocialLink, Project, Article, Event, Skill, Metadata
-from django.core.mail import BadHeaderError, send_mail
+from django.core.mail import BadHeaderError, EmailMessage
 from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.shortcuts import render
 from .forms import ContactForm
@@ -48,7 +48,6 @@ class EmailSent(View):
     def get(self, request, view="projects"):
         context = dict()
         context["view"] = "Thanks"
-        print("here")
         context = IndexMetadata.get_context_data(context)
         return render(request, 'thanks.html', context)
 
@@ -164,17 +163,24 @@ class Contact(View):
             # check whether it's valid:
             if form.is_valid():
                 # process the data in form.cleaned_data as required
-                message = 'Thank you for the email. Here is a copy of what you sent me: \n\n"'\
+                sender = [form.cleaned_data['sender']]
+                sender_subject = "%s | Ceiphr" % form.cleaned_data['subject']
+                sender_copy = 'Thank you for the email. Here is a copy of what you sent me: \n\n"'\
                             +form.cleaned_data['message']\
                             +'"\n\nThis is an automated response. I will get back to you shortly.\n\nBest Regards,\nAri'
-                subject = form.cleaned_data['subject']
-                contact = form.cleaned_data['sender']
-                sender = "noreply@ceiphr.io"
-                recipients = ['contact@ceiphr.com', contact]
-                headers = {'Reply-To': contact}
+                receiver_subject = form.cleaned_data['subject']
+                receiver_copy = form.cleaned_data['message']
+                mail_server = "noreply@ceiphr.io"
+                receiver = ["contact@ceiphr.com"]
+                headers = {'Reply-To': sender}
+
+                # Make copy of message for the sender
+                sender_email = EmailMessage(sender_subject, sender_copy, mail_server, sender)
+                # Make copy of message for my email address
+                receiver_email = EmailMessage(receiver_subject, receiver_copy, mail_server, receiver, headers)
                 try:
-                    # Send email to my business email address
-                    send_mail(subject, message, sender, recipients, headers, fail_silently=False)
+                    sender_email.send(fail_silently=False)
+                    receiver_email.send(fail_silently=False)
                     return True
                 except BadHeaderError:
                     return False
