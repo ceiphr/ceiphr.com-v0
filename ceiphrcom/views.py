@@ -175,7 +175,7 @@ class Contact(View):
                 receiver_subject = form.cleaned_data['subject']
                 receiver_copy = form.cleaned_data['message']
   
-                mail_server = "Ari Birnbaum (Ceiphr) <noreply@ceiphr.io>"
+                mail_server = "Ari Birnbaum (Ceiphr) <noreply@mail.ceiphr.com>"
 
                 # Make copy of message for the sender
                 sender_email = EmailMessage(sender_subject, sender_copy, mail_server, sender, reply_to=receiver)

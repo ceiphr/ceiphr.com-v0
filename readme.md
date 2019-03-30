@@ -5,8 +5,8 @@ This project is the source code for my personal website. This website displays a
 I'm a highschool student. I really wanted some way to display my achievements, projects and ideas. This is what I came up with.
 
 ## Screenshot
-![ceiphr.com screenshot](https://ceiphr.sfo2.cdn.digitaloceanspaces.com/Screenshot_2019-03-30%20Ari%20Birnbaum%20-%20Aspiring%20Software%20Developer%20Ceiphr.png "Ceiphr.com front page with filler contents. Bottom missing images are lazyloaded")
-Ceiphr.com front page with filler contents. Bottom missing images are lazyloaded
+![ceiphr.com screenshot](https://ceiphr.sfo2.cdn.digitaloceanspaces.com/Screenshot_2019-03-30%20Ari%20Birnbaum%20-%20Aspiring%20Software%20Developer%20Ceiphr.png "Ceiphr.com front page with filler contents. Bottom missing images are lazyloaded.")
+Ceiphr.com front page with filler contents. Bottom missing images are lazyloaded.
 
 ## Tech/Frameworks used
 Python/Django

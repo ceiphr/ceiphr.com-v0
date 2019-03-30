@@ -2,7 +2,7 @@ from database.models import Detail, Document, SocialLink, Project, Article, Even
 from django.urls import reverse
 from django.contrib.sitemaps import Sitemap
 
-
+# Static page site map
 class StaticViewSitemap(Sitemap):
     priority = 1.0
     changefreq = 'daily'
@@ -13,7 +13,7 @@ class StaticViewSitemap(Sitemap):
     def location(self, item):
         return reverse(item)
 
-# Site map XML Generator
+# Blog article site map
 class BlogSitemap(Sitemap):
     changefreq = "never"
     priority = 0.5
