@@ -221,15 +221,9 @@ MEDIA_URL = '/media/'
 # Email System
 
 if not DEBUG:
-    EMAIL_HOST = 'smtp.sendgrid.net'
+    EMAIL_BACKEND = "sendgrid_backend.SendgridBackend"
 
-    EMAIL_HOST_USER = 'ceiphrcom'
-
-    EMAIL_HOST_PASSWORD = ceiphrcom.production_config.sendgridPW
-
-    EMAIL_PORT = 587
-
-    EMAIL_USE_TLS = True
+    SENDGRID_API_KEY = ceiphrcom.production_config.sendgridAPIKey
 
 else:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'

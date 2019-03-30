@@ -164,7 +164,6 @@ class Contact(View):
             # check whether it's valid:
             if form.is_valid():
                 # process the data in form.cleaned_data as required
-                sender = 'noreply@ceiphr.com'
                 message = 'Thank you for the email. Here is a copy of what you sent me: \n\n"'\
                             +form.cleaned_data['message']\
                             +'"\n\nThis is an automated response. I will get back to you shortly.\n\nBest Regards,\nAri'

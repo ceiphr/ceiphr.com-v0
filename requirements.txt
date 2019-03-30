@@ -8,5 +8,6 @@ qrcode==6.1
 sorl-thumbnail==12.5.0
 Pillow==5.4.1
 django-jet==1.0.8 
+django-sendgrid-v5==0.7.1 
 gunicorn==19.9.0
 psycopg2-binary==2.7.7
