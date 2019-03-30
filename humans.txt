@@ -1,15 +1,12 @@
 /* TEAM */
 	Web Developer: Ari Birnbaum
-	Contact: contact@ceiphr.com
+	Contact: contact [at] ceiphr.com
 	Twitter: @ceiphr
 	From: United States
 
 /* SITE */
-	Last update: 11/10/2018
-	Doctype: HTML5
+	Last update: 3/31/2019
+	Doctype: HTML
     Language: English
     Frameworks: Django, MaterializeCSS
-    Libraries: jQuery, Material Icons
-	IDE: Sublime Text, Visual Studio Code, Photoshop, Illustrator
-    Fonts: Open Sans, League Mono, League Spartan 
-    Tools: Sass, Django-pipeline, Recaptcha2, NGINX
+	IDE: Visual Studio Code

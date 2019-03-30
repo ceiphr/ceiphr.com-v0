@@ -1,3 +1,4 @@
+# TODO This is BROKEN ATM, don't use.
 FROM python:3
 WORKDIR /usr/src/app
 COPY / requirements.txt ./
