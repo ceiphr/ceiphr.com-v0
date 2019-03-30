@@ -81,6 +81,14 @@
     p {
       font-size: 16px;
     }
+
+    a {
+      transition-duration: 400ms;
+    }
+
+    a:hover {
+      color: #0277bd;
+    }
   
     .highlight {
       padding: 12px;
