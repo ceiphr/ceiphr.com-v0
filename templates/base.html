@@ -128,7 +128,11 @@
                 <div class="background">
                 </div>
                 <a href="/">
-                    <img class="circle lazyload" alt="{{ username }}" src="{% static 'img/ceiphr.webp' %}">
+                    {% thumbnail logo "120x120" format="WEBP" as webp %}
+                        {% thumbnail logo "120x120" format="JPEG" as jpeg %}
+                            <img class="circle lazyload" alt="{{ username }}" data-srcset="{{ webp.url }}, {{ jpeg.url }}"">
+                        {% endthumbnail %}
+                    {% endthumbnail %}
                 </a>
                 <span class="white-text name">{{ name }}</span>
                 <span class="white-text email">{{ email }}</span>
@@ -173,7 +177,7 @@
         <footer class="footer">
             <div class="footer__text">
                 {% for link in links %}
-                <a href="{{ link.url }}" target="_blank">{{ link.title }}</a>
+                <a href="{{ link.url }}">{{ link.title }}</a>
                 {% endfor %}<br>
                 © 2016 - {{ thisYear }} {{ name }} ({{ username }}). All Rights Reserved.
             </div>

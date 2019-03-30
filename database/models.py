@@ -27,7 +27,7 @@ class Article(models.Model):
 class Project(models.Model):
     title = models.CharField(default="", max_length=50)
     summary = models.CharField(default="", max_length=100)
-    image = ImageField(upload_to='img/projects/')
+    image = ImageField(default="", upload_to='img/projects/')
     link = models.CharField(default="", max_length=50)
     published = models.DateField(default=datetime.date.today)
     class Meta:
@@ -40,7 +40,7 @@ class Event(models.Model):
     desc = models.CharField(default="", max_length=400)
     start_date = models.DateField(default=datetime.date.today)
     end_date = models.DateField(default=datetime.date.today)
-    image = ImageField(upload_to='img/events/')
+    image = ImageField(default="", upload_to='img/events/')
     link = models.CharField(default="", max_length=100)
     class Meta:
         ordering = ['-end_date']
@@ -69,6 +69,7 @@ class SocialLink(models.Model):
 class Detail(models.Model):
     legal_name = models.CharField(default="", max_length=50)
     user_name = models.CharField(default="", max_length=50)
+    logo = ImageField(default="", upload_to='img/assets/')
     phone = models.CharField(default="", max_length=50)
     email = models.CharField(default="", max_length=50)
     def __str__(self):
