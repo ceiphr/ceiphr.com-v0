@@ -15,6 +15,7 @@
     <meta itemprop="description"            content="{{ metadata.desc }}" />
     {% thumbnail logo "120x120" format="JPEG" as jpeg %}
     <meta itemprop="image"                  content="{{ jpeg.url }}">
+    <meta property="og:image"               content="{{ jpeg.url }}">
     {% endthumbnail %}
     <meta property="og:title"               content="{{ name }} - {{ metadata.slogan }} | {{ username }}" />
     <meta property="og:description"         content="{{ metadata.desc }}" />
@@ -25,6 +26,7 @@
     <meta itemprop="description"            content="{{ article_metadata.preview }}" />
     {% thumbnail article_metadata.image "120x120" format="JPEG" as jpeg %}
     <meta itemprop="image"                  content="{{ jpeg.url }}">
+    <meta property="og:image"               content="{{ jpeg.url }}">
     {% endthumbnail %}
     <meta property="og:title"               content="{{ article_metadata.title }} | {{ username }}" />
     <meta property="og:description"         content="{{ article_metadata.preview }}" />
@@ -35,6 +37,7 @@
     <meta itemprop="description"            content="{{ metadata.desc }}" />
     {% thumbnail logo "120x120" format="JPEG" as jpeg %}
     <meta itemprop="image"                  content="{{ jpeg.url }}">
+    <meta property="og:image"               content="{{ jpeg.url }}">
     {% endthumbnail %}
     <meta property="og:title"               content="{{ name }} - {{ view }} | {{ username }}" />
     <meta property="og:description"         content="{{ metadata.desc }}" />
@@ -67,15 +70,12 @@
     {% comment %} Facebook Meta Tags {% endcomment %}
     <meta property="og:url"                 content="https://{{ request.get_host }}{{ request.get_full_path }}" />
     <meta property="og:site_name"           content="{{ name }} | {{ username }}" />
-    {% thumbnail logo "120x120" format="JPEG" as jpeg %}
-    <meta property="og:image"               content="{{ jpeg.url }}">
-    {% endthumbnail %}
     <meta property="og:type"                content="website" /> 
     <meta property="og:locale"              content="en_US" /> 
 
     {% comment %} Twitter Meta Tags {% endcomment %}
     <meta name="twitter:card"               content="summary">
-    <meta name="twitter:creator"            content="@ceiphr">
+    <meta name="twitter:creator"            content="@{{ username }}">
 
     {% comment %} Tile icon for Win8 (144x144 + tile color) {% endcomment %}
     {% thumbnail logo "120x120" format="JPEG" as jpeg %}
