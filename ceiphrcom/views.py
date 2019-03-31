@@ -15,7 +15,12 @@ import datetime
 class IndexMetadata(object):
     def get_context_data(context, slug=""):
         # Page metadata
-        if slug:
+        try:
+            exists = Article.objects.get(slug=slug)
+        except Article.DoesNotExist:
+            exists = None
+
+        if slug and exists:
             context["article_metadata"] = Article.objects.values("title", "preview", "image").get(slug=slug)
             context["is_article"] = True
         else:
@@ -93,7 +98,14 @@ class BlogPost(TemplateView):
         context = super().get_context_data(**kwargs)
         context = IndexMetadata.get_context_data(context, slug)
         context["articles"] = Article.objects.exclude(slug=slug)
-        context["contents"] = Article.objects.get(slug=slug)
+        try:
+            exists = Article.objects.get(slug=slug)
+        except Article.DoesNotExist:
+            exists = None
+        if exists:
+            context["contents"] = Article.objects.get(slug=slug)
+        else: 
+            raise Http404
         context["view"] = "Blog"
         return context
         
