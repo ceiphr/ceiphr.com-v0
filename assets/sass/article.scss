@@ -45,7 +45,7 @@
   -webkit-hyphens: auto;
   -moz-hyphens: auto;
   hyphens: auto;
-
+  
   h1,
   h2,
   h3,
@@ -56,13 +56,6 @@
   .highlight {
     font-family: $h-font-lit;
   }
-
-  pre:not(.highlight) {
-    white-space: pre-wrap;     
-    white-space: -moz-pre-wrap;  
-    white-space: -o-pre-wrap;    
-    word-wrap: break-word;      
-   }
 
   code {
     background-color: #eeeeee;
@@ -104,7 +97,7 @@
   }
 
   .highlight {
-    padding: 12px;
+    padding: 6px;
   }
 
   img {
@@ -120,5 +113,6 @@
 
   .highlight pre {
     border-radius: 8px;
+    overflow: auto;
   }
 }
