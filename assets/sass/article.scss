@@ -88,6 +88,23 @@
     font-size: 16px;
   }
 
+  strong, b {
+    font-weight: bolder;
+  }
+
+  ul {
+    padding-left: 1em;
+    li {
+      list-style-type: disc;
+    }
+  }
+
+  ol {
+    li {
+      list-style-type: decimal-leading-zero;
+    }
+  }
+
   a {
     transition-duration: 400ms;
   }
