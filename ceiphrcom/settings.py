@@ -1,5 +1,7 @@
 import os
 import ceiphrcom.production_config
+import sentry_sdk
+from sentry_sdk.integrations.django import DjangoIntegration
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 
@@ -218,6 +220,13 @@ STATIC_URL = '/static/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 MEDIA_URL = '/media/'
+
+# Production debugging via sentry.io
+if not DEBUG:
+    sentry_sdk.init(
+    dsn="https://64705ba551e4407cb6cc1cf33e6336d8@sentry.io/1429770",
+    integrations=[DjangoIntegration()]
+    )
 
 # Email System
 
