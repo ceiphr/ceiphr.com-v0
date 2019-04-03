@@ -206,7 +206,9 @@
     {% endif %}
     {% comment %} Imported CSS and JS frameworks {% endcomment %}
     {% stylesheet 'frameworks' %}
-    {% stylesheet 'misc' %}
+    {% if not is_article %}
+        {% stylesheet 'misc' %}
+    {% endif %}
     {% javascript 'frameworks' %}
     {% if is_article %}
         {% stylesheet 'article' %}
