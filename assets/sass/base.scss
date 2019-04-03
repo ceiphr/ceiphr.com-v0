@@ -116,6 +116,14 @@ nav {
   z-index: 100;
 }
 
+hr {
+  margin: 16px 0 16px;
+  border: 0;
+  height: 1px;
+  width: 100%;
+  background: #dadce0;
+}
+
 // Load animation for feed contents
 // Desktop
 @media only screen and (min-width: 992px) {

@@ -44,13 +44,12 @@
     grid-template-columns: repeat(12, 96px);
     margin-top: 20vh;
     .article__contents {
-      grid-column: 1/span 8;
-    }  
+      grid-column: 1 / span 9;
+    }
   }
 
   margin-top: 32vh;
-
-  overflow-wrap: break-word; 
+  overflow-wrap: break-word;
 
   -ms-word-break: break-word;
   word-break: break-word;
@@ -58,7 +57,7 @@
   -webkit-hyphens: auto;
   -moz-hyphens: auto;
   hyphens: auto;
-  
+
   h1,
   h2,
   h3,
@@ -93,7 +92,8 @@
     font-size: 1.1rem;
   }
 
-  h5, h6 {
+  h5,
+  h6 {
     font-size: 1rem;
   }
 
@@ -101,7 +101,8 @@
     font-size: 16px;
   }
 
-  strong, b {
+  strong,
+  b {
     font-weight: bolder;
   }
 
@@ -126,14 +127,6 @@
 
   a:hover {
     color: #0277bd;
-  }
-
-  hr {
-    margin: 32px 0 32px;
-    border: 0;
-    height: 1px;
-    width: 100%;
-    background: #dadce0;
   }
 
   .highlight {
