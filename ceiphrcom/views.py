@@ -6,6 +6,7 @@ from django.core.mail import BadHeaderError, EmailMessage
 from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.shortcuts import render
 from .forms import ContactForm
+from sentry_sdk import capture_message
 import random
 import datetime
 
@@ -64,6 +65,7 @@ def handler404(request, exception, template_name='404.html'):
     context = dict()
     context["view"] = "404"
     context = IndexMetadata.get_context_data(context)
+    capture_message("Page not found!", level="error")
     return render(request, '404.html', context, status=404)
 
 # Error catching with full page - 500
@@ -73,6 +75,7 @@ def handler500(request, exception, template_name='500.html'):
     context = dict()
     context["view"] = "404"
     context = IndexMetadata.get_context_data(context)
+    capture_message("Page not found!", level="error")
     return render(request, '500.html', context, status=500)
 
 # FromtPage feed for index template
