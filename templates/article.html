@@ -34,7 +34,7 @@
         </div>
         <div class="article__heading">
             <h1>{{ contents.title }}</h1>
-            <p class="grey-text text-lighten-1"><i>Last Modified: <b>{{ contents.modified }}</b></i></p>
+            <p class="grey-text text-lighten-1"><i>By <b>{{ name }}</b> on {{ contents.modified }}</i></p>
         </div>
         <div class="article__cover_image">
             {% thumbnail contents.image "1920x960" format="WEBP" as webp %}
