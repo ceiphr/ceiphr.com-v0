@@ -35,6 +35,14 @@
 }
 
 .article__body {
+  @media only screen and (min-width: 992px) {
+    display: grid;
+    grid-template-columns: repeat(12, 96px);
+    .article__contents {
+      grid-column: 1/span 8;
+    }  
+  }
+
   margin-top: 45vh;
 
   overflow-wrap: break-word; 
@@ -112,6 +120,14 @@
 
   a:hover {
     color: #0277bd;
+  }
+
+  hr {
+    margin: 32px 0 32px;
+    border: 0;
+    height: 1px;
+    width: 100%;
+    background: #dadce0;
   }
 
   .highlight {

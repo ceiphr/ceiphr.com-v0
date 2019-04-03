@@ -49,9 +49,10 @@
             <!-- <img class="dim-image" src="{{ contents.image.url }}" /> -->
         </div>
         <div class="article__body">
-            <p>
+            <div class="article__contents">
                 {{ contents.content | markdown | safe }}
-            </p>
+                <hr/>
+            </div>
         </div>
         <div class="section">
             <h1 class="feed-header">More Posts</h1>
