@@ -2,14 +2,15 @@
 // Article Template
 
 .article__heading {
-  position: absolute;
+  position: relative;
+  top: 15vh;
+  transform: translateY(-50%);
   z-index: 2;
   color: white;
-  top: 50vh;
-  transform: translateY(-50%);
   h1 {
     font-family: $h-font-lit;
     font-size: 2rem;
+    margin-bottom: 0.5rem;
   }
 }
 
@@ -18,8 +19,11 @@
   background-color: black;
   position: absolute;
   width: 100%;
-  height: 40vh;
-  top: 30vh;
+  height: $coverHeight;
+  @media only screen and (max-width: 992px) {
+    height: 40vh;
+  }
+  top: 0;
   left: 0;
   z-index: 0;
   overflow: hidden;
@@ -38,12 +42,13 @@
   @media only screen and (min-width: 992px) {
     display: grid;
     grid-template-columns: repeat(12, 96px);
+    margin-top: 20vh;
     .article__contents {
       grid-column: 1/span 8;
     }  
   }
 
-  margin-top: 45vh;
+  margin-top: 30vh;
 
   overflow-wrap: break-word; 
 

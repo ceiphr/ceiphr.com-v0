@@ -7,22 +7,10 @@
 
 
 
-{% comment %} Rain background {% endcomment %}
-<div id="cover">
-    <div id="rain__wrapper">
-        <div id="rain">
-            {% for i in rain_range %}
-            <i class="rain__drop"></i>
-            {% endfor %}
-        </div>
-    </div>
-</div>
-
-
 {% comment %} Article contents {% endcomment %}
 <div id="feed">
     <div class="container">
-        <div id="cover__content">
+        <!-- <div id="cover__content">
             <div id="cover__text">
                 <div id="cover__title">
                     {{ name }}
@@ -31,7 +19,7 @@
                     {{ metadata.slogan }}
                 </div>
             </div>
-        </div>
+        </div> -->
         <div class="article__heading">
             <h1>{{ contents.title }}</h1>
             <p class="grey-text text-lighten-1"><i>By <b>{{ name }}</b> on {{ contents.modified }}</i></p>
@@ -46,7 +34,6 @@
                     </picture>
                 {% endthumbnail %}
             {% endthumbnail %}
-            <!-- <img class="dim-image" src="{{ contents.image.url }}" /> -->
         </div>
         <div class="article__body">
             <div class="article__contents">

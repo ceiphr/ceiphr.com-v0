@@ -2,6 +2,10 @@
 $primary-color: #29323c !default;
 $secondary-color: #03a9f4 !default;
 
+// Cover dimensions
+$coverHeight: 30vh;
+$coverWidth: 100%;
+
 // Margins/Padding
 $sd-margin: 24px;
 $sd-padding: 12px;
@@ -92,10 +96,10 @@ body {
 
 // Navigation
 .brand-logo {
-  left: 8px;
   height: 64px;
   img {
     height: 64px;
+    left: 8px;
     padding: 16px;
   }
 }
@@ -106,6 +110,7 @@ body {
 
 nav {
   position: absolute;
+  top: 0;
   background: transparent !important;
   box-shadow: none !important;
   z-index: 100;
