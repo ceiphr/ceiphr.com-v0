@@ -63,9 +63,9 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-title" content="{{ username }}" />
     {% thumbnail logo "120x120" format="JPEG" as jpeg %}
-    <link rel="apple-touch-icon" href="{% static 'img/ceiphr.webp' %}" />
-    {% endthumbnail %}
+    <link rel="apple-touch-icon" href="{{ jpeg.url }}" />
     <link rel="apple-touch-startup-image" href="{{ jpeg.url }}"/>
+    {% endthumbnail %}
 
     {% comment %} Facebook Meta Tags {% endcomment %}
     <meta property="og:url"                 content="https://{{ request.get_host }}{{ request.get_full_path }}" />
@@ -212,6 +212,7 @@
     {% javascript 'frameworks' %}
     {% if is_article %}
         {% stylesheet 'article' %}
+        {% javascript 'article' %}
     {% endif %}
     <!-- Fathom - simple website analytics - https://github.com/usefathom/fathom -->
     <script>

@@ -201,6 +201,16 @@ PIPELINE = {
             'extra_context': {
                 'async': True,
             },
+        },
+        'article': {
+            'source_filenames': (
+                'node_modules/mathjax/MathJax.js',
+            ),
+            'output_filename':
+            'js/article.js',
+            'extra_context': {
+                'async': True,
+            },
         }
     }
 }
