@@ -1,14 +1,15 @@
 @import "base";
 // Article Template
-@media only screen and (max-width: 992px) {
-  .article__heading__wrapper {
-    margin-bottom: 20vh;
-  }
-}
 
 @media only screen and (min-width: 992px) {
   .article__heading__wrapper {
     margin-bottom: 15vh;
+  }
+}
+
+@media only screen and (max-width: 992px) {
+  .article__heading__wrapper {
+    margin-bottom: 25vh;
   }
 }
 
