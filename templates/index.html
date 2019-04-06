@@ -178,7 +178,12 @@
         {% comment %} Blog feed {% endcomment %}
         {% if view == "Blog" %}
         <div class="section">
+            {% if tag %}
+            <span class="section__view_more"><h1 class="feed-header">Blog</h1><a href="/blog" class="waves-effect grey-text text-darken-1 btn-flat">View All</a></span>
+            <h2 class="filter-query">Filter: <a href="/blog?t={{ tag }}">#{{ tag }}</a></h2>
+            {% else %}
             <h1 class="feed-header">Blog</h1>
+            {% endif %}
             <div class="card-container">
                 {% for article in contents %}
                 <div class="card-object">

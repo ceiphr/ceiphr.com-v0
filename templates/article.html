@@ -39,6 +39,18 @@
             <div class="article__contents">
                 {{ contents.content | markdown | safe }}
                 <hr/>
+                <div class="tags">
+                    <h3>Tags</h3>
+                    {% for tag in tags %}
+                    <a href="/blog?t={{ tag }}">
+                        <div class="chip">
+                        {{ tag.name }}
+                        </div>
+                    </a>
+                    {% empty %}
+                    This article is not relatable.
+                    {% endfor %}
+                </div>
             </div>
         </div>
         <div class="section">
