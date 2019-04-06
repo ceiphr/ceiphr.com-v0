@@ -124,6 +124,14 @@ hr {
   background: #dadce0;
 }
 
+.chip {
+  transition-duration: 200ms;
+}
+
+.chip:hover {
+  background-color: #cccccc;
+}
+
 // Load animation for feed contents
 // Desktop
 @media only screen and (min-width: 992px) {
