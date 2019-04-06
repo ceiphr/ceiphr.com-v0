@@ -1,6 +1,6 @@
-{% load static %} 
+{% load static %}
 {% load thumbnail %}
-{% load pipeline %} 
+{% load pipeline %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,84 +10,88 @@
     {% comment %} Page-based {% endcomment %}
 
     {% if view == "FrontPage" %}
-    <meta name="description"                content="{{ metadata.desc }}" />
-    <meta itemprop="name"                   content="{{ name }} - {{ metadata.slogan }} | {{ username }}">
-    <meta itemprop="description"            content="{{ metadata.desc }}" />
+    <meta name="description" content="{{ metadata.desc }}" />
+    <meta itemprop="name" content="{{ name }} - {{ metadata.slogan }} | {{ username }}">
+    <meta itemprop="description" content="{{ metadata.desc }}" />
     {% thumbnail logo "120x120" format="JPEG" as jpeg %}
-    <meta itemprop="image"                  content="{{ jpeg.url }}">
-    <meta property="og:image"               content="{{ jpeg.url }}">
+    <meta itemprop="image" content="{{ jpeg.url }}">
+    <meta property="og:image" content="{{ jpeg.url }}">
     {% endthumbnail %}
-    <meta property="og:title"               content="{{ name }} - {{ metadata.slogan }} | {{ username }}" />
-    <meta property="og:description"         content="{{ metadata.desc }}" />
+    <meta property="og:title" content="{{ name }} - {{ metadata.slogan }} | {{ username }}" />
+    <meta property="og:description" content="{{ metadata.desc }}" />
     <title>{{ name }} - {{ metadata.slogan }} | {{ username }}</title>
     {% elif is_article %}
-    <meta name="description"                content="{{ article_metadata.preview }}" />
-    <meta itemprop="name"                   content="{{ article_metadata.title }} | {{ username }}">
-    <meta itemprop="description"            content="{{ article_metadata.preview }}" />
+    <meta name="description" content="{{ article_metadata.preview }}" />
+    <meta itemprop="name" content="{{ article_metadata.title }} | {{ username }}">
+    <meta itemprop="description" content="{{ article_metadata.preview }}" />
     {% thumbnail article_metadata.image "120x120" format="JPEG" as jpeg %}
-    <meta itemprop="image"                  content="{{ jpeg.url }}">
-    <meta property="og:image"               content="{{ jpeg.url }}">
+    <meta itemprop="image" content="{{ jpeg.url }}">
+    <meta property="og:image" content="{{ jpeg.url }}">
     {% endthumbnail %}
-    <meta property="og:title"               content="{{ article_metadata.title }} | {{ username }}" />
-    <meta property="og:description"         content="{{ article_metadata.preview }}" />
+    <meta property="og:title" content="{{ article_metadata.title }} | {{ username }}" />
+    <meta property="og:description" content="{{ article_metadata.preview }}" />
     <title>{{ article_metadata.title }} | {{ username }}</title>
     {% else %}
-    <meta name="description"                content="{{ metadata.desc }}" />
-    <meta itemprop="name"                   content="{{ name }} - {{ view }} | {{ username }}">
-    <meta itemprop="description"            content="{{ metadata.desc }}" />
+    <meta name="description" content="{{ metadata.desc }}" />
+    <meta itemprop="name" content="{{ name }} - {{ view }} | {{ username }}">
+    <meta itemprop="description" content="{{ metadata.desc }}" />
     {% thumbnail logo "120x120" format="JPEG" as jpeg %}
-    <meta itemprop="image"                  content="{{ jpeg.url }}">
-    <meta property="og:image"               content="{{ jpeg.url }}">
+    <meta itemprop="image" content="{{ jpeg.url }}">
+    <meta property="og:image" content="{{ jpeg.url }}">
     {% endthumbnail %}
-    <meta property="og:title"               content="{{ name }} - {{ view }} | {{ username }}" />
-    <meta property="og:description"         content="{{ metadata.desc }}" />
+    <meta property="og:title" content="{{ name }} - {{ view }} | {{ username }}" />
+    <meta property="og:description" content="{{ metadata.desc }}" />
+    {% if tag %}
+    <title>#{{ tag }} | {{ username }}</title>
+    {% else %}
     <title>{{ name }} - {{ view }} | {{ username }}</title>
+    {% endif %}
     {% endif %}
 
 
     {% comment %} Generic {% endcomment %}
     <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible"      content="ie=edge">
-    <meta name="viewport"                   content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
     {% comment %} Disable tap highlight on IE {% endcomment %}
     <meta name="msapplication-tap-highlight" content="no">
 
     {% comment %} Mobile Google Chrome {% endcomment %}
-    <meta name="theme-color"                content="#29323c" />
-    <meta name="mobile-web-app-capable"     content="yes">
-    <meta name="application-name"           content="{{ username }}">
+    <meta name="theme-color" content="#29323c" />
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="{{ username }}">
 
     {% comment %} Mobile Safari {% endcomment %}
-    <meta name="apple-mobile-web-app-capable"content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-title" content="{{ username }}" />
     {% thumbnail logo "120x120" format="JPEG" as jpeg %}
     <link rel="apple-touch-icon" href="{{ jpeg.url }}" />
-    <link rel="apple-touch-startup-image" href="{{ jpeg.url }}"/>
+    <link rel="apple-touch-startup-image" href="{{ jpeg.url }}" />
     {% endthumbnail %}
 
     {% comment %} Facebook Meta Tags {% endcomment %}
-    <meta property="og:url"                 content="https://{{ request.get_host }}{{ request.get_full_path }}" />
-    <meta property="og:site_name"           content="{{ username }}" />
-    <meta property="og:type"                content="website" /> 
-    <meta property="og:locale"              content="en_US" /> 
+    <meta property="og:url" content="https://{{ request.get_host }}{{ request.get_full_path }}" />
+    <meta property="og:site_name" content="{{ username }}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en_US" />
 
     {% comment %} Twitter Meta Tags {% endcomment %}
-    <meta name="twitter:card"               content="summary">
-    <meta name="twitter:creator"            content="@{{ username }}">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:creator" content="@{{ username }}">
 
     {% comment %} Tile icon for Win8 (144x144 + tile color) {% endcomment %}
     {% thumbnail logo "120x120" format="JPEG" as jpeg %}
-    <meta name="msapplication-TileImage"    content="{{ jpeg.url }}">
+    <meta name="msapplication-TileImage" content="{{ jpeg.url }}">
     {% endthumbnail %}
-    <meta name="msapplication-TileColor"    content="#2F3BA2">
+    <meta name="msapplication-TileColor" content="#2F3BA2">
 
     {% comment %} SEO {% endcomment %}
     <link rel="canonical" href="https://{{ request.get_host }}{{ request.get_full_path }}">
 
     {% comment %} Favicon {% endcomment %}
-    <link rel="shortcut icon" type="image/png" href="{% static 'img/favicon.png' %}"/>
+    <link rel="shortcut icon" type="image/png" href="{% static 'img/favicon.png' %}" />
 
     {% comment %} Critical CSS {% endcomment %}
     {% stylesheet 'critical' %}
@@ -103,7 +107,8 @@
 
             <ul class="left hide-on-med-and-down">
                 <li>
-                    <a href="/" aria-label="Return to front page" class="brand-logo"><img alt="{{ username }}" src="{% static 'img/ceiphr_alt.svg' %}"></a>
+                    <a href="/" aria-label="Return to front page" class="brand-logo"><img alt="{{ username }}"
+                            src="{% static 'img/ceiphr_alt.svg' %}"></a>
                 </li>
             </ul>
 
@@ -112,8 +117,8 @@
                     <a href="/projects">Projects</a>
                 </li>
                 <li class="{% if view == "Blog" %} active {% endif %}">
-                        <a href="/blog">Blog</a>
-                </li>    
+                    <a href="/blog">Blog</a>
+                </li>
                 <li class="{% if view == "Events" %} active {% endif %}">
                     <a href="/events">Events</a>
                 </li>
@@ -125,10 +130,11 @@
                 </li>
                 <li>
                     <a href="https://changelog.ceiphr.com"><i
-                        class="material-icons right">track_changes</i>Changelog</a>
-                </li>  
+                            class="material-icons right">track_changes</i>Changelog</a>
+                </li>
                 <li>
-                    <a href="{{ document.url }}" target="_blank" class="waves-effect waves-light btn"><i class="material-icons right">file_download</i>Resume</a>
+                    <a href="{{ document.url }}" target="_blank" class="waves-effect waves-light btn"><i
+                            class="material-icons right">file_download</i>Resume</a>
                 </li>
             </ul>
         </div>
@@ -142,15 +148,15 @@
                 <div class="background">
                 </div>
                 <a href="/" aria-label="Return to front page">
-                    {% thumbnail logo "120x120" format="WEBP" as webp %}
-                        {% thumbnail logo "120x120" format="JPEG" as jpeg %}
-                            <picture>
-                                <source data-srcset="{{ webp.url }}" type="image/webp">
-                                <source data-srcset="{{ jpeg.url }}" type="image/jpeg">
-                                <img class="circle lazyload" alt="{{ username }}">
-                            </picture>
+                    <picture>
+                        {% thumbnail logo "120x120" format="WEBP" as webp %}
+                        <source data-srcset="{{ webp.url }}" type="image/webp">
                         {% endthumbnail %}
-                    {% endthumbnail %}
+                        {% thumbnail logo "120x120" format="JPEG" as jpeg %}
+                        <source data-srcset="{{ jpeg.url }}" type="image/jpeg">
+                        {% endthumbnail %}
+                        <img class="circle lazyload" alt="{{ username }}">
+                    </picture>
                 </a>
                 <span class="white-text name">{{ name }}</span>
                 <span class="white-text email">{{ email }}</span>
@@ -183,51 +189,53 @@
         <li>
             <a href="https://changelog.ceiphr.com" class="waves-effect">
                 <i class="material-icons">track_changes</i>Changelog</a>
-        </li>  
+        </li>
         <li>
-            <a class="waves-effect" href="{{ document.url }}"><i class="material-icons light-blue-text">file_download</i>Resume</a>
+            <a class="waves-effect" href="{{ document.url }}"><i
+                    class="material-icons light-blue-text">file_download</i>Resume</a>
         </li>
     </ul>
     {% block content %}
     {% endblock content %}
     {% if view != "Thanks" and view != "404" %}
-        {% comment %} Footer contents {% endcomment %}
-        <div class="footer__wrapper">
-            <footer class="footer">
-                <div class="footer__text">
-                    {% for link in links %}
-                    <a href="{{ link.url }}">{{ link.title }}</a>
-                    {% empty %}
-                    {% endfor %}<br>
-                    © 2016 - {{ thisYear }} {{ name }} ({{ username }}). All Rights Reserved.
-                </div>
-            </footer>
-        </div>
+    {% comment %} Footer contents {% endcomment %}
+    <div class="footer__wrapper">
+        <footer class="footer">
+            <div class="footer__text">
+                {% for link in links %}
+                <a href="{{ link.url }}">{{ link.title }}</a>
+                {% empty %}
+                {% endfor %}<br>
+                © 2016 - {{ thisYear }} {{ name }} ({{ username }}). All Rights Reserved.
+            </div>
+        </footer>
+    </div>
     {% endif %}
     {% comment %} Imported CSS and JS frameworks {% endcomment %}
     {% stylesheet 'frameworks' %}
     {% if not is_article %}
-        {% stylesheet 'misc' %}
+    {% stylesheet 'misc' %}
     {% endif %}
     {% javascript 'frameworks' %}
     {% if is_article %}
-        {% stylesheet 'article' %}
+    {% stylesheet 'article' %}
     {% endif %}
     <!-- Fathom - simple website analytics - https://github.com/usefathom/fathom -->
     <script>
-            (function(f, a, t, h, o, m){
-                a[h]=a[h]||function(){
-                    (a[h].q=a[h].q||[]).push(arguments)
-                };
-                o=f.createElement('script'),
-                m=f.getElementsByTagName('script')[0];
-                o.async=1; o.src=t; o.id='fathom-script';
-                m.parentNode.insertBefore(o,m)
-            })(document, window, '//stats.ceiphr.com/tracker.js', 'fathom');
-            fathom('set', 'siteId', 'MCJMJ');
-            fathom('trackPageview');
+        (function (f, a, t, h, o, m) {
+            a[h] = a[h] || function () {
+                (a[h].q = a[h].q || []).push(arguments)
+            };
+            o = f.createElement('script'),
+                m = f.getElementsByTagName('script')[0];
+            o.async = 1; o.src = t; o.id = 'fathom-script';
+            m.parentNode.insertBefore(o, m)
+        })(document, window, '//stats.ceiphr.com/tracker.js', 'fathom');
+        fathom('set', 'siteId', 'MCJMJ');
+        fathom('trackPageview');
     </script>
     <!-- / Fathom -->
-    
+
 </body>
+
 </html>

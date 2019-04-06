@@ -11,15 +11,15 @@
 <div id="feed">
     <div class="container">
         <div class="article__cover_image">
-            {% thumbnail contents.image "1920x960" format="WEBP" as webp %}
-            {% thumbnail contents.image "1920x960" format="JPEG" as jpeg %}
             <picture>
+                {% thumbnail contents.image "1920x960" format="WEBP" as webp %}
                 <source data-srcset="{{ webp.url }}" type="image/webp">
+                {% endthumbnail %}
+                {% thumbnail contents.image "1920x960" format="JPEG" as jpeg %}
                 <source data-srcset="{{ jpeg.url }}" type="image/jpeg">
+                {% endthumbnail %}
                 <img class="dim-image lazyload" alt="{{ contents.title }}">
             </picture>
-            {% endthumbnail %}
-            {% endthumbnail %}
         </div>
         <div class="row">
             <div class="article__heading__wrapper col s12 m12 l10 offset-l1">
@@ -63,15 +63,15 @@
                         <div class="card-object">
                             <div class="card">
                                 <div class="card-image">
-                                    {% thumbnail article.image "600x300" format="WEBP" as webp %}
-                                    {% thumbnail article.image "600x300" format="JPEG" as jpeg %}
                                     <picture>
+                                        {% thumbnail article.image "600x300" format="WEBP" as webp %}
                                         <source data-srcset="{{ webp.url }}" type="image/webp">
+                                        {% endthumbnail %}
+                                        {% thumbnail article.image "600x300" format="JPEG" as jpeg %}
                                         <source data-srcset="{{ jpeg.url }}" type="image/jpeg">
+                                        {% endthumbnail %}
                                         <img class="dim-image lazyload" alt="{{ article.title }}">
                                     </picture>
-                                    {% endthumbnail %}
-                                    {% endthumbnail %}
                                     <span class="card-title">{{ article.title }}</span>
                                 </div>
                                 <div class="card-content">

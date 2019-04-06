@@ -37,21 +37,24 @@
         {% comment %} FrontPage overview feed {% endcomment %}
         {% if view == "FrontPage" %}
         <div class="section">
-            <span class="section__view_more"><h1 class="feed-header">Projects</h1><a href="/projects" class="waves-effect grey-text text-darken-1 btn-flat">View All</a></span>
+            <span class="section__view_more">
+                <h1 class="feed-header">Projects</h1><a href="/projects"
+                    class="waves-effect grey-text text-darken-1 btn-flat">View All</a>
+            </span>
             <div class="card-container">
                 {% for project in projects|slice:":2" %}
                 <div class="card-object">
                     <div class="card">
                         <div class="card-image">
-                            {% thumbnail project.image "600x300" format="WEBP" as webp %}
-                                {% thumbnail project.image "600x300" format="JPEG" as jpeg %}
-                                    <picture>
-                                        <source data-srcset="{{ webp.url }}" type="image/webp">
-                                        <source data-srcset="{{ jpeg.url }}" type="image/jpeg">
-                                        <img class="lazyload" alt="{{ project.title }}">
-                                    </picture>
+                            <picture>
+                                {% thumbnail project.image "600x300" format="WEBP" as webp %}
+                                <source data-srcset="{{ webp.url }}" type="image/webp">
                                 {% endthumbnail %}
-                            {% endthumbnail %}
+                                {% thumbnail project.image "600x300" format="JPEG" as jpeg %}
+                                <source data-srcset="{{ jpeg.url }}" type="image/jpeg">
+                                {% endthumbnail %}
+                                <img class="lazyload" alt="{{ project.title }}">
+                            </picture>
                         </div>
                         <div class="card-content">
                             <span class="card-title">{{ project.title }}</span>
@@ -68,25 +71,28 @@
             </div>
         </div>
         <div class="section">
-            <span class="section__view_more"><h1 class="feed-header">Blog</h1><a href="/blog" class="waves-effect grey-text text-darken-1 btn-flat">View All</a></span>
+            <span class="section__view_more">
+                <h1 class="feed-header">Blog</h1><a href="/blog"
+                    class="waves-effect grey-text text-darken-1 btn-flat">View All</a>
+            </span>
             <div class="card-container">
                 {% for article in articles|slice:":4" %}
                 <div class="card-object">
                     <div class="card">
                         <div class="card-image fade-box">
-                            {% thumbnail article.image "600x300" format="WEBP" as webp %}
-                                {% thumbnail article.image "600x300" format="JPEG" as jpeg %}
-                                    <picture>
-                                        <source data-srcset="{{ webp.url }}" type="image/webp">
-                                        <source data-srcset="{{ jpeg.url }}" type="image/jpeg">
-                                        <img class="dim-image lazyload" alt="{{ article.title }}">
-                                    </picture>
+                            <picture>
+                                {% thumbnail article.image "600x300" format="WEBP" as webp %}
+                                <source data-srcset="{{ webp.url }}" type="image/webp">
                                 {% endthumbnail %}
-                            {% endthumbnail %}
+                                {% thumbnail article.image "600x300" format="JPEG" as jpeg %}
+                                <source data-srcset="{{ jpeg.url }}" type="image/jpeg">
+                                {% endthumbnail %}
+                                <img class="dim-image lazyload" alt="{{ article.title }}">
+                            </picture>
                             <span class="card-title">{{ article.title }}</span>
                         </div>
                         <div class="card-content">
-                                <p>{{ article.preview }}</p>
+                            <p>{{ article.preview }}</p>
                         </div>
                         <div class="card-action">
                             <a href="/blog/{{ article.slug }}">Read Post</a>
@@ -102,21 +108,24 @@
             </div>
         </div>
         <div class="section">
-            <span class="section__view_more"><h1 class="feed-header">Events</h1><a href="/events" class="waves-effect grey-text text-darken-1 btn-flat">View All</a></span>
+            <span class="section__view_more">
+                <h1 class="feed-header">Events</h1><a href="/events"
+                    class="waves-effect grey-text text-darken-1 btn-flat">View All</a>
+            </span>
             <div class="card-container">
                 {% for event in events|slice:":2" %}
                 <div class="card-object">
                     <div class="card">
                         <div class="card-image fade-box">
-                            {% thumbnail event.image "600x300" format="WEBP" as webp %}
-                                {% thumbnail event.image "600x300" format="JPEG" as jpeg %}
-                                    <picture>
-                                        <source data-srcset="{{ webp.url }}" type="image/webp">
-                                        <source data-srcset="{{ jpeg.url }}" type="image/jpeg">
-                                        <img class="dim-image lazyload" alt="{{ event.title }}">
-                                    </picture>
+                            <picture>
+                                {% thumbnail event.image "600x300" format="WEBP" as webp %}
+                                <source data-srcset="{{ webp.url }}" type="image/webp">
                                 {% endthumbnail %}
-                            {% endthumbnail %}
+                                {% thumbnail event.image "600x300" format="JPEG" as jpeg %}
+                                <source data-srcset="{{ jpeg.url }}" type="image/jpeg">
+                                {% endthumbnail %}
+                                <img class="dim-image lazyload" alt="{{ event.title }}">
+                            </picture>
                             <span class="card-title">{{ event.title }}</span>
                         </div>
                         <div class="card-content">
@@ -148,15 +157,15 @@
                 <div class="card-object">
                     <div class="card">
                         <div class="card-image fade-box">
-                            {% thumbnail project.image "600x300" format="WEBP" as webp %}
-                                {% thumbnail project.image "600x300" format="JPEG" as jpeg %}
-                                    <picture>
-                                        <source data-srcset="{{ webp.url }}" type="image/webp">
-                                        <source data-srcset="{{ jpeg.url }}" type="image/jpeg">
-                                        <img class="lazyload" alt="{{ project.title }}">
-                                    </picture>
+                            <picture>
+                                {% thumbnail project.image "600x300" format="WEBP" as webp %}
+                                <source data-srcset="{{ webp.url }}" type="image/webp">
                                 {% endthumbnail %}
-                            {% endthumbnail %}
+                                {% thumbnail project.image "600x300" format="JPEG" as jpeg %}
+                                <source data-srcset="{{ jpeg.url }}" type="image/jpeg">
+                                {% endthumbnail %}
+                                <img class="lazyload" alt="{{ project.title }}">
+                            </picture>
                         </div>
                         <div class="card-content">
                             <span class="card-title">{{ project.title }}</span>
@@ -179,7 +188,11 @@
         {% if view == "Blog" %}
         <div class="section">
             {% if tag %}
-            <span class="section__tagged"><h1 class="feed-header">Blog</h1><div class="chip">{{ tag }}<a href="/blog"><i class="tag-clear material-icons black-text">close</i></a></div></span>
+            <span class="section__tagged">
+                <h1 class="feed-header">Blog</h1>
+                <div class="chip">{{ tag }}<a href="/blog"><i class="tag-clear material-icons black-text">close</i></a>
+                </div>
+            </span>
             {% else %}
             <h1 class="feed-header">Blog</h1>
             {% endif %}
@@ -188,15 +201,15 @@
                 <div class="card-object">
                     <div class="card">
                         <div class="card-image fade-box">
-                            {% thumbnail article.image "600x300" format="WEBP" as webp %}
-                                {% thumbnail article.image "600x300" format="JPEG" as jpeg %}
-                                    <picture>
-                                        <source data-srcset="{{ webp.url }}" type="image/webp">
-                                        <source data-srcset="{{ jpeg.url }}" type="image/jpeg">
-                                        <img class="dim-image lazyload" alt="{{ article.title }}">
-                                    </picture>
+                            <picture>
+                                {% thumbnail article.image "600x300" format="WEBP" as webp %}
+                                <source data-srcset="{{ webp.url }}" type="image/webp">
                                 {% endthumbnail %}
-                            {% endthumbnail %}
+                                {% thumbnail article.image "600x300" format="JPEG" as jpeg %}
+                                <source data-srcset="{{ jpeg.url }}" type="image/jpeg">
+                                {% endthumbnail %}
+                                <img class="dim-image lazyload" alt="{{ article.title }}">
+                            </picture>
                             <span class="card-title">{{ article.title }}</span>
                         </div>
                         <div class="card-content">
@@ -227,15 +240,15 @@
                 <div class="card-object">
                     <div class="card">
                         <div class="card-image fade-box">
-                            {% thumbnail event.image "600x300" format="WEBP" as webp %}
-                                {% thumbnail event.image "600x300" format="JPEG" as jpeg %}
-                                    <picture>
-                                        <source data-srcset="{{ webp.url }}" type="image/webp">
-                                        <source data-srcset="{{ jpeg.url }}" type="image/jpeg">
-                                        <img class="dim-image lazyload" alt="{{ event.title }}">
-                                    </picture>
+                            <picture>
+                                {% thumbnail event.image "600x300" format="WEBP" as webp %}
+                                <source data-srcset="{{ webp.url }}" type="image/webp">
                                 {% endthumbnail %}
-                            {% endthumbnail %}
+                                {% thumbnail event.image "600x300" format="JPEG" as jpeg %}
+                                <source data-srcset="{{ jpeg.url }}" type="image/jpeg">
+                                {% endthumbnail %}
+                                <img class="dim-image lazyload" alt="{{ event.title }}">
+                            </picture>
                             <span class="card-title">{{ event.title }}</span>
                         </div>
                         <div class="card-content">
@@ -277,37 +290,25 @@
                         <tr>
                             <td>{{ skill.title }}</td>
                             <td>
-                                {% if skill.experience == 0 %} < 1 
-                                {% else %} {{ skill.experience }} 
-                                {% endif %}
-                                {% if skill.experience <= 1 %} Year 
-                                {% else %} Years 
-                                {% endif %} 
-                            </td> 
-                            <td>
-                                {% if skill.last_used == 0 %} < 1 
-                                {% else %} {{ skill.last_used }} 
-                                {% endif %}
-                                {% if skill.last_used <= 1 %} Year 
-                                {% else %} Years {% endif %} Ago 
-                            </td>
-                        </tr> 
-                        {% empty %}
-                        <tr>
+                                {% if skill.experience == 0 %} < 1 {% else %} {{ skill.experience }} {% endif %}
+                                    {% if skill.experience <= 1 %} Year {% else %} Years {% endif %} </td> <td>
+                                    {% if skill.last_used == 0 %} < 1 {% else %} {{ skill.last_used }} {% endif %}
+                                        {% if skill.last_used <= 1 %} Year {% else %} Years {% endif %} Ago </td> </tr>
+                                        {% empty %} <tr>
                             <td>It looks like I don't have any skills. Please hire me anyway!</td>
                             <td>42 Years</td>
                             <td>42 Years Ago</td>
                         </tr>
-                        {% endfor %} 
-                    </tbody> 
-                </table> 
-            </div> 
-        </div> 
-        {% endif %} 
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        {% endif %}
 
-        {% comment %} Contact page contents {% endcomment %} 
+        {% comment %} Contact page contents {% endcomment %}
         {% if view == "Contact" %}
-        {% load recaptcha2 %} {% recaptcha_init %} 
+        {% load recaptcha2 %} {% recaptcha_init %}
         <div class="section">
             <div class="contact__wrapper">
                 <h1 class="feed-header center">Contact Me</h1>

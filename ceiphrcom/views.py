@@ -21,7 +21,7 @@ class IndexMetadata(object):
         except Article.DoesNotExist:
             exists = None
 
-        if slug and exists:
+        if exists:
             context["article_metadata"] = Article.objects.values("title", "preview", "image").get(slug=slug)
             context["is_article"] = True
         else:
@@ -121,8 +121,8 @@ class Blog(TemplateView):
 
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(**kwargs)
-        context = IndexMetadata.get_context_data(context)
         tag = self.request.GET.get('t', '')
+        context = IndexMetadata.get_context_data(context)
         if tag:
             context["tag"] = tag
             context["contents"] = Article.objects.filter(tags__name=tag)
