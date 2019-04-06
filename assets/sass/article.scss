@@ -1,5 +1,20 @@
 @import "base";
 // Article Template
+@media only screen and (max-width: 992px) {
+  .article__heading__wrapper {
+    margin-bottom: 20vh;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  .article__heading__wrapper {
+    margin-bottom: 15vh;
+  }
+}
+
+.article__body__wrapper {
+  margin-top: 5vh;
+}
 
 .article__heading {
   position: relative;
@@ -39,8 +54,6 @@
 }
 
 .article__body {
-  
-  margin-top: 32vh;
   overflow-wrap: break-word;
 
   -ms-word-break: break-word;
@@ -71,24 +84,24 @@
   h1 {
     font-size: 1.8rem;
   }
-  
+
   h2 {
     font-size: 1.5rem;
   }
-  
+
   h3 {
     font-size: 1.3rem;
   }
-  
+
   h4 {
     font-size: 1.1rem;
   }
-  
+
   h5,
   h6 {
     font-size: 1rem;
   }
-  
+
   p {
     font-size: $p-size;
   }

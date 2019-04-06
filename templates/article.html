@@ -10,81 +10,77 @@
 {% comment %} Article contents {% endcomment %}
 <div id="feed">
     <div class="container">
-        <!-- <div id="cover__content">
-            <div id="cover__text">
-                <div id="cover__title">
-                    {{ name }}
-                </div>
-                <div id="cover__subtext">
-                    {{ metadata.slogan }}
-                </div>
-            </div>
-        </div> -->
-        <div class="article__heading">
-            <h1>{{ contents.title }}</h1>
-            <p class="grey-text text-lighten-1"><i>By <b>{{ name }}</b> on {{ contents.modified }}</i></p>
-        </div>
         <div class="article__cover_image">
             {% thumbnail contents.image "1920x960" format="WEBP" as webp %}
-                {% thumbnail contents.image "1920x960" format="JPEG" as jpeg %}
-                    <picture>
-                        <source data-srcset="{{ webp.url }}" type="image/webp">
-                        <source data-srcset="{{ jpeg.url }}" type="image/jpeg">
-                        <img class="dim-image lazyload" alt="{{ contents.title }}">
-                    </picture>
-                {% endthumbnail %}
+            {% thumbnail contents.image "1920x960" format="JPEG" as jpeg %}
+            <picture>
+                <source data-srcset="{{ webp.url }}" type="image/webp">
+                <source data-srcset="{{ jpeg.url }}" type="image/jpeg">
+                <img class="dim-image lazyload" alt="{{ contents.title }}">
+            </picture>
+            {% endthumbnail %}
             {% endthumbnail %}
         </div>
-        <div class="article__body">
-            <div class="article__contents">
-                {{ contents.content | markdown | safe }}
-                <hr/>
-                <div class="tags">
-                    <h3>Tags</h3>
-                    {% for tag in tags %}
-                    <a href="/blog?t={{ tag }}">
-                        <div class="chip">
-                        {{ tag.name }}
-                        </div>
-                    </a>
-                    {% empty %}
-                    This article is not relatable.
-                    {% endfor %}
+        <div class="row">
+            <div class="article__heading__wrapper col s12 m12 l10 offset-l1">
+                <div class="article__heading">
+                    <h1>{{ contents.title }}</h1>
+                    <p class="grey-text text-lighten-1"><i>By <b>{{ name }}</b> on {{ contents.modified }}</i></p>
                 </div>
             </div>
-        </div>
-        <div class="section">
-            <h1 class="feed-header">More Posts</h1>
-            <div class="card-container">
-                {% for article in articles|slice:":2" %}
-                <div class="card-object">
-                    <div class="card">
-                        <div class="card-image">
-                            {% thumbnail article.image "600x300" format="WEBP" as webp %}
-                                {% thumbnail article.image "600x300" format="JPEG" as jpeg %}
-                                    <picture>
-                                        <source data-srcset="{{ webp.url }}" type="image/webp">
-                                        <source data-srcset="{{ jpeg.url }}" type="image/jpeg">            
-                                        <img class="dim-image lazyload" alt="{{ article.title }}">
-                                    </picture>
-                                {% endthumbnail %}
-                            {% endthumbnail %}
-                            <span class="card-title">{{ article.title }}</span>
-                        </div>
-                        <div class="card-content">
-                            <p>{{ article.preview }}</p>
-                        </div>
-                        <div class="card-action">
-                            <a href="/blog/{{ article.slug }}">Read Post</a>
-                            <div class="grey-text text-darken-1 right">
-                                {{ article.modified }}
-                            </div>
+            <div class="article__body__wrapper col s12 m12 l10 offset-l1">
+                <div class="article__body">
+                    <div class="article__contents">
+                        {{ contents.content | markdown | safe }}
+                        <hr />
+                        <div class="tags">
+                            <h3>Tags</h3>
+                            {% for tag in tags %}
+                            <a href="/blog?t={{ tag }}">
+                                <div class="chip">
+                                    {{ tag.name }}
+                                </div>
+                            </a>
+                            {% empty %}
+                            This article is not relatable.
+                            {% endfor %}
                         </div>
                     </div>
                 </div>
-                {% empty %}
-                <p>Our article supply is running dry. Check back soon!</p>
-                {% endfor %}
+                <div class="section">
+                    <h1 class="feed-header">More Posts</h1>
+                    <div class="card-container">
+                        {% for article in articles|slice:":2" %}
+                        <div class="card-object">
+                            <div class="card">
+                                <div class="card-image">
+                                    {% thumbnail article.image "600x300" format="WEBP" as webp %}
+                                    {% thumbnail article.image "600x300" format="JPEG" as jpeg %}
+                                    <picture>
+                                        <source data-srcset="{{ webp.url }}" type="image/webp">
+                                        <source data-srcset="{{ jpeg.url }}" type="image/jpeg">
+                                        <img class="dim-image lazyload" alt="{{ article.title }}">
+                                    </picture>
+                                    {% endthumbnail %}
+                                    {% endthumbnail %}
+                                    <span class="card-title">{{ article.title }}</span>
+                                </div>
+                                <div class="card-content">
+                                    <p>{{ article.preview }}</p>
+                                </div>
+                                <div class="card-action">
+                                    <a href="/blog/{{ article.slug }}">Read Post</a>
+                                    <div class="grey-text text-darken-1 right">
+                                        {{ article.modified }}
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        {% empty %}
+                        <p>Our article supply is running dry. Check back soon!</p>
+                        {% endfor %}
+                    </div>
+                </div>
             </div>
         </div>
     </div>
