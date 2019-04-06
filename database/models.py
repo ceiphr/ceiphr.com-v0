@@ -8,6 +8,13 @@ class Metadata(models.Model):
     slogan = models.CharField(default="", max_length=100)
     desc = models.CharField(default="", max_length=300)
 
+class Tag(models.Model):
+    name = models.CharField(default="", max_length=50)
+    class Meta:
+        ordering = ['name']
+    def __str__(self):
+        return self.name
+
 class Article(models.Model):
     title = models.CharField(default="", max_length=255)
     preview = models.CharField(default="", max_length=200)
@@ -15,6 +22,7 @@ class Article(models.Model):
     image = ImageField(upload_to='articles/%Y/%m/%d')
     content = models.TextField(default="", max_length=20000)
     modified = models.DateField(default=datetime.date.today) 
+    tags = models.ManyToManyField(Tag)
     def save(self, *args, **kwargs):
         if not self.id:
             self.slug = slugify(self.title)

@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views.generic.base import View
 from django.views.generic import TemplateView
-from database.models import Detail, Document, SocialLink, Project, Article, Event, Skill, Metadata
+from database.models import Detail, Document, SocialLink, Project, Article, Tag, Event, Skill, Metadata
 from django.core.mail import BadHeaderError, EmailMessage
 from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.shortcuts import render
@@ -107,6 +107,7 @@ class BlogPost(TemplateView):
             exists = None
         if exists:
             context["contents"] = Article.objects.get(slug=slug)
+            context["tags"] = Article.objects.get(slug=slug).tags.all()
         else: 
             raise Http404
         context["view"] = "Blog"
@@ -121,7 +122,14 @@ class Blog(TemplateView):
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(**kwargs)
         context = IndexMetadata.get_context_data(context)
-        context["contents"] = Article.objects.all()
+        tag = self.request.GET.get('t', '')
+        if tag:
+            context["tag"] = tag
+            context["contents"] = Article.objects.filter(tags__name=tag)
+            if not Article.objects.filter(tags__name=tag):
+                raise Http404
+        else:
+            context["contents"] = Article.objects.all()
         context["view"] = "Blog"
         return context
 

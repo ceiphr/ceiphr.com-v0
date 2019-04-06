@@ -29,6 +29,9 @@ urlpatterns = [
     # Projects page - renders project feed contents
     path('projects', Projects.as_view(template_name="index.html"), name="Projects"),
 
+    # Blog page filtered by tag - renders blog post feed contents
+    path('blog?t=<tag>', Blog.as_view(template_name="index.html"), name="Blog"),
+
     # Blog page - renders blog post feed contents
     path('blog', Blog.as_view(template_name="index.html"), name="Blog"),
 

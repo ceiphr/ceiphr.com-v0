@@ -4,6 +4,7 @@ from database.models import *
 # Register your models here.
 admin.site.register(Metadata)
 admin.site.register(Article)
+admin.site.register(Tag)
 admin.site.register(Project)
 admin.site.register(Event)
 admin.site.register(Skill)
