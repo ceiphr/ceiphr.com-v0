@@ -94,9 +94,27 @@
   font-size: 32px;
 }
 
-.filter-query {
-  font-size: 1.5rem;
-  margin-top: 6px;
+.section__tagged {
+  height: 32px;
+}
+
+.section__tagged h1,
+.section__tagged .chip {
+  display: inline-block;
+}
+
+.section__tagged .chip {
+  position: relative;
+  margin-left: 16px;
+  bottom: 8px;
+}
+
+.tag-clear {
+  cursor: pointer;
+  float: right;
+  font-size: 16px !important;
+  line-height: 32px !important;
+  padding-left: 8px !important;
 }
 
 .card-container {
