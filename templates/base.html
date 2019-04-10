@@ -13,7 +13,7 @@
     <meta name="description" content="{{ metadata.desc }}" />
     <meta itemprop="name" content="{{ name }} - {{ metadata.slogan }} | {{ username }}">
     <meta itemprop="description" content="{{ metadata.desc }}" />
-    {% thumbnail logo "120x120" format="JPEG" as jpeg %}
+    {% thumbnail logo "1200x1200" format="JPEG" as jpeg %}
     <meta itemprop="image" content="{{ jpeg.url }}">
     <meta property="og:image" content="{{ jpeg.url }}">
     {% endthumbnail %}
@@ -24,7 +24,7 @@
     <meta name="description" content="{{ article_metadata.preview }}" />
     <meta itemprop="name" content="{{ article_metadata.title }} | {{ username }}">
     <meta itemprop="description" content="{{ article_metadata.preview }}" />
-    {% thumbnail article_metadata.image "120x120" format="JPEG" as jpeg %}
+    {% thumbnail article_metadata.image "1200x600" format="JPEG" as jpeg %}
     <meta itemprop="image" content="{{ jpeg.url }}">
     <meta property="og:image" content="{{ jpeg.url }}">
     {% endthumbnail %}
@@ -35,7 +35,7 @@
     <meta name="description" content="{{ metadata.desc }}" />
     <meta itemprop="name" content="{{ name }} - {{ view }} | {{ username }}">
     <meta itemprop="description" content="{{ metadata.desc }}" />
-    {% thumbnail logo "120x120" format="JPEG" as jpeg %}
+    {% thumbnail logo "1200x1200" format="JPEG" as jpeg %}
     <meta itemprop="image" content="{{ jpeg.url }}">
     <meta property="og:image" content="{{ jpeg.url }}">
     {% endthumbnail %}
@@ -66,7 +66,7 @@
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-title" content="{{ username }}" />
-    {% thumbnail logo "120x120" format="JPEG" as jpeg %}
+    {% thumbnail logo "1200x1200" format="JPEG" as jpeg %}
     <link rel="apple-touch-icon" href="{{ jpeg.url }}" />
     <link rel="apple-touch-startup-image" href="{{ jpeg.url }}" />
     {% endthumbnail %}
@@ -82,7 +82,7 @@
     <meta name="twitter:creator" content="@{{ username }}">
 
     {% comment %} Tile icon for Win8 (144x144 + tile color) {% endcomment %}
-    {% thumbnail logo "120x120" format="JPEG" as jpeg %}
+    {% thumbnail logo "144x144" format="JPEG" as jpeg %}
     <meta name="msapplication-TileImage" content="{{ jpeg.url }}">
     {% endthumbnail %}
     <meta name="msapplication-TileColor" content="#2F3BA2">
