@@ -156,9 +156,10 @@
 .section__view_more a {
   display: inline-block;
   vertical-align: middle;
-  margin: 10px 0;
 }
 
 .section__view_more a {
-  margin-left: 12px;
+  position: relative;
+  margin-left: 16px;
+  top: 8px;
 }

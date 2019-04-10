@@ -96,23 +96,27 @@
 </div>
 <style type="text/css">
     @media print {
+        .article__heading__wrapper {
+            margin-bottom: 12 !important;
+        }
         .article__heading {
             position: initial !important;
             transform: translateY(0%) !important;
         }
 
         .article__body {
-            margin-top: 0% !important;
+            margin-top: 0 !important;
         }
 
         .article__heading,
         .article__body,
+        .article__footer,
         a,
         code,
         .highlight pre,
         .highlight pre * {
             color: #000000 !important;
-            line-height: 2rem !important;
+            line-height: 1.5rem !important;
         }
 
         p {
@@ -125,6 +129,7 @@
         .feed-header,
         .card-container,
         .article__cover_image,
+        .tags,
         .footer__wrapper {
             display: none !important;
         }
