@@ -274,85 +274,93 @@
         {% comment %} Skill feed {% endcomment %}
         {% if view == "Skills" %}
         <div class="section">
+            <h1 class="feed-header">Skills</h1>
             <div class="row">
-                <div class="col s12 l10 offset-l1">
-                    <h1 class="feed-header">Skills</h1>
-                </div>
-                <div class="col s12 m12 l10 offset-l1">
+                {% for subject in categories %}
+                <div class="col s12 m6 l4">
+                    <h2 class="feed-subheader">
+                        {{ subject.title }}
+                    </h2>
                     <table>
                         <thead>
                             <tr>
                                 <th>Skill</th>
-                                <th>Experience (Years)</th>
-                                <th>Last Used (Months)</th>
+                                <th>Exp. (Years)</th>
+                                <th>Last Used (Years)</th>
                             </tr>
                         </thead>
-
                         <tbody>
                             {% for skill in contents %}
+                            {% if skill.category == subject %}
                             <tr>
                                 <td>{{ skill.title }}</td>
                                 <td>
-                                    {% if skill.experience == 0 %} < 1 {% else %} {{ skill.experience }} {% endif %}
-                                        </td> <td>
-                                        {% if skill.last_used == 0 %} < 1 {% else %} {{ skill.last_used }} {% endif %}
-                                            </td> </tr> {% empty %} <tr>
-                                <td>It looks like I don't have any skills. Please hire me anyway!</td>
-                                <td>42</td>
-                                <td>42</td>
-                            </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-        {% endif %}
+                                {% if skill.experience == 0 %} < 1 {% else %} {{ skill.experience }} {% endif %}
+                                </td> 
+                                <td>
+                                {% if skill.last_used == 0 %} < 1 {% else %} {{ skill.last_used }} {% endif %}
+                                </td> 
+                            </tr> 
+                            {% endif %} 
+                            {% empty %}
+                            I have no skills in this category!
+                            {% endfor %} 
+                        </tbody> 
+                    </table> 
+                </div> 
+                {% empty %}
+                I have no skills!
+                {% endfor %}                           
+            </div> 
+        </div> 
+        {% endif %} 
 
-        {% comment %} Contact page contents {% endcomment %}
-        {% if view == "Contact" %}
-        {% load recaptcha2 %} {% recaptcha_init %}
+
+        {% comment %} Contact page contents {% endcomment %} 
+        {% if view == "Contact" %} 
+        {% load recaptcha2 %} {% recaptcha_init %} 
         <div class="section">
-            <div class="contact__wrapper">
-                <div class="row">
-                    <div class="col s12 m12 l6 offset-l3">
-                        <h1 class="feed-header">Contact Me</h1>
-                    </div>
-                    <form class="col s12 m12" method="post" action="/contact">
-                        {% csrf_token %}
-                        {% if incomplete_form == True %}
-                        <div class="input-field col s12 l6 offset-l3">
-                            <div class="chip red lighten-4">
-                                Email not sent. Please retry.
-                                <i class="close material-icons">close</i>
+                    <div class="contact__wrapper">
+                        <div class="row">
+                            <div class="col s12 m12 l6 offset-l3">
+                                <h1 class="feed-header">Contact Me</h1>
                             </div>
+                            <form class="col s12 m12" method="post" action="/contact">
+                                {% csrf_token %}
+                                {% if incomplete_form == True %}
+                                <div class="input-field col s12 l6 offset-l3">
+                                    <div class="chip red lighten-4">
+                                        Email not sent. Please retry.
+                                        <i class="close material-icons">close</i>
+                                    </div>
+                                </div>
+                                {% endif %}
+                                <div class="input-field col s12 l6 offset-l3">
+                                    <i class="material-icons prefix">email</i>
+                                    {{ contents.sender }}
+                                    <label for="sender">Email</label>
+                                </div>
+                                <div class="input-field col s12 l6 offset-l3">
+                                    {{ contents.subject }}
+                                    <label for="subject">Subject</label>
+                                </div>
+                                <div class="input-field col s12 l6 offset-l3">
+                                    {{ contents.message }}
+                                    <label for="message">Message</label>
+                                </div>
+                                <div class="input-field col s12 l6 offset-l3">
+                                    {{ contents.captcha }}
+                                </div>
+                                <div class="input-field col s12 l6 offset-l3">
+                                    <button type="submit" class="btn btn-default">
+                                        <i class="material-icons right">send</i>Send
+                                    </button>
+                                </div>
+                            </form>
                         </div>
-                        {% endif %}
-                        <div class="input-field col s12 l6 offset-l3">
-                            <i class="material-icons prefix">email</i>
-                            {{ contents.sender }}
-                            <label for="sender">Email</label>
-                        </div>
-                        <div class="input-field col s12 l6 offset-l3">
-                            {{ contents.subject }}
-                            <label for="subject">Subject</label>
-                        </div>
-                        <div class="input-field col s12 l6 offset-l3">
-                            {{ contents.message }}
-                            <label for="message">Message</label>
-                        </div>
-                        <div class="input-field col s12 l6 offset-l3">
-                            {{ contents.captcha }}
-                        </div>
-                        <div class="input-field col s12 l6 offset-l3">
-                            <button type="submit" class="btn btn-default"><i
-                                    class="material-icons right">send</i>Send</button>
-                            </di>
-                    </form>
+                    </div>
                 </div>
+                {% endif %}
             </div>
         </div>
-        {% endif %}
-    </div>
-</div>
-{% endblock content %}
+        {% endblock content %}

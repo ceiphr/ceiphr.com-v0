@@ -57,10 +57,18 @@ class Event(models.Model):
     def __str__(self):
         return 'Event: ' + self.title
 
+class SkillCategory(models.Model):
+    title = models.CharField(default="", max_length=50)
+    class Meta:
+        ordering = ['title']
+    def __str__(self):
+        return self.title
+
 class Skill(models.Model):
     title = models.CharField(default="", max_length=50)
     experience = models.IntegerField(default=0)
-    last_used = models.IntegerField(default=0)   
+    last_used = models.IntegerField(default=0)  
+    category = models.ForeignKey(SkillCategory, null=True, on_delete=models.CASCADE) 
     class Meta:
         ordering = ['-experience']
     def __str__(self):

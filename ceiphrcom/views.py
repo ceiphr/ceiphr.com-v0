@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views.generic.base import View
 from django.views.generic import TemplateView
-from database.models import Detail, Document, SocialLink, Project, Article, Tag, Event, Skill, Metadata
+from database.models import Detail, Document, SocialLink, Project, Article, Tag, Event, Skill, SkillCategory, Metadata
 from django.core.mail import BadHeaderError, EmailMessage
 from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.shortcuts import render
@@ -168,6 +168,7 @@ class Skills(TemplateView):
     def get_context_data(self, *args, **kwargs):
         context = super().get_context_data(**kwargs)
         context = IndexMetadata.get_context_data(context)
+        context["categories"] = SkillCategory.objects.all()
         context["contents"] = Skill.objects.all()
         context["view"] = "Skills"
         return context

@@ -60,6 +60,31 @@ a::-moz-selection {
   background: rgba(255, 255, 255, 0.25);
 }
 
+h1 {
+  font-size: 1.8rem !important;
+}
+
+h2 {
+  font-size: 1.5rem !important;
+}
+
+h3 {
+  font-size: 1.3rem !important;
+}
+
+h4 {
+  font-size: 1.1rem !important;
+}
+
+h5,
+h6 {
+  font-size: 1rem !important;
+}
+
+p {
+  font-size: $p-size;
+}
+
 // Lazy loading transition
 .lazyload,
 .lazyloading {
