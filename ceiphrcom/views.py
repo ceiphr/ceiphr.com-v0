@@ -126,7 +126,7 @@ class Blog(TemplateView):
         if tag:
             context["tag"] = tag
             context["contents"] = Article.objects.filter(tags__name=tag).exclude(published=False)
-            if not Article.objects.filter(tags__name=tag):
+            if not Article.objects.filter(tags__name=tag).exclude(published=False):
                 raise Http404
         else:
             context["contents"] = Article.objects.exclude(published=False)
