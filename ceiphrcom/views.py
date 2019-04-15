@@ -125,7 +125,7 @@ class Blog(TemplateView):
         context = IndexMetadata.get_context_data(context)
         if tag:
             context["tag"] = tag
-            context["contents"] = Article.objects.filter(tags__name=tag)
+            context["contents"] = Article.objects.filter(tags__name=tag).exclude(published=False)
             if not Article.objects.filter(tags__name=tag):
                 raise Http404
         else:
