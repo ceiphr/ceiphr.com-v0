@@ -88,7 +88,7 @@ class FrontPage(TemplateView):
         context = super().get_context_data(**kwargs)
         context = IndexMetadata.get_context_data(context)
         context["projects"] = Project.objects.all()
-        context["articles"] = Article.objects.all()
+        context["articles"] = Article.objects.exclude(published=False)
         context["events"] = Event.objects.all()
         context["view"] = "FrontPage"
         return context
@@ -129,7 +129,7 @@ class Blog(TemplateView):
             if not Article.objects.filter(tags__name=tag):
                 raise Http404
         else:
-            context["contents"] = Article.objects.all()
+            context["contents"] = Article.objects.exclude(published=False)
         context["view"] = "Blog"
         return context
 

@@ -67,7 +67,7 @@
 
   #cover__title {
     color: $secondary-color;
-    font-family: $a-font-bol;
+    font-family: $h-font-bol;
     white-space: nowrap;
     font-size: 300%;
   }
@@ -84,18 +84,18 @@
   color: white;
   font-size: 120%;
   padding-bottom: 12px;
-  font-family: $h-font-reg;
+  font-family: $h-font-med;
 }
 
 // Feed Header
 .feed-header {
   position: relative;
-  font-family: $h-font-reg;
+  font-family: $h-font-smb;
   font-size: 32px;
 }
 
 .feed-subheader {
-  font-family: $h-font-lit;
+  font-family: $h-font-med;
 }
 
 .section__tagged {

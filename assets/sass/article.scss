@@ -24,7 +24,7 @@
   z-index: 2;
   color: white;
   h1 {
-    font-family: $h-font-lit;
+    font-family: $h-font-smb;
     font-size: 2rem;
     margin-bottom: 0.5rem;
   }
@@ -65,14 +65,20 @@
   hyphens: auto;
 
   h1,
-  h2,
+  h2 {
+    font-family: $h-font-smb;
+  }
+
   h3,
   h4,
   h5,
-  h6,
+  h6 {
+    font-family: $h-font-med;
+  }
+
   code,
   .highlight {
-    font-family: $h-font-lit;
+    font-family: $p-font-mon;
   }
 
   code {
@@ -129,4 +135,8 @@
     border-radius: 8px;
     overflow: auto;
   }
+}
+
+#MathJax_Message, #MathJax_MSIE_Frame {
+  display: none;
 }

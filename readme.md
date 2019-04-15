@@ -28,9 +28,7 @@ Javascript/CSS
 
 Fonts
 - [Material Design Icons](https://material.io/)
-- [Open Sans](https://fonts.google.com/specimen/Open+Sans)
-- [League Mono](https://www.theleagueofmoveabletype.com/league-mono)
-- [League Spartan](https://www.theleagueofmoveabletype.com/league-spartan)
+- [IBM Plex Sans & Monospace](https://github.com/IBM/plex)
 
 
 ## License

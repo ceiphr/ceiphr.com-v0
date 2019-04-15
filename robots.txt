@@ -1,6 +1,5 @@
 # Rule 1
 User-agent: *
-Disallow: /admin
 Disallow: /thanks
 
 Sitemap: https://ceiphr.com/sitemap.xml
