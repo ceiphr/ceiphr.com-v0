@@ -100,7 +100,7 @@ class BlogPost(TemplateView):
     def get_context_data(self, slug, *args, **kwargs):
         context = super().get_context_data(**kwargs)
         context = IndexMetadata.get_context_data(context, slug)
-        context["articles"] = Article.objects.exclude(slug=slug)
+        context["articles"] = Article.objects.exclude(published=False).exclude(slug=slug)
         try:
             exists = Article.objects.get(slug=slug)
         except Article.DoesNotExist:
