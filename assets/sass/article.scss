@@ -76,6 +76,25 @@
     font-family: $h-font-med;
   }
 
+  .headerlink {
+    opacity: 0;
+    position: relative;
+    padding-left: 12px;
+    -webkit-transition: opacity $qk-duration ease-in-out;
+    transition: opacity $qk-duration ease-in-out;
+  }
+
+  h1:hover,
+  h2:hover,
+  h3:hover,
+  h4:hover,
+  h5:hover,
+  h6:hover {
+    .headerlink {
+      opacity: 1;
+    }
+  }
+
   code,
   .highlight {
     font-family: $p-font-mon;
@@ -120,10 +139,15 @@
     max-width: 100%;
   }
 
+  .highlight,
   table,
   blockquote,
-  .highlight pre,
   img {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .highlight pre {
     padding: 12px;
   }
 
