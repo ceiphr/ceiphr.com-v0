@@ -5,7 +5,7 @@ This project is the source code for my personal website. This website displays a
 I'm a highschool student. I really wanted some way to display my achievements, projects and ideas. This is what I came up with.
 
 ## Screenshot
-![ceiphr.com screenshot](https://ceiphr.sfo2.cdn.digitaloceanspaces.com/Gitlab/ceiphr.com/ceiphrcom.png "Ceiphr.com front page.")
+![ceiphr.com screenshot](https://cdn.ceiphr.com/gitlab/ceiphr.com/ceiphrcom.png "Ceiphr.com front page.")
 
 ## Tech/Frameworks used
 Python/Django
