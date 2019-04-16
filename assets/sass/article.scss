@@ -139,12 +139,17 @@
 
   img {
     max-width: 100%;
+    margin-left: 12px;
+    margin-right: 12px;
+  }
+
+  .window {
+    box-shadow: 0 4px 4px 0 rgba(0,0,0,0.14);
   }
 
   .highlight,
   table,
-  blockquote,
-  img {
+  blockquote {
     padding-left: 12px;
     padding-right: 12px;
   }
