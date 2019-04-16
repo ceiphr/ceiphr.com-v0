@@ -129,33 +129,6 @@
   width: 100%;
 }
 
-.card-container .card-object {
-  width: 50%;
-  padding: 0 12px 0 12px;
-}
-
-.card-image {
-  background-color: black;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
-}
-
-.card-image img {
-  object-fit: cover;
-  width: 300px;
-  height: 200px;
-}
-
-@media only screen and (max-width: 992px) {
-  .card-container .card-object {
-    width: 100%;
-  }
-}
-
-.dim-image {
-  filter: brightness(50%);
-}
-
 .section__view_more h1,
 .section__view_more a {
   display: inline-block;

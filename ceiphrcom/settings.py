@@ -164,6 +164,7 @@ PIPELINE = {
         'article': {
             'source_filenames': (
                 'sass/article.scss',
+                'sass/fonts.scss',
                 'sass/monokai.scss',
                 'node_modules/typeface-open-sans/index.css',
                 'node_modules/material-design-icons/iconfont/material-icons.css',
