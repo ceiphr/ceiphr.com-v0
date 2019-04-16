@@ -19,7 +19,7 @@ class BlogSitemap(Sitemap):
     priority = 0.5
 
     def items(self):
-        return Article.objects.all()
+        return Article.objects.exclude(published=False)
 
     def lastmod(self, obj):
         return obj.modified
