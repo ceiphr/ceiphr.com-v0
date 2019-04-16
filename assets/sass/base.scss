@@ -142,7 +142,8 @@ hr {
 @media only screen and (min-width: 992px) {
   .section,
   .footer,
-  .article__body {
+  .article__body,
+  #carbonads {
     animation-name: slide;
     animation-duration: 1s;
   }
