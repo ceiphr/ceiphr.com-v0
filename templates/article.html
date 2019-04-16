@@ -22,13 +22,17 @@
             </picture>
         </div>
         <div class="row">
-            <div class="article__heading__wrapper col s12 m12 l10 offset-l1">
+            <div class="article__heading__wrapper col s12 m12 l12 offset-l1">
                 <div class="article__heading">
                     <h1>{{ contents.title }}</h1>
                     <p class="grey-text text-lighten-1"><i>By <b>{{ name }}</b> on {{ contents.modified }}</i></p>
                 </div>
             </div>
-            <div class="article__body__wrapper col s12 m12 l10 offset-l1">
+            <div class="carbonads__wrapper col s12 m12 l3 push-l8">
+                <script async type="text/javascript"
+                    src="//cdn.carbonads.com/carbon.js?serve=CK7I62QM&placement=ceiphrcom" id="_carbonads_js"></script>
+            </div>
+            <div class="article__body__wrapper col s12 m12 l7 pull-l3 offset-l1">
                 <div class="article__body">
                     <div class="article__contents">
                         {{ contents.content | markdown | safe }}
@@ -54,7 +58,9 @@
                         This article is not relatable.
                         {% endfor %}
                     </div>
-                </div>
+                </div>  
+            </div>
+            <div class="col s12 m12 l10 offset-l1">
                 <hr />
                 <div class="section">
                     <h1 class="feed-header">More Posts</h1>
@@ -99,6 +105,7 @@
         .article__heading__wrapper {
             margin-bottom: 12 !important;
         }
+
         .article__heading {
             position: initial !important;
             transform: translateY(0%) !important;
@@ -143,7 +150,7 @@
 </style>
 {% if contents.latex_support %}
 <script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async>
-</script>
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async>
+    </script>
 {% endif %}
 {% endblock content %}
