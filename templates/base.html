@@ -94,7 +94,11 @@
     <link rel="shortcut icon" type="image/png" href="{% static 'img/favicon.png' %}" />
 
     {% comment %} Critical CSS {% endcomment %}
+    {% if is_article %}
+    {% stylesheet 'article' %}
+    {% else %}
     {% stylesheet 'critical' %}
+    {% endif %}
 </head>
 
 <body>
@@ -217,9 +221,6 @@
     {% stylesheet 'misc' %}
     {% endif %}
     {% javascript 'frameworks' %}
-    {% if is_article %}
-    {% stylesheet 'article' %}
-    {% endif %}
     <!-- Fathom - simple website analytics - https://github.com/usefathom/fathom -->
     <script>
         (function (f, a, t, h, o, m) {
