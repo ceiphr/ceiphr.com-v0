@@ -162,6 +162,16 @@ hr {
   width: 100%;
 }
 
+.feed-header {
+  position: relative;
+  font-family: $h-font-smb;
+  font-size: 32px;
+}
+
+.feed-subheader {
+  font-family: $h-font-med;
+}
+
 @media only screen and (max-width: 992px) {
   .card-container .card-object {
     width: 100%;
