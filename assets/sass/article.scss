@@ -141,10 +141,9 @@
   }
 
   .window {
-    box-shadow: 0 4px 4px 0 rgba(0,0,0,0.14);
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.14);
   }
 
-  .highlight,
   table,
   blockquote {
     padding-left: 12px;
@@ -153,11 +152,11 @@
 
   .highlight pre {
     padding: 12px;
+    overflow: auto;
   }
 
   .highlight pre {
     border-radius: 8px;
-    overflow: auto;
   }
 }
 
@@ -174,7 +173,8 @@ blockquote p {
 
 // MathJax
 
-#MathJax_Message, #MathJax_MSIE_Frame {
+#MathJax_Message,
+#MathJax_MSIE_Frame {
   display: none;
 }
 
@@ -209,12 +209,12 @@ blockquote p {
     text-align: center;
     font-size: 12px;
   }
-      
+
   #carbonads span {
     display: block;
     overflow: hidden;
   }
-  
+
   .carbon-img {
     display: block;
     margin: 8px auto 8px;
@@ -224,14 +224,14 @@ blockquote p {
   .carbon-img img {
     border-radius: 4px;
   }
-  
+
   .carbon-text {
     padding-left: 12px;
     padding-right: 12px;
     display: block;
     color: #637381;
   }
-  
+
   .carbon-poweredby {
     text-transform: uppercase;
     padding: 12px;
@@ -245,25 +245,25 @@ blockquote p {
 // Mobile
 @media only screen and (max-width: 992px) {
   #carbonads {
-    max-width: 300px;
+    max-width: 400px;
     font-size: 12px;
   }
-  
+
   #carbonads span {
     position: relative;
     display: block;
     overflow: hidden;
   }
-  
+
   .carbon-img {
     float: left;
     margin-right: 1em;
   }
-  
+
   .carbon-img img {
     display: block;
   }
-  
+
   .carbon-text {
     display: block;
     float: left;
@@ -273,7 +273,7 @@ blockquote p {
     text-align: left;
     color: #637381;
   }
-  
+
   .carbon-poweredby {
     position: absolute;
     left: 142px;
@@ -287,4 +287,3 @@ blockquote p {
     letter-spacing: 1px;
   }
 }
-
