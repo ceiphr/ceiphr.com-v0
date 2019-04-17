@@ -161,6 +161,17 @@
   }
 }
 
+blockquote {
+  border-left-width: 0px !important;
+}
+
+blockquote p {
+  background-color: #e1f5fe;
+  color: #29b6f6;
+  padding: 12px;
+  border-radius: 8px;
+}
+
 // MathJax
 
 #MathJax_Message, #MathJax_MSIE_Frame {
@@ -175,30 +186,28 @@
 
 #carbonads {
   display: block;
+  background-color: #fafafa;
   overflow: hidden;
-  border-radius: 6px;
+  border-radius: 8px;
   font-family: $p-font-reg;
   box-shadow: 0 2px 2px 0 rgba(0, 0%, 0%, 0.1);
-  background-color: #fff;
   line-height: 1.5;
   transition: box-shadow $qk-duration;
-}
-
-#carbonads a {
-  text-decoration: none;
 }
 
 #carbonads:hover {
   box-shadow: 0 6px 6px 0 rgba(0, 0%, 0%, 0.1);
 }
 
+#carbonads a {
+  text-decoration: none;
+}
+
 // Desktop
 @media only screen and (min-width: 992px) {
   #carbonads {
-    padding: 12px;
     text-align: center;
     font-size: 12px;
-    max-width: 154px;
   }
       
   #carbonads span {
@@ -208,22 +217,24 @@
   
   .carbon-img {
     display: block;
-    margin: 0 auto 8px;
+    margin: 8px auto 8px;
     line-height: 1;
   }
-  
+
   .carbon-img img {
-    display: block;
+    border-radius: 4px;
   }
   
   .carbon-text {
+    padding-left: 12px;
+    padding-right: 12px;
     display: block;
-    margin-bottom: 8px;
     color: #637381;
   }
   
   .carbon-poweredby {
     text-transform: uppercase;
+    padding: 12px;
     display: block;
     font-size: 10px;
     letter-spacing: 1px;
@@ -234,7 +245,6 @@
 // Mobile
 @media only screen and (max-width: 992px) {
   #carbonads {
-    padding: 10px;
     max-width: 300px;
     font-size: 12px;
   }
@@ -257,6 +267,8 @@
   .carbon-text {
     display: block;
     float: left;
+    padding-top: 10px;
+    padding-right: 5px;
     max-width: calc(100% - 130px - 1em);
     text-align: left;
     color: #637381;
@@ -265,6 +277,7 @@
   .carbon-poweredby {
     position: absolute;
     left: 142px;
+    padding-bottom: 10px;
     bottom: 0;
     display: block;
     font-size: 8px;

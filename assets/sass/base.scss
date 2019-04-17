@@ -154,6 +154,14 @@ hr {
   height: 200px;
 }
 
+.card-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-flow: row wrap;
+  width: 100%;
+}
+
 @media only screen and (max-width: 992px) {
   .card-container .card-object {
     width: 100%;
