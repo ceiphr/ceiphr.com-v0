@@ -19,6 +19,7 @@
     {% endthumbnail %}
     <meta property="og:title" content="{{ name }} - {{ metadata.slogan }} | {{ username }}" />
     <meta property="og:description" content="{{ metadata.desc }}" />
+    <meta name="twitter:card" content="summary">
     <title>{{ name }} - {{ metadata.slogan }} | {{ username }}</title>
     {% elif is_article %}
     <meta name="description" content="{{ article_metadata.preview }}" />
@@ -30,6 +31,7 @@
     {% endthumbnail %}
     <meta property="og:title" content="{{ article_metadata.title }} | {{ username }}" />
     <meta property="og:description" content="{{ article_metadata.preview }}" />
+    <meta name="twitter:card" content="summary_large_image">
     <title>{{ article_metadata.title }} | {{ username }}</title>
     {% else %}
     <meta name="description" content="{{ metadata.desc }}" />
@@ -41,6 +43,7 @@
     {% endthumbnail %}
     <meta property="og:title" content="{{ name }} - {{ view }} | {{ username }}" />
     <meta property="og:description" content="{{ metadata.desc }}" />
+    <meta name="twitter:card" content="summary">
     {% if tag %}
     <title>#{{ tag }} | {{ username }}</title>
     {% else %}
@@ -78,7 +81,7 @@
     <meta property="og:locale" content="en_US" />
 
     {% comment %} Twitter Meta Tags {% endcomment %}
-    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@{{ username }}" />
     <meta name="twitter:creator" content="@{{ username }}">
 
     {% comment %} Tile icon for Win8 (144x144 + tile color) {% endcomment %}
