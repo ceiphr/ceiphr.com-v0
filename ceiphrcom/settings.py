@@ -155,8 +155,8 @@ PIPELINE = {
             'source_filenames': (
                 'sass/index.scss',
                 'sass/fonts.scss',
-                'node_modules/typeface-open-sans/index.css',
                 'node_modules/material-design-icons/iconfont/material-icons.css',
+                'sass/rain.scss',
             ),
             'output_filename':
             'css/index.css',
@@ -166,7 +166,6 @@ PIPELINE = {
                 'sass/article.scss',
                 'sass/fonts.scss',
                 'sass/monokai.scss',
-                'node_modules/typeface-open-sans/index.css',
                 'node_modules/material-design-icons/iconfont/material-icons.css',
             ),
             'output_filename':
@@ -178,13 +177,6 @@ PIPELINE = {
             ),
             'output_filename':
             'css/frameworks.css',
-        },
-        'misc': {
-            'source_filenames': (
-                'sass/rain.scss',
-            ),
-            'output_filename':
-            'css/misc.css',
         },
     },
 
