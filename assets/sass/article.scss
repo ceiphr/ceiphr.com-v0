@@ -114,17 +114,17 @@
   }
 
   ul {
-    padding-left: 2em;
+    padding-left: 2em !important;
     li {
-      margin-top: 0.5em;
-      list-style-type: disc;
+      margin-top: 0.5em !important;
+      list-style-type: disc !important;
     }
   }
 
   ol {
     li {
-      margin-top: 0.5em;
-      list-style-type: decimal-leading-zero;
+      margin-top: 0.5em !important;
+      list-style-type: decimal-leading-zero !important;
     }
   }
 
