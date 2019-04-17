@@ -89,7 +89,6 @@ class FrontPage(TemplateView):
         context = IndexMetadata.get_context_data(context)
         context["projects"] = Project.objects.all()
         context["articles"] = Article.objects.exclude(published=False)
-        context["events"] = Event.objects.all()
         context["view"] = "FrontPage"
         return context
 

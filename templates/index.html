@@ -107,44 +107,6 @@
                 {% endfor %}
             </div>
         </div>
-        <div class="section">
-            <span class="section__view_more">
-                <h1 class="feed-header">Events</h1><a href="/events"
-                    class="waves-effect grey-text text-darken-1 btn-flat">View All</a>
-            </span>
-            <div class="card-container">
-                {% for event in events|slice:":2" %}
-                <div class="card-object">
-                    <div class="card">
-                        <div class="card-image fade-box">
-                            <picture>
-                                {% thumbnail event.image "600x300" format="WEBP" as webp %}
-                                <source data-srcset="{{ webp.url }}" type="image/webp">
-                                {% endthumbnail %}
-                                {% thumbnail event.image "600x300" format="JPEG" as jpeg %}
-                                <source data-srcset="{{ jpeg.url }}" type="image/jpeg">
-                                {% endthumbnail %}
-                                <img class="dim-image lazyload" alt="{{ event.title }}">
-                            </picture>
-                            <span class="card-title">{{ event.title }}</span>
-                        </div>
-                        <div class="card-content">
-                            <p>{{ event.desc }}</p>
-                        </div>
-                        <div class="card-action">
-                            <a href="{{ event.link }}">View Event</a>
-                            <div class="tooltipped grey-text text-darken-1 right" data-position="bottom"
-                                data-tooltip="{{ event.start_date }} - {{ event.end_date }}">
-                                {{ event.end_date }}
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                {% empty %}
-                <p>I have never left my house before!</p>
-                {% endfor %}
-            </div>
-        </div>
         {% endif %}
 
 
