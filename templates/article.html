@@ -22,17 +22,17 @@
             </picture>
         </div>
         <div class="row">
-            <div class="article__heading__wrapper col s12 m12 l12 offset-l1">
+            <div class="article__heading__wrapper col s12 m12 l12 xl12 offset-xl1">
                 <div class="article__heading">
                     <h1>{{ contents.title }}</h1>
                     <p class="grey-text text-lighten-1"><i>By <b>{{ name }}</b> on {{ contents.modified }}</i></p>
                 </div>
             </div>
-            <div class="carbonads__wrapper col s12 m12 l2 push-l9">
+            <div class="carbonads__wrapper col s12 m12 l12 xl2 push-xl9">
                 <script async type="text/javascript"
                     src="//cdn.carbonads.com/carbon.js?serve=CK7I62QM&placement=ceiphrcom" id="_carbonads_js"></script>
             </div>
-            <div class="article__body__wrapper col s12 m12 l8 pull-l2 offset-l1">
+            <div class="article__body__wrapper col s12 m12 l12 xl8 pull-xl2 offset-xl1">
                 <div class="article__body">
                     <div class="article__contents">
                         {{ contents.content | markdown | safe }}

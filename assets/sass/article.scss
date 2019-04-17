@@ -5,6 +5,9 @@
   .article__heading__wrapper {
     margin-bottom: 15vh;
   }
+}
+
+@media only screen and (min-width: 1200px) {
   .article__body__wrapper {
     margin-top: 5vh;
   }
@@ -102,7 +105,8 @@
   }
 
   code {
-    background-color: #eeeeee;
+    // background-color: #eeeeee;
+    background-color: #e1f5fe;
     color: $secondary-color;
     border-radius: 2px;
     padding: 2px 4px 2px 4px;
@@ -204,7 +208,7 @@ blockquote p {
 }
 
 // Desktop
-@media only screen and (min-width: 992px) {
+@media only screen and (min-width: 1200px) {
   #carbonads {
     text-align: center;
     font-size: 12px;
@@ -243,7 +247,7 @@ blockquote p {
 }
 
 // Mobile
-@media only screen and (max-width: 992px) {
+@media only screen and (max-width: 1200px) {
   #carbonads {
     max-width: 400px;
     font-size: 12px;
