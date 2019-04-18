@@ -189,6 +189,8 @@ blockquote p {
   overflow: hidden;
   border-radius: 8px;
   font-family: $p-font-reg;
+  font-size: 12px;
+  padding: 12px;
   box-shadow: 0 2px 2px 0 rgba(0, 0%, 0%, 0.1);
   line-height: 1.5;
   transition: box-shadow $qk-duration;
@@ -205,8 +207,7 @@ blockquote p {
 // Desktop
 @media only screen and (min-width: 1200px) {
   #carbonads {
-    text-align: center;
-    font-size: 12px;
+    width: 154px;
   }
 
   #carbonads span {
@@ -216,26 +217,20 @@ blockquote p {
 
   .carbon-img {
     display: block;
-    margin: 8px auto 8px;
+    margin-bottom: 8px;
     line-height: 1;
   }
 
-  .carbon-img img {
-    border-radius: 4px;
-  }
-
   .carbon-text {
-    padding-left: 12px;
-    padding-right: 12px;
+    margin-bottom: 8px;
     display: block;
     color: #637381;
   }
 
   .carbon-poweredby {
     text-transform: uppercase;
-    padding: 12px;
     display: block;
-    font-size: 10px;
+    font-size: 8px;
     letter-spacing: 1px;
     line-height: 1;
   }
@@ -245,7 +240,6 @@ blockquote p {
 @media only screen and (max-width: 1200px) {
   #carbonads {
     max-width: 400px;
-    font-size: 12px;
   }
 
   #carbonads span {
@@ -266,7 +260,7 @@ blockquote p {
   .carbon-text {
     display: block;
     float: left;
-    padding-top: 10px;
+    padding-top: 12px;
     padding-right: 5px;
     max-width: calc(100% - 130px - 1em);
     text-align: left;
@@ -276,7 +270,7 @@ blockquote p {
   .carbon-poweredby {
     position: absolute;
     left: 142px;
-    padding-bottom: 10px;
+    padding-bottom: 12px;
     bottom: 0;
     display: block;
     font-size: 8px;
