@@ -1,0 +1,14 @@
+Django
+django-pipeline
+django-recaptcha2
+django-otp
+mistune
+Pygments
+qrcode
+sorl-thumbnail
+Pillow
+django-jet
+django-sendgrid-v5
+sentry-sdk
+gunicorn
+psycopg2-binary
