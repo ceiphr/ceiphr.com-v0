@@ -61,7 +61,7 @@
     <meta name="msapplication-tap-highlight" content="no">
 
     {% comment %} Mobile Google Chrome {% endcomment %}
-    <meta name="theme-color" content="#29323c" />
+    <meta name="theme-color" content="#03a9f4" />
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="{{ username }}">
 
@@ -88,7 +88,7 @@
     {% thumbnail logo "144x144" format="JPEG" as jpeg %}
     <meta name="msapplication-TileImage" content="{{ jpeg.url }}">
     {% endthumbnail %}
-    <meta name="msapplication-TileColor" content="#2F3BA2">
+    <meta name="msapplication-TileColor" content="#03a9f4">
 
     {% comment %} SEO {% endcomment %}
     <link rel="canonical" href="https://{{ request.get_host }}{{ request.get_full_path }}">
@@ -136,7 +136,7 @@
                     <a href="/contact">Contact</a>
                 </li>
                 <li>
-                    <a href="https://changelog.ceiphr.com"><i
+                    <a href="https://changelog.ceiphr.com" aria-label="Changelog"><i
                             class="material-icons right">track_changes</i>Changelog</a>
                 </li>
                 <li>
@@ -194,7 +194,7 @@
             <div class="divider" class="waves-effect"></div>
         </li>
         <li>
-            <a href="https://changelog.ceiphr.com" class="waves-effect" aria-label="Changelog for personal projects">
+            <a href="https://changelog.ceiphr.com" class="waves-effect" aria-label="Changelog">
                 <i class="material-icons">track_changes</i>Changelog</a>
         </li>
         <li>
