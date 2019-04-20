@@ -218,25 +218,34 @@ hr {
 }
 
 // Footer
-$footer-text-color: rgba(0, 0, 0, 0.75);
 
 .footer {
   margin: $sd-margin/2;
   padding-bottom: 24px;
-  color: $footer-text-color;
   text-align: center;
 
   a {
-    color: $footer-text-color;
     transition-duration: $qk-duration;
+    color: $primary-color;
+
+    svg {
+      position: relative;
+      transition-duration: $qk-duration;
+      fill: $primary-color;
+      top: 4px;
+      width: 18px;
+      height: 18px;
+    }
 
     &:hover {
-      color: rgba(0, 0, 0, 1);
+      color: $secondary-color;
+      svg {
+        fill: $secondary-color;
+      }
     }
 
     &:nth-of-type(1n)::after {
       content: " - ";
-      color: $footer-text-color;
     }
 
     &:nth-last-of-type(1)::after {

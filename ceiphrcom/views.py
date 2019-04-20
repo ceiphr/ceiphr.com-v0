@@ -70,13 +70,8 @@ def handler404(request, exception, template_name='404.html'):
 
 # Error catching with full page - 500
 
-# exception, template_name='500.html'
-# def handler500(request):
-#     context = dict()
-#     context["view"] = "404"
-#     context = IndexMetadata.get_context_data(context)
-#     capture_message("Internal Server Error!", level="error")
-#     return render(request, '500.html', context, status=500)
+def handler500(request):
+    capture_message("Internal Server Error!", level="error")
 
 # FromtPage feed for index template
 

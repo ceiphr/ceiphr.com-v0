@@ -7,6 +7,7 @@ from django.contrib.sitemaps.views import sitemap
 from ceiphrcom.views import *
 from django_otp.admin import OTPAdminSite
 from .sitemaps import BlogSitemap, StaticViewSitemap
+from .feeds import RssSiteNewsFeed, AtomSiteNewsFeed
 import ceiphrcom.production_config
 
 # Admin site details
@@ -15,7 +16,7 @@ admin.site.site_title = 'Ceiphr'
 
 # Django 404 and 500 error catcher
 handler404 = 'ceiphrcom.views.handler404'
-# handler500 = 'ceiphrcom.views.handler500'
+handler500 = 'ceiphrcom.views.handler500'
 
 sitemaps = {
     'static': StaticViewSitemap,
@@ -27,7 +28,8 @@ urlpatterns = [
     path('', FrontPage.as_view(template_name="index.html"), name="FrontPage"),
 
     # Projects page - renders project feed contents
-    path('projects', Projects.as_view(template_name="index.html"), name="Projects"),
+    path('projects', Projects.as_view(
+        template_name="index.html"), name="Projects"),
 
     # Blog page filtered by tag - renders blog post feed contents
     path('blog?t=<tag>', Blog.as_view(template_name="index.html"), name="Blog"),
@@ -37,6 +39,10 @@ urlpatterns = [
 
     # Article page - renders selected blog post
     path('blog/<slug>', BlogPost.as_view(template_name="article.html")),
+
+    # Blog RSS/Atom feed
+    path('blog/rss/', RssSiteNewsFeed()),
+    path('blog/atom/', AtomSiteNewsFeed()),
 
     # Events page - renders event feed contents
     path('events', Events.as_view(template_name="index.html"), name="Events"),
@@ -54,7 +60,8 @@ urlpatterns = [
     path('thanks', EmailSent.as_view()),
 
     # Site map for SEO
-    path('sitemap.xml', sitemap, {'sitemaps': sitemaps}, name='django.contrib.sitemaps.views.sitemap')
+    path('sitemap.xml', sitemap, {'sitemaps': sitemaps},
+         name='django.contrib.sitemaps.views.sitemap')
 ]
 
 # If admin setting is enabled, the admin URL is available to manage Django's DB
@@ -67,8 +74,8 @@ if settings.ADMIN_ENABLED:
 
 # For test server during development - allows for media to be retrieved
 if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+    urlpatterns += static(settings.MEDIA_URL,
+                          document_root=settings.MEDIA_ROOT)
 else:
     # TOTP for production
     admin.site.__class__ = OTPAdminSite
-

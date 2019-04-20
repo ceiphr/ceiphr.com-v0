@@ -17,7 +17,7 @@ class Tag(models.Model):
 
 class Article(models.Model):
     title = models.CharField(default="", max_length=255)
-    preview = models.CharField(default="", max_length=200)
+    preview = models.CharField(default="", max_length=255)
     published = models.BooleanField(default=False)
     latex_support = models.BooleanField(default=False)
     slug = models.SlugField(blank=True)
