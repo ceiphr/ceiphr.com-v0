@@ -11,7 +11,7 @@ class RssSiteNewsFeed(Feed):
     feed_url = "/blog"
     link = "/blog"
     description = "Updates on changes and additions to Ceiphr.com."
-    feed_copyright = 'Copyright (c) 2016 - %s, Ari Birnbaum (Ceiphr)' % datetime.date.today().year
+    feed_copyright = 'Copyright (c) 2016 - %s, Ari Birnbaum (Ceiphr). All Rights Reserved.' % datetime.date.today().year
 
     def items(self):
         return Article.objects.exclude(published=False).order_by('-modified')[:5]
