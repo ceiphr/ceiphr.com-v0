@@ -11,7 +11,7 @@ class RssSiteNewsFeed(Feed):
     description = "Updates on changes and additions to Ceiphr.com."
 
     def items(self):
-        return Article.objects.order_by('-modified')[:5]
+        return Article.objects.exclude(published=False).order_by('-modified')[:5]
 
     def item_title(self, item):
         return item.title
