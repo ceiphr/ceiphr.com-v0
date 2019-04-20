@@ -246,6 +246,7 @@ hr {
 
     &:nth-of-type(1n)::after {
       content: " - ";
+      color: $primary-color;
     }
 
     &:nth-last-of-type(1)::after {

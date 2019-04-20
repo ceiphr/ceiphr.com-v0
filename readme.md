@@ -11,6 +11,9 @@ I'm a highschool student. I really wanted some way to display my achievements, p
 Python/Django
 - [Django](https://www.djangoproject.com/)
 - [django-pipeline](https://django-pipeline.readthedocs.io/en/latest/)
+- [SendGrid](https://sendgrid.com/)
+- [Sentry](https://sentry.io)
+- [django-otp](https://django-otp-official.readthedocs.io/en/latest/)
 - [sorl-thumbnail](https://github.com/jazzband/sorl-thumbnail)
 - [Pillow](https://python-pillow.org/)
 - [Recaptcha2](https://github.com/kbytesys/django-recaptcha2)
@@ -28,7 +31,7 @@ Javascript/CSS
 
 Fonts
 - [Material Design Icons](https://material.io/)
-- [IBM Plex Sans & Monospace](https://github.com/IBM/plex)
+- [IBM Plex](https://github.com/IBM/plex)
 
 
 ## License
