@@ -41,8 +41,8 @@ urlpatterns = [
     path('blog/<slug>', BlogPost.as_view(template_name="article.html")),
 
     # Blog RSS/Atom feed
-    path('blog/rss20.xml', RssSiteNewsFeed()),
-    path('blog/atom.xml', AtomSiteNewsFeed()),
+    path('rss20.xml', RssSiteNewsFeed()),
+    path('atom.xml', AtomSiteNewsFeed()),
 
     # Events page - renders event feed contents
     path('events', Events.as_view(template_name="index.html"), name="Events"),
