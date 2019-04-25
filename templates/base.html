@@ -120,7 +120,7 @@
     {% thumbnail favicon "152x152" format="PNG" as png %}
     <link rel="icon" href="https://{{ request.get_host }}{{ png.url }}" sizes="152x152">
     {% endthumbnail %}
-    {% thumbnail favicon "196x196" format="PNG" as png %}
+    {% thumbnail logo "196x196" format="PNG" as png %}
     <link rel="icon" href="https://{{ request.get_host }}{{ png.url }}" sizes="196x196">
     {% endthumbnail %}
     <link rel="mask-icon" href="{% static 'img/favicon.svg' %}" color="#000000">
