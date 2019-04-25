@@ -27,13 +27,7 @@
       },
        "publisher": {
         "@type": "Person",
-        "name": "{{ name }}",
-        "logo": {
-          "@type": "ImageObject",
-          {% thumbnail logo "512x512" format="PNG" as png %}
-          "url": "https://{{ request.get_host }}{{ png.url }}"
-          {% endthumbnail %}      
-        }
+        "name": "{{ name }}"
       },
       "description": "A most wonderful article"
     }
@@ -41,7 +35,7 @@
 
 {% comment %} Article contents {% endcomment %}
 <div id="feed">
-    <div class="container" itemscope itemtype="http://schema.org/Article">
+    <div class="container">
         <div class="article__cover_image">
             <picture>
                 {% thumbnail contents.image "1920x960" format="WEBP" as webp %}
@@ -50,14 +44,14 @@
                 {% thumbnail contents.image "1920x960" format="JPEG" as jpeg %}
                 <source data-srcset="{{ jpeg.url }}" type="image/jpeg">
                 {% endthumbnail %}
-                <img itemprop="image" class="dim-image lazyload" alt="{{ contents.title }}">
+                <img class="dim-image lazyload" alt="{{ contents.title }}">
             </picture>
         </div>
         <div class="row">
             <div class="article__heading__wrapper col s12 m12 l12 xl12 offset-xl1">
                 <div class="article__heading">
-                    <h1 itemprop="name">{{ contents.title }}</h1>
-                    <p class="grey-text text-lighten-1"><i>By <b itemprop="author">{{ name }}</b> on
+                    <h1>{{ contents.title }}</h1>
+                    <p class="grey-text text-lighten-1"><i>By <b>{{ name }}</b> on
                             {{ contents.modified }}</i></p>
                 </div>
             </div>
@@ -67,7 +61,7 @@
             </div>
             <div class="article__body__wrapper col s12 m12 l12 xl8 pull-xl2 offset-xl1">
                 <div class="article__body">
-                    <div class="article__contents" itemprop="articleBody">
+                    <div class="article__contents">
                         {{ contents.content | markdown | safe }}
                     </div>
                 </div>
