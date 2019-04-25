@@ -2,7 +2,7 @@
 {% load thumbnail %}
 {% load pipeline %}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" prefix="og: http://ogp.me/ns#">
 
 <head>
     {% comment %} Metadata {% endcomment %}
@@ -14,8 +14,8 @@
     <meta itemprop="name" content="{{ name }} - {{ metadata.slogan }} | {{ username }}">
     <meta itemprop="description" content="{{ metadata.desc }}" />
     {% thumbnail logo "1200x1200" format="JPEG" as jpeg %}
-    <meta itemprop="image" content="{{ jpeg.url }}">
-    <meta property="og:image" content="{{ jpeg.url }}">
+    <meta itemprop="image" content="https://{{ request.get_host }}{{ jpeg.url }}">
+    <meta property="og:image" content="https://{{ request.get_host }}{{ jpeg.url }}">
     {% endthumbnail %}
     <meta property="og:title" content="{{ name }} - {{ metadata.slogan }} | {{ username }}" />
     <meta property="og:description" content="{{ metadata.desc }}" />
@@ -26,8 +26,8 @@
     <meta itemprop="name" content="{{ article_metadata.title }} | {{ username }}">
     <meta itemprop="description" content="{{ article_metadata.preview }}" />
     {% thumbnail article_metadata.image "1200x600" format="JPEG" as jpeg %}
-    <meta itemprop="image" content="{{ jpeg.url }}">
-    <meta property="og:image" content="{{ jpeg.url }}">
+    <meta itemprop="image" content="https://{{ request.get_host }}{{ jpeg.url }}">
+    <meta property="og:image" content="https://{{ request.get_host }}{{ jpeg.url }}">
     {% endthumbnail %}
     <meta property="og:title" content="{{ article_metadata.title }} | {{ username }}" />
     <meta property="og:description" content="{{ article_metadata.preview }}" />
@@ -38,8 +38,8 @@
     <meta itemprop="name" content="{{ name }} - {{ view }} | {{ username }}">
     <meta itemprop="description" content="{{ metadata.desc }}" />
     {% thumbnail logo "1200x1200" format="JPEG" as jpeg %}
-    <meta itemprop="image" content="{{ jpeg.url }}">
-    <meta property="og:image" content="{{ jpeg.url }}">
+    <meta itemprop="image" content="https://{{ request.get_host }}{{ jpeg.url }}">
+    <meta property="og:image" content="https://{{ request.get_host }}{{ jpeg.url }}">
     {% endthumbnail %}
     <meta property="og:title" content="{{ name }} - {{ view }} | {{ username }}" />
     <meta property="og:description" content="{{ metadata.desc }}" />
@@ -55,7 +55,8 @@
     {% comment %} Generic {% endcomment %}
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="HandheldFriendly" content="true" />
+    <meta name="viewport" content="width=device-width, height=device-height, user-scalable=no, initial-scale=1, maximum-scale=1" />
 
     {% comment %} Disable tap highlight on IE {% endcomment %}
     <meta name="msapplication-tap-highlight" content="no">
@@ -67,12 +68,28 @@
 
     {% comment %} Mobile Safari {% endcomment %}
     <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="apple-mobile-web-app-title" content="{{ username }}" />
-    {% thumbnail logo "1200x1200" format="JPEG" as jpeg %}
-    <link rel="apple-touch-icon" href="{{ jpeg.url }}" />
-    <link rel="apple-touch-startup-image" href="{{ jpeg.url }}" />
+
+    {% thumbnail logo "512x512" format="PNG" as png %}
+    <link rel="apple-touch-icon" href="https://{{ request.get_host }}{{ png.url }}">
     {% endthumbnail %}
+    {% thumbnail logo "76x76" format="PNG" as png %}
+    <link rel="apple-touch-icon" sizes="76x76" href="https://{{ request.get_host }}{{ png.url }}">
+    {% endthumbnail %}
+    {% thumbnail logo "120x120" format="PNG" as png %}
+    <link rel="apple-touch-icon" sizes="120x120" href="https://{{ request.get_host }}{{ png.url }}">
+    {% endthumbnail %}
+    {% thumbnail logo "152x152" format="PNG" as png %}
+    <link rel="apple-touch-icon" sizes="152x152" href="https://{{ request.get_host }}{{ png.url }}">
+    <link rel="apple-touch-startup-image" href="https://{{ request.get_host }}{{ png.url }}" />
+    {% endthumbnail %}
+
+    {% thumbnail logo "70x70" format="PNG" as png %}
+    <meta name="msapplication-square70x70logo" content="https://{{ request.get_host }}{{ png.url }}">
+    {% endthumbnail %}
+    {% thumbnail logo "150x150" format="PNG" as png %}
+    <meta name="msapplication-square150x150logo" content="https://{{ request.get_host }}{{ png.url }}">
+    {% endthumbnail %}    
 
     {% comment %} Facebook Meta Tags {% endcomment %}
     <meta property="og:url" content="https://{{ request.get_host }}{{ request.get_full_path }}" />
@@ -86,7 +103,7 @@
 
     {% comment %} Tile icon for Win8 (144x144 + tile color) {% endcomment %}
     {% thumbnail logo "144x144" format="JPEG" as jpeg %}
-    <meta name="msapplication-TileImage" content="{{ jpeg.url }}">
+    <meta name="msapplication-TileImage" content="https://{{ request.get_host }}{{ jpeg.url }}">
     {% endthumbnail %}
     <meta name="msapplication-TileColor" content="#03a9f4">
 
@@ -94,7 +111,19 @@
     <link rel="canonical" href="https://{{ request.get_host }}{{ request.get_full_path }}">
 
     {% comment %} Favicon {% endcomment %}
-    <link rel="shortcut icon" type="image/png" href="{% static 'img/favicon.png' %}" />
+    {% thumbnail favicon "16x16" format="PNG" as png %}
+    <link rel="icon" href="https://{{ request.get_host }}{{ png.url }}" sizes="16x16">
+    {% endthumbnail %}
+    {% thumbnail favicon "32x32" format="PNG" as png %}
+    <link rel="icon" href="https://{{ request.get_host }}{{ png.url }}" sizes="32x32">
+    {% endthumbnail %}
+    {% thumbnail favicon "152x152" format="PNG" as png %}
+    <link rel="icon" href="https://{{ request.get_host }}{{ png.url }}" sizes="152x152">
+    {% endthumbnail %}
+    {% thumbnail favicon "196x196" format="PNG" as png %}
+    <link rel="icon" href="https://{{ request.get_host }}{{ png.url }}" sizes="196x196">
+    {% endthumbnail %}
+    <link rel="mask-icon" href="{% static 'img/favicon.svg' %}" color="#000000">
 
     {% comment %} Critical CSS {% endcomment %}
     {% if is_article %}

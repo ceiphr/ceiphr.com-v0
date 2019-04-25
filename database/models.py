@@ -90,6 +90,7 @@ class Detail(models.Model):
     legal_name = models.CharField(default="", max_length=50)
     user_name = models.CharField(default="", max_length=50)
     logo = ImageField(default="", upload_to='img/assets/')
+    favicon = ImageField(default="", upload_to='img/assets/')
     phone = models.CharField(default="", max_length=50)
     email = models.CharField(default="", max_length=50)
     def __str__(self):

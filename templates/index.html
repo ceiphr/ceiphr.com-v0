@@ -44,7 +44,7 @@
             <div class="card-container">
                 {% for project in projects|slice:":2" %}
                 <div class="card-object">
-                    <div class="card">
+                    <div class="card" itemscope itemtype="https://schema.org/Thing">
                         <div class="card-image">
                             <picture>
                                 {% thumbnail project.image "600x300" format="WEBP" as webp %}
@@ -53,15 +53,15 @@
                                 {% thumbnail project.image "600x300" format="JPEG" as jpeg %}
                                 <source data-srcset="{{ jpeg.url }}" type="image/jpeg">
                                 {% endthumbnail %}
-                                <img class="lazyload" alt="{{ project.title }}">
+                                <img itemprop="image" class="lazyload" alt="{{ project.title }}">
                             </picture>
                         </div>
                         <div class="card-content">
-                            <span class="card-title">{{ project.title }}</span>
-                            <p>{{ project.summary }}</p>
+                            <span class="card-title" itemprop="name">{{ project.title }}</span>
+                            <p itemprop="description">{{ project.summary }}</p>
                         </div>
                         <div class="card-action">
-                            <a href="{{ project.link }}">View Project</a>
+                            <a itemprop="url" href="{{ project.link }}">View Project</a>
                         </div>
                     </div>
                 </div>
@@ -78,7 +78,7 @@
             <div class="card-container">
                 {% for article in articles|slice:":4" %}
                 <div class="card-object">
-                    <div class="card">
+                    <div class="card" itemscope itemtype="http://schema.org/Article">
                         <div class="card-image fade-box">
                             <picture>
                                 {% thumbnail article.image "600x300" format="WEBP" as webp %}
@@ -87,16 +87,16 @@
                                 {% thumbnail article.image "600x300" format="JPEG" as jpeg %}
                                 <source data-srcset="{{ jpeg.url }}" type="image/jpeg">
                                 {% endthumbnail %}
-                                <img class="dim-image lazyload" alt="{{ article.title }}">
+                                <img itemprop="image" class="dim-image lazyload" alt="{{ article.title }}">
                             </picture>
-                            <span class="card-title">{{ article.title }}</span>
+                            <span itemprop="name" class="card-title">{{ article.title }}</span>
                         </div>
                         <div class="card-content">
-                            <p>{{ article.preview }}</p>
+                            <p itemprop="description">{{ article.preview }}</p>
                         </div>
                         <div class="card-action">
-                            <a href="/blog/{{ article.slug }}">Read Post</a>
-                            <div class="grey-text text-darken-1 right">
+                            <a itemprop="url" href="/blog/{{ article.slug }}">Read Post</a>
+                            <div itemprop="datePublished" class="grey-text text-darken-1 right">
                                 {{ article.modified }}
                             </div>
                         </div>
@@ -117,7 +117,7 @@
             <div class="card-container">
                 {% for project in contents %}
                 <div class="card-object">
-                    <div class="card">
+                    <div class="card" itemscope itemtype="http://schema.org/Thing">
                         <div class="card-image fade-box">
                             <picture>
                                 {% thumbnail project.image "600x300" format="WEBP" as webp %}
@@ -126,15 +126,15 @@
                                 {% thumbnail project.image "600x300" format="JPEG" as jpeg %}
                                 <source data-srcset="{{ jpeg.url }}" type="image/jpeg">
                                 {% endthumbnail %}
-                                <img class="lazyload" alt="{{ project.title }}">
+                                <img itemprop="image" class="lazyload" alt="{{ project.title }}">
                             </picture>
                         </div>
                         <div class="card-content">
-                            <span class="card-title">{{ project.title }}</span>
-                            <p>{{ project.summary }}</p>
+                            <span itemprop="name" class="card-title">{{ project.title }}</span>
+                            <p itemprop="description">{{ project.summary }}</p>
                         </div>
                         <div class="card-action">
-                            <a href="{{ project.link }}">View Project</a>
+                            <a itemprop="url" href="{{ project.link }}">View Project</a>
                         </div>
                     </div>
                 </div>
@@ -161,7 +161,7 @@
             <div class="card-container">
                 {% for article in contents %}
                 <div class="card-object">
-                    <div class="card">
+                    <div class="card" itemscope itemtype="http://schema.org/Article">
                         <div class="card-image fade-box">
                             <picture>
                                 {% thumbnail article.image "600x300" format="WEBP" as webp %}
@@ -170,16 +170,16 @@
                                 {% thumbnail article.image "600x300" format="JPEG" as jpeg %}
                                 <source data-srcset="{{ jpeg.url }}" type="image/jpeg">
                                 {% endthumbnail %}
-                                <img class="dim-image lazyload" alt="{{ article.title }}">
+                                <img itemprop="image" class="dim-image lazyload" alt="{{ article.title }}">
                             </picture>
-                            <span class="card-title">{{ article.title }}</span>
+                            <span class="card-title" itemprop="name">{{ article.title }}</span>
                         </div>
                         <div class="card-content">
-                            <p>{{ article.preview }}</p>
+                            <p itemprop="description">{{ article.preview }}</p>
                         </div>
                         <div class="card-action">
-                            <a href="/blog/{{ article.slug }}">Read Post</a>
-                            <div class="grey-text text-darken-1 right">
+                            <a itemprop="url" href="/blog/{{ article.slug }}">Read Post</a>
+                            <div itemprop="datePublished" class="grey-text text-darken-1 right">
                                 {{ article.modified }}
                             </div>
                         </div>
@@ -200,7 +200,7 @@
             <div class="card-container">
                 {% for event in contents %}
                 <div class="card-object">
-                    <div class="card">
+                    <div class="card" itemscope itemtype="http://schema.org/Thing">
                         <div class="card-image fade-box">
                             <picture>
                                 {% thumbnail event.image "600x300" format="WEBP" as webp %}
@@ -209,15 +209,15 @@
                                 {% thumbnail event.image "600x300" format="JPEG" as jpeg %}
                                 <source data-srcset="{{ jpeg.url }}" type="image/jpeg">
                                 {% endthumbnail %}
-                                <img class="dim-image lazyload" alt="{{ event.title }}">
+                                <img itemprop="image" class="dim-image lazyload" alt="{{ event.title }}">
                             </picture>
-                            <span class="card-title">{{ event.title }}</span>
+                            <span itemprop="name" class="card-title">{{ event.title }}</span>
                         </div>
                         <div class="card-content">
                             <p>{{ event.desc }}</p>
                         </div>
                         <div class="card-action">
-                            <a href="{{ event.link }}">View Event</a>
+                            <a itemprop="url" href="{{ event.link }}">View Event</a>
                             <div class="tooltipped grey-text text-darken-1 right" data-position="bottom"
                                 data-tooltip="{{ event.start_date }} - {{ event.end_date }}">
                                 {{ event.end_date }}

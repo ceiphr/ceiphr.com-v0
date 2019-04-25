@@ -35,6 +35,7 @@ class IndexMetadata(object):
             context["username"] = Detail.objects.first().user_name
             context["name"] = Detail.objects.first().legal_name
             context["logo"] = Detail.objects.first().logo
+            context["favicon"] = Detail.objects.first().favicon
             context["phone"] = Detail.objects.first().phone
             context["email"] = Detail.objects.first().email
             context["document"] = Document.objects.first().document
