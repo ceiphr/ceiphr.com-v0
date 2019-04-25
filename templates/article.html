@@ -26,11 +26,13 @@
         "name": "{{ name }}"
       },
        "publisher": {
-        "@type": "Organization",
-        "name": "Google",
+        "@type": "Person",
+        "name": "{{ name }}",
         "logo": {
           "@type": "ImageObject",
-          "url": "https://google.com/logo.jpg"
+          {% thumbnail logo "512x512" format="PNG" as png %}
+          "url": "https://{{ request.get_host }}{{ png.url }}"
+          {% endthumbnail %}      
         }
       },
       "description": "A most wonderful article"
