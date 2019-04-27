@@ -159,7 +159,6 @@ PIPELINE = {
             'source_filenames': (
                 'sass/index.scss',
                 'sass/fonts.scss',
-                'node_modules/material-design-icons/iconfont/material-icons.css',
                 'sass/rain.scss',
             ),
             'output_filename':
@@ -170,7 +169,6 @@ PIPELINE = {
                 'sass/article.scss',
                 'sass/fonts.scss',
                 'sass/monokai.scss',
-                'node_modules/material-design-icons/iconfont/material-icons.css',
             ),
             'output_filename':
             'css/article.css',

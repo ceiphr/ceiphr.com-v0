@@ -1,0 +1,7 @@
+<svg version="1.1" id="Two-Tone" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 24 24" style="enable-background:new 0 0 24 24;" xml:space="preserve" width="50" height="50" fill="#000000">
+<g style="opacity:0.3;">
+	<path d="M20,19H4c-0.552,0-1-0.448-1-1V6c0-0.552,0.448-1,1-1h16c0.552,0,1,0.448,1,1v12C21,18.552,20.552,19,20,19z"/>
+</g>
+<path d="M20,20H4c-1.103,0-2-0.897-2-2V6c0-1.103,0.897-2,2-2h16c1.103,0,2,0.897,2,2v12C22,19.103,21.103,20,20,20z M4,6v12h16.001&#xA;&#9;L20,6H4z"/>
+<path d="M3.39,5.623L12,11l8.488-5.299v2L12,13L3.39,7.623V5.623z"/>
+</svg>
