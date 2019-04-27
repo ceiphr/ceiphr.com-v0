@@ -24,6 +24,8 @@ ALLOWED_HOSTS = ['ceiphr.com', '127.0.0.1', 'localhost', '0.0.0.0', '142.93.177.
 
 OTP_TOTP_ISSUER = 'Ceiphr'
 
+HTML_MINIFY = True
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -56,6 +58,8 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django_otp.middleware.OTPMiddleware',
+    'htmlmin.middleware.HtmlMinifyMiddleware',
+    'htmlmin.middleware.MarkRequestMiddleware',
     # 'django.middleware.gzip.GZipMiddleware',
     # 'pipeline.middleware.MinifyHTMLMiddleware',
 ]
