@@ -257,70 +257,65 @@
                             <tr>
                                 <td>{{ skill.title }}</td>
                                 <td>
-                                {% if skill.experience == 0 %} < 1 {% else %} {{ skill.experience }} {% endif %}
-                                </td> 
-                                <td>
-                                {% if skill.last_used == 0 %} < 1 {% else %} {{ skill.last_used }} {% endif %}
-                                </td> 
-                            </tr> 
-                            {% endif %} 
-                            {% empty %}
-                            I have no skills in this category!
-                            {% endfor %} 
-                        </tbody> 
-                    </table> 
-                </div> 
-                {% empty %}
-                I have no skills!
-                {% endfor %}                           
-            </div> 
-        </div> 
-        {% endif %} 
-
-
-        {% comment %} Contact page contents {% endcomment %} 
-        {% if view == "Contact" %} 
-        {% load recaptcha2 %} {% recaptcha_init %} 
-        <div class="section">
-                    <div class="contact__wrapper">
-                        <div class="row">
-                            <div class="col s12 m12 l6 offset-l3">
-                                <h1 class="feed-header">Contact Me</h1>
-                            </div>
-                            <form class="col s12 m12" method="post" action="/contact">
-                                {% csrf_token %}
-                                {% if incomplete_form == True %}
-                                <div class="input-field col s12 l6 offset-l3">
-                                    <div class="chip red lighten-4">
-                                        Email not sent. Please retry.
-                                        <i class="close material-icons">close</i>
-                                    </div>
-                                </div>
-                                {% endif %}
-                                <div class="input-field col s12 l6 offset-l3">
-                                    <i class="material-icons prefix">email</i>
-                                    {{ contents.sender }}
-                                    <label for="sender">Email</label>
-                                </div>
-                                <div class="input-field col s12 l6 offset-l3">
-                                    {{ contents.subject }}
-                                    <label for="subject">Subject</label>
-                                </div>
-                                <div class="input-field col s12 l6 offset-l3">
-                                    {{ contents.message }}
-                                    <label for="message">Message</label>
-                                </div>
-                                <div class="input-field col s12 l6 offset-l3">
-                                    {{ contents.captcha }}
-                                </div>
-                                <div class="input-field col s12 l6 offset-l3">
-                                    <button type="submit" class="btn btn-default">
-                                        <i class="material-icons right">send</i>Send
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
+                                    {% if skill.experience == 0 %} < 1 {% else %} {{ skill.experience }} {% endif %}
+                                        </td> <td>
+                                        {% if skill.last_used == 0 %} < 1 {% else %} {{ skill.last_used }} {% endif %}
+                                            </td> </tr> {% endif %} {% empty %} I have no skills in this category!
+                                            {% endfor %} </tbody> </table> </div> {% empty %} I have no skills!
+                                            {% endfor %} </div> </div> {% endif %} {% comment %} Contact page contents
+                                            {% endcomment %} {% if view == "Contact" %} {% load recaptcha2 %}
+                                            {% recaptcha_init %} <div class="section">
+                                            <div class="contact__wrapper">
+                                                <div class="row">
+                                                    <div class="col s12 m12 l6 offset-l3">
+                                                        <h1 class="feed-header">Contact Me</h1>
+                                                    </div>
+                                                    <form class="col s12 m12" method="post" action="/contact">
+                                                        {% csrf_token %}
+                                                        {% if incomplete_form == True %}
+                                                        <div class="input-field col s12 l6 offset-l3">
+                                                            <div class="chip red lighten-4">
+                                                                Email not sent. Please retry.
+                                                                <i class="close material-icons">close</i>
+                                                            </div>
+                                                        </div>
+                                                        {% endif %}
+                                                        <div class="input-field col s12 l6 offset-l3">
+                                                            {{ contents.sender }}
+                                                            <label for="sender">Email</label>
+                                                        </div>
+                                                        <div class="input-field col s12 l6 offset-l3">
+                                                            {{ contents.subject }}
+                                                            <label for="subject">Subject</label>
+                                                        </div>
+                                                        <div class="input-field col s12 l6 offset-l3">
+                                                            {{ contents.message }}
+                                                            <label for="message">Message</label>
+                                                        </div>
+                                                        <div class="input-field col s12 l6 offset-l3">
+                                                            {{ contents.captcha }}
+                                                        </div>
+                                                        <div class="input-field col s12 l6 offset-l3">
+                                                            <button type="submit" class="btn btn-default">
+                                                                <!-- <i class="material-icons right">send</i> -->
+                                                                <svg class="right button-icon" xmlns="http://www.w3.org/2000/svg"
+                                                                xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
+                                                                id="two_x5F_tone" x="0px" y="0px" viewBox="0 0 24 24"
+                                                                style="enable-background:new 0 0 24 24; fill: #ffffff"
+                                                                xml:space="preserve" width="24px" height="48px">
+                                                                <g style="opacity:0.3;">
+                                                                    <polygon
+                                                                        points="2.908,4.541 19.725,11.849 2.991,19.364  " />
+                                                                </g>
+                                                                <path
+                                                                    d="M2,3v18l20-9L2,3z M4,6.093L17.126,12L4,17.907V6.093z" />
+                                                                <polygon points="3,10.636 3,13.364 13,12 " />
+                                                            </svg>Send
+                                                            </button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
                 </div>
                 {% endif %}
             </div>
