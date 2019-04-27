@@ -5,12 +5,12 @@ from database.models import Article
 import datetime
 
 class RssSiteNewsFeed(Feed):
-    title = "Ceiphr.com - All Articles"
+    title = "Ceiphr"
     author_name = "Ari Birnbaum"
     author_email = 'contact@ceiphr.com'
     feed_url = "/blog"
     link = "/blog"
-    description = "Updates on changes and additions to Ceiphr.com."
+    description = "Articles about computer science and technology from Ceiphr."
     feed_copyright = 'Copyright (c) 2016 - %s, Ari Birnbaum (Ceiphr). All Rights Reserved.' % datetime.date.today().year
 
     def items(self):
