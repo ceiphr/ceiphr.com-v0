@@ -152,7 +152,16 @@
             {% if tag %}
             <span class="section__tagged">
                 <h1 class="feed-header">Blog</h1>
-                <div class="chip">{{ tag }}<a href="/blog"><i class="tag-clear material-icons black-text">close</i></a>
+                <div class="chip">{{ tag }}<a href="/blog">
+                        <svg class="tag-clear" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                            version="1.1" id="Two-Tone" x="0px" y="0px" viewBox="0 0 24 24"
+                            style="enable-background:new 0 0 24 24;" xml:space="preserve" width="24px" height="32px">
+                            <rect x="11" y="0.7" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -4.9706 12)" width="2"
+                                height="22.6" />
+                            <rect x="0.7" y="11" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -4.9706 12)"
+                                width="22.6" height="2" />
+                        </svg>
+                    </a>
                 </div>
             </span>
             {% else %}
@@ -276,7 +285,19 @@
                                                         <div class="input-field col s12 l6 offset-l3">
                                                             <div class="chip red lighten-4">
                                                                 Email not sent. Please retry.
-                                                                <i class="close material-icons">close</i>
+                                                                <svg class="close" xmlns="http://www.w3.org/2000/svg"
+                                                                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                                    version="1.1" id="Two-Tone" x="0px" y="0px"
+                                                                    viewBox="0 0 24 24"
+                                                                    style="enable-background:new 0 0 24 24;"
+                                                                    xml:space="preserve" width="24px" height="32px">
+                                                                    <rect x="11" y="0.7"
+                                                                        transform="matrix(0.7071 -0.7071 0.7071 0.7071 -4.9706 12)"
+                                                                        width="2" height="22.6" />
+                                                                    <rect x="0.7" y="11"
+                                                                        transform="matrix(0.7071 -0.7071 0.7071 0.7071 -4.9706 12)"
+                                                                        width="22.6" height="2" />
+                                                                </svg>
                                                             </div>
                                                         </div>
                                                         {% endif %}
@@ -298,19 +319,21 @@
                                                         <div class="input-field col s12 l6 offset-l3">
                                                             <button type="submit" class="btn btn-default">
                                                                 <!-- <i class="material-icons right">send</i> -->
-                                                                <svg class="right button-icon" xmlns="http://www.w3.org/2000/svg"
-                                                                xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1"
-                                                                id="two_x5F_tone" x="0px" y="0px" viewBox="0 0 24 24"
-                                                                style="enable-background:new 0 0 24 24; fill: #ffffff"
-                                                                xml:space="preserve" width="24px" height="48px">
-                                                                <g style="opacity:0.3;">
-                                                                    <polygon
-                                                                        points="2.908,4.541 19.725,11.849 2.991,19.364  " />
-                                                                </g>
-                                                                <path
-                                                                    d="M2,3v18l20-9L2,3z M4,6.093L17.126,12L4,17.907V6.093z" />
-                                                                <polygon points="3,10.636 3,13.364 13,12 " />
-                                                            </svg>Send
+                                                                <svg class="right button-icon"
+                                                                    xmlns="http://www.w3.org/2000/svg"
+                                                                    xmlns:xlink="http://www.w3.org/1999/xlink"
+                                                                    version="1.1" id="two_x5F_tone" x="0px" y="0px"
+                                                                    viewBox="0 0 24 24"
+                                                                    style="enable-background:new 0 0 24 24; fill: #ffffff"
+                                                                    xml:space="preserve" width="24px" height="48px">
+                                                                    <g style="opacity:0.3;">
+                                                                        <polygon
+                                                                            points="2.908,4.541 19.725,11.849 2.991,19.364  " />
+                                                                    </g>
+                                                                    <path
+                                                                        d="M2,3v18l20-9L2,3z M4,6.093L17.126,12L4,17.907V6.093z" />
+                                                                    <polygon points="3,10.636 3,13.364 13,12 " />
+                                                                </svg>Send
                                                             </button>
                                                         </div>
                                                     </form>
