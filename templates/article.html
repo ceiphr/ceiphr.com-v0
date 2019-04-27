@@ -25,11 +25,17 @@
         "@type": "Person",
         "name": "{{ name }}"
       },
-       "publisher": {
-        "@type": "Person",
-        "name": "{{ name }}"
+      "publisher": {
+        "@type": "Organization",
+        "name": "Ceiphr",
+        "logo": {
+          "@type": "ImageObject",
+          {% thumbnail logo "196x196" format="JPEG" as jpeg %}
+          "url": "https://{{ request.get_host }}{{ jpeg.url }}"
+          {% endthumbnail %}
+        }
       },
-      "description": "A most wonderful article"
+      "description": "{{ contents.preview }}"
     }
 </script>
 

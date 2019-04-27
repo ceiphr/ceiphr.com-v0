@@ -78,7 +78,7 @@
             <div class="card-container">
                 {% for article in articles|slice:":4" %}
                 <div class="card-object">
-                    <div class="card" itemscope itemtype="http://schema.org/Article">
+                    <div class="card" itemscope itemtype="http://schema.org/Thing">
                         <div class="card-image fade-box">
                             <picture>
                                 {% thumbnail article.image "600x300" format="WEBP" as webp %}
