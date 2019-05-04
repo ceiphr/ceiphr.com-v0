@@ -32,11 +32,11 @@ if not DEBUG:
 
     CSP_IMG_SRC = ("'self'", 'https://ceiphr.com', 'https://cdn.ceiphr.com', 'https://i.creativecommons.org', 'https://stats.ceiphr.com')
 
-    CSP_STYLE_SRC = ("'self'", 'https://ceiphr.com')
+    CSP_STYLE_SRC = ("'self' 'unsafe-inline'")
 
     CSP_SCRIPT_SRC = ("'self', 'unsafe-inline'", 'https://ceiphr.com', 'https://stats.ceiphr.com', 'https://cdn.carbonads.com', 'https://cdnjs.cloudflare.com', 'https://google.com', 'https://gstatic.com')
 
-    CSP_FONT_SRC = ("'self'", 'https://ceiphr.com', 'https://cdnjs.cloudflare.com')
+    CSP_FONT_SRC = ("'self'", 'https://cdnjs.cloudflare.com')
 
 # Application definition
 
