@@ -30,13 +30,13 @@ HTML_MINIFY = True
 if not DEBUG:
     CSP_DEFAULT_SRC = ("'none'")
 
-    CSP_IMG_SRC = ("'self'", 'cdn.ceiphr.com', 'i.creativecommons.org', 'stats.ceiphr.com')
+    CSP_IMG_SRC = ("'self'", 'https://ceiphr.com', 'https://cdn.ceiphr.com', 'https://i.creativecommons.org', 'https://stats.ceiphr.com')
 
-    CSP_STYLE_SRC = ("'self'")
+    CSP_STYLE_SRC = ("'self'", 'https://ceiphr.com')
 
-    CSP_SCRIPT_SRC = ("'self', 'unsafe-inline'", 'stats.ceiphr.com', 'cdn.carbonads.com', 'cdnjs.cloudflare.com', 'google.com', 'gstatic.com')
+    CSP_SCRIPT_SRC = ("'self', 'unsafe-inline'", 'https://ceiphr.com', 'https://stats.ceiphr.com', 'https://cdn.carbonads.com', 'https://cdnjs.cloudflare.com', 'https://google.com', 'https://gstatic.com')
 
-    CSP_FONT_SRC = ("'self'", 'ceiphr.com', 'cdnjs.cloudflare.com')
+    CSP_FONT_SRC = ("'self'", 'https://ceiphr.com', 'https://cdnjs.cloudflare.com')
 
 # Application definition
 
