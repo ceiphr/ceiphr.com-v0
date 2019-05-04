@@ -28,11 +28,13 @@ HTML_MINIFY = True
 
 # Content Security Policy
 if not DEBUG:
-    CSP_DEFAULT_SRC = ("'self'", 'ceiphr.com')
+    CSP_DEFAULT_SRC = ("'self', 'unsafe-inline'", 'ceiphr.com')
 
     CSP_IMG_SRC = ("'self'", 'cdn.ceiphr.com')
 
     CSP_SCRIPT_SRC = ("'self'", 'cdn.carbonads.com', 'cdnjs.cloudflare.com')
+
+    CSP_FONT_SRC = ("'self'", 'ceiphr.com')
 
     FRAME_ANCESTORS = ("'self'", 'google.com', 'gstatic.com')
 
