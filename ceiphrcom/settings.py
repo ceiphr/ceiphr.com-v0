@@ -37,6 +37,8 @@ CSP_SCRIPT_SRC = ("'self'", 'https://stats.ceiphr.com', 'https://cdn.carbonads.c
 
 CSP_FONT_SRC = ("'self'", 'https://cdnjs.cloudflare.com')
 
+CSP_FRAME_SRC = ("'self'", 'https://google.com', 'https://gstatic.com')
+
 CSP_CONNECT_SRC = ("'self'", )
 
 CSP_OBJECT_SRC = ("'none'", )
