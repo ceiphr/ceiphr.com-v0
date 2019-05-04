@@ -26,13 +26,15 @@ OTP_TOTP_ISSUER = 'Ceiphr'
 
 HTML_MINIFY = True
 
-# TODO
 # Content Security Policy
-# CSP_DEFAULT_SRC = ("'self'", 'ceiphr.com')
+if not DEBUG:
+    CSP_DEFAULT_SRC = ("'self'", 'ceiphr.com')
 
-# CSP_IMG_SRC = ("'self'", 'cdn.ceiphr.com')
+    CSP_IMG_SRC = ("'self'", 'cdn.ceiphr.com')
 
-# CSP_SCRIPT_SRC = ("'self'", 'cdn.carbonads.com', 'cdnjs.cloudflare.com')
+    CSP_SCRIPT_SRC = ("'self'", 'cdn.carbonads.com', 'cdnjs.cloudflare.com')
+
+    FRAME_ANCESTORS = ("'self'", 'google.com', 'gstatic.com')
 
 # Application definition
 
@@ -58,7 +60,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    # 'csp.middleware.CSPMiddleware',
+    'csp.middleware.CSPMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
