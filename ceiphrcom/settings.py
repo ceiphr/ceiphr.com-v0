@@ -28,7 +28,7 @@ HTML_MINIFY = True
 
 # Content Security Policy
 if not DEBUG:
-    CSP_DEFAULT_SRC = ("'none'")
+    CSP_DEFAULT_SRC = ("'self'")
 
     CSP_IMG_SRC = ("'self'", 'https://ceiphr.com', 'https://cdn.ceiphr.com', 'https://i.creativecommons.org', 'https://stats.ceiphr.com')
 
