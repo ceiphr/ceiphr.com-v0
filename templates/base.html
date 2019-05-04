@@ -429,7 +429,7 @@
     {% comment %} Imported CSS and JS frameworks {% endcomment %}
     {% stylesheet 'frameworks' %}
     {% javascript 'frameworks' %}
-    <script>
+    <script nonce="{{ request.csp_nonce }}">
         (function (f, a, t, h, o, m) {
             a[h] = a[h] || function () {
                 (a[h].q = a[h].q || []).push(arguments)

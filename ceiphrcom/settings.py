@@ -27,16 +27,27 @@ OTP_TOTP_ISSUER = 'Ceiphr'
 HTML_MINIFY = True
 
 # Content Security Policy
-if not DEBUG:
-    CSP_DEFAULT_SRC = ("'self'")
+CSP_INCLUDE_NONCE_IN = ('script-src',)
 
-    CSP_IMG_SRC = ("'self'", 'https://ceiphr.com', 'https://cdn.ceiphr.com', 'https://i.creativecommons.org', 'https://stats.ceiphr.com')
+CSP_IMG_SRC = ("'self'", 'https://ceiphr.com', 'https://cdn.ceiphr.com', 'https://i.creativecommons.org', 'ttps://licensebuttons.net', 'https://stats.ceiphr.com')
 
-    CSP_STYLE_SRC = ("'self' 'unsafe-inline'")
+CSP_STYLE_SRC = ("'self' 'unsafe-inline'")
 
-    CSP_SCRIPT_SRC = ("'self', 'unsafe-inline'", 'https://ceiphr.com', 'https://stats.ceiphr.com', 'https://cdn.carbonads.com', 'https://cdnjs.cloudflare.com', 'https://google.com', 'https://gstatic.com')
+CSP_SCRIPT_SRC = ("'self', 'unsafe-inline'", 'https://stats.ceiphr.com', 'https://cdn.carbonads.com', 'https://cdnjs.cloudflare.com', 'https://google.com', 'https://gstatic.com')
 
-    CSP_FONT_SRC = ("'self'", 'https://cdnjs.cloudflare.com')
+CSP_FONT_SRC = ("'self'", 'https://cdnjs.cloudflare.com')
+
+CSP_CONNECT_SRC = ("'self'", )
+
+CSP_OBJECT_SRC = ("'none'", )
+
+CSP_BASE_URI = ("'none'", )
+
+CSP_FRAME_ANCESTORS = ("'none'", )
+
+CSP_FORM_ACTION = ("'self'", )
+
+CSP_DEFAULT_SRC = ("'none'")
 
 # Application definition
 
