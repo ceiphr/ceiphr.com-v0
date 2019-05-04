@@ -30,9 +30,9 @@ HTML_MINIFY = True
 if not DEBUG:
     CSP_DEFAULT_SRC = ("'none'")
 
-    CSP_IMG_SRC = ("'self'", 'https://ceiphr.com', 'https://cdn.ceiphr.com', 'https://licensebuttons.net', 'https://stats.ceiphr.com')
+    CSP_IMG_SRC = ("'self'", 'https://ceiphr.com', 'https://cdn.ceiphr.com', 'https://i.creativecommons.org', 'https://stats.ceiphr.com')
 
-    CSP_STYLE_SRC = ("'self', 'unsafe-inline'", 'https://ceiphr.com')
+    CSP_STYLE_SRC = ("'self'", 'https://ceiphr.com')
 
     CSP_SCRIPT_SRC = ("'self', 'unsafe-inline'", 'https://ceiphr.com', 'https://stats.ceiphr.com', 'https://cdn.carbonads.com', 'https://cdnjs.cloudflare.com', 'https://google.com', 'https://gstatic.com')
 
