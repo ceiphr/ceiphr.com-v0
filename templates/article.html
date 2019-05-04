@@ -185,7 +185,7 @@
     }
 </style>
 {% if contents.latex_support %}
-<script type="text/javascript" async
+<script type="text/javascript" async nonce="{{ request.csp_nonce }}"
     src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML" async>
     </script>
 {% endif %}
