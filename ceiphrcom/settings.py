@@ -26,6 +26,14 @@ OTP_TOTP_ISSUER = 'Ceiphr'
 
 HTML_MINIFY = True
 
+# TODO
+# Content Security Policy
+# CSP_DEFAULT_SRC = ("'self'", 'ceiphr.com')
+
+# CSP_IMG_SRC = ("'self'", 'cdn.ceiphr.com')
+
+# CSP_SCRIPT_SRC = ("'self'", 'cdn.carbonads.com', 'cdnjs.cloudflare.com')
+
 # Application definition
 
 INSTALLED_APPS = [
@@ -50,6 +58,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    # 'csp.middleware.CSPMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -257,7 +266,7 @@ if not DEBUG:
 
     SECURE_BROWSER_XSS_FILTER = True
 
-    SECURE_HSTS_SECONDS = 15552000
+    SECURE_HSTS_SECONDS = 31536000
 
     SECURE_HSTS_PRELOAD = True
 
