@@ -29,15 +29,15 @@ HTML_MINIFY = True
 # Content Security Policy
 CSP_INCLUDE_NONCE_IN = ('script-src',)
 
-CSP_IMG_SRC = ("'self'", 'https://cdn.ceiphr.com', 'https://stats.ceiphr.com', 'https://i.creativecommons.org', 'https://licensebuttons.net', 'https://*.buysellads.net')
+CSP_IMG_SRC = ("'self'", 'https://cdn.ceiphr.com', 'https://stats.ceiphr.com', 'https://i.creativecommons.org', 'https://licensebuttons.net', 'https://*.buysellads.net', 'https://ad.doubleclick.net')
 
 CSP_STYLE_SRC = ("'self' 'unsafe-inline'")
 
-CSP_SCRIPT_SRC = ("'self'", 'https://stats.ceiphr.com', 'https://cdn.carbonads.com', 'https://cdnjs.cloudflare.com', 'https://www.google.com', 'https://www.gstatic.com', 'https://google.com', 'https://gstatic.com', 'https://srv.carbonads.net')
+CSP_SCRIPT_SRC = ("'self'", 'https://stats.ceiphr.com', 'https://cdn.carbonads.com', 'https://cdnjs.cloudflare.com', 'https://*.google.com', 'https://*.gstatic.com', 'https://google.com', 'https://gstatic.com', 'https://srv.carbonads.net')
 
 CSP_FONT_SRC = ("'self'", 'https://cdnjs.cloudflare.com')
 
-CSP_FRAME_SRC = ("'self'", 'https://www.google.com', 'https://www.gstatic.com', 'https://google.com', 'https://gstatic.com')
+CSP_FRAME_SRC = ("'self'", 'https://*.google.com', 'https://*.gstatic.com', 'https://google.com', 'https://gstatic.com')
 
 CSP_CONNECT_SRC = ("'self'", )
 
