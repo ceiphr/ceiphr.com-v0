@@ -8,11 +8,11 @@ I'm a high school student. I really wanted some way to display my achievements, 
 
 ## TODO
 
+- [ ] Configure/ implement GitLab CI/CD
+- [ ] Add meaningful git tags to git history
 - [x] Add content security policy
 - [x] Fix X-Content-Type-Options header
 - [x] Fix X-Frame-Options (XFO) header
-- [ ] Configure/ implement GitLab CI/CD
-- [ ] Add meaningful git tags to git history
 - [x] Apply for HSTS preload list
 - [x] Add badges to project repository
 - [x] Add changelog to project repository
@@ -49,8 +49,8 @@ Javascript/CSS
 Fonts
 
 - [Material Design Icons](https://material.io/)
-- [IBM Plex](https://github.com/IBM/plex)
-
+- [Roboto](https://fonts.google.com/specimen/Roboto)
+- [Roboto Mono](https://fonts.google.com/specimen/Roboto+Mono)
 
 ## License
 

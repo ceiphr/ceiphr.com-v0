@@ -1,55 +1,55 @@
-// IBM Plex
+// Roboto
 @font-face {
-    font-family: 'IBM Plex Light';
+    font-family: 'Roboto Light';
     font-display: fallback;
     font-weight: 300;
     src:
-        local('IBM-Plex-Light'),
-        url('../fonts/IBM_Plex_Sans/IBMPlexSans-Light.ttf') format('truetype'),
+        local('Roboto-Light'),
+        url('../fonts/Roboto/Roboto-Light.ttf') format('truetype'),
 }
 
 @font-face {
-    font-family: 'IBM Plex Mono';
+    font-family: 'Roboto Mono';
     font-display: fallback;
     font-weight: 300;
     src:
-        local('IBM-Plex-Mono'),
-        url('../fonts/IBM_Plex_Mono/IBMPlexMono-Regular.ttf') format('truetype'),
+        local('Roboto-Mono'),
+        url('../fonts/Roboto_Mono/RobotoMono-Regular.ttf') format('truetype'),
 }
 
 @font-face {
-    font-family: 'IBM Plex Regular';
+    font-family: 'Roboto Regular';
     font-display: fallback;
     font-weight: 300;
     src:
-        local('IBM-Plex-Regular'),
-        url('../fonts/IBM_Plex_Sans/IBMPlexSans-Regular.ttf') format('truetype'),
+        local('Roboto-Regular'),
+        url('../fonts/Roboto/Roboto-Regular.ttf') format('truetype'),
 }
 
 @font-face {
-    font-family: 'IBM Plex Medium';
+    font-family: 'Roboto Medium';
     font-display: fallback;
     font-weight: 300;
     src:
-        local('IBM-Plex-Regular'),
-        url('../fonts/IBM_Plex_Sans/IBMPlexSans-Medium.ttf') format('truetype'),
+        local('Roboto-Regular'),
+        url('../fonts/Roboto/Roboto-Medium.ttf') format('truetype'),
 }
 
 @font-face {
-    font-family: 'IBM Plex SemiBold';
+    font-family: 'Roboto SemiBold';
     font-display: fallback;
     font-weight: 300;
     src:
-        local('IBM-Plex-SemiBold'),
-        url('../fonts/IBM_Plex_Sans/IBMPlexSans-SemiBold.ttf') format('truetype'),
+        local('Roboto-SemiBold'),
+        url('../fonts/Roboto/Roboto-Bold.ttf') format('truetype'),
 }
 
 @font-face {
-    font-family: 'IBM Plex Bold';
+    font-family: 'Roboto Bold';
     font-style: bold;
     font-display: fallback;
     font-weight: 300;
     src:
-        local('IBM-Plex-Bold'),
-        url('../fonts/IBM_Plex_Sans/IBMPlexSans-Bold.ttf') format('truetype'),
+        local('Roboto-Bold'),
+        url('../fonts/Roboto/Roboto-Black.ttf') format('truetype'),
 }
