@@ -29,7 +29,7 @@ HTML_MINIFY = True
 # Content Security Policy
 CSP_INCLUDE_NONCE_IN = ('script-src',)
 
-CSP_IMG_SRC = ("'self'", 'https://cdn.ceiphr.com', 'https://stats.ceiphr.com', 'https://i.creativecommons.org', 'https://licensebuttons.net')
+CSP_IMG_SRC = ("'self'", 'https://cdn.ceiphr.com', 'https://stats.ceiphr.com', 'https://i.creativecommons.org', 'https://licensebuttons.net', 'https://*.buysellads.net')
 
 CSP_STYLE_SRC = ("'self' 'unsafe-inline'")
 
