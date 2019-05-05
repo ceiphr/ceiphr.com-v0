@@ -47,7 +47,7 @@ CSP_BASE_URI = ("'none'", )
 
 CSP_FRAME_ANCESTORS = ("'none'", )
 
-CSP_FORM_ACTION = ("'self'", 'https://ceiphr.com')
+CSP_FORM_ACTION = ("'self'")
 
 CSP_DEFAULT_SRC = ("'none'")
 
