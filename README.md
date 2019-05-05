@@ -8,9 +8,9 @@ I'm a high school student. I really wanted some way to display my achievements, 
 
 ## TODO
 
-- [ ] Add content security policy
-- [ ] Fix X-Content-Type-Options header
-- [ ] Fix X-Frame-Options (XFO) header
+- [x] Add content security policy
+- [x] Fix X-Content-Type-Options header
+- [x] Fix X-Frame-Options (XFO) header
 - [ ] Configure/ implement GitLab CI/CD
 - [ ] Add meaningful git tags to git history
 - [x] Apply for HSTS preload list
