@@ -33,7 +33,7 @@ CSP_IMG_SRC = ("'self'", 'https://cdn.ceiphr.com', 'https://stats.ceiphr.com', '
 
 CSP_STYLE_SRC = ("'self' 'unsafe-inline'")
 
-CSP_SCRIPT_SRC = ("'self'", 'https://stats.ceiphr.com', 'https://cdn.carbonads.com', 'https://cdnjs.cloudflare.com', 'https://www.google.com', 'https://www.gstatic.com', 'https://google.com', 'https://gstatic.com')
+CSP_SCRIPT_SRC = ("'self'", 'https://stats.ceiphr.com', 'https://cdn.carbonads.com', 'https://cdnjs.cloudflare.com', 'https://www.google.com', 'https://www.gstatic.com', 'https://google.com', 'https://gstatic.com', 'https://srv.carbonads.net')
 
 CSP_FONT_SRC = ("'self'", 'https://cdnjs.cloudflare.com')
 
