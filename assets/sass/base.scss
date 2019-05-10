@@ -1,3 +1,5 @@
+@import "../node_modules/@ibm/plex/css/ibm-plex.css";
+
 // Colors used for theming
 $primary-color: #29323c !default;
 $secondary-color: #03a9f4 !default;
@@ -11,11 +13,8 @@ $sd-margin: 24px;
 $sd-padding: 12px;
 
 // Font families
-$h-font-bol: 'Roboto Bold', 'Helvetica Neue', Arial, sans-serif;
-$h-font-smb: 'Roboto SemiBold', 'Helvetica Neue', Arial, sans-serif;
-$h-font-med: 'Roboto Medium', 'Helvetica Neue', Arial, sans-serif;
-$p-font-mon: 'Roboto Mono', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', Courier, monospace;
-$p-font-reg: 'Roboto Regular', 'Helvetica Neue', Arial, sans-serif;
+$p-font-mon: 'IBM Plex Mono', 'Menlo', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', Courier, monospace;
+$p-font-reg: 'IBM Plex Sans', 'Helvetica Neue', Arial, sans-serif;
 
 // Animation/Transition durations
 $qk-duration: 400ms;
@@ -117,7 +116,7 @@ body {
 
 // Cards
 .card-title {
-  font-family: $h-font-med;
+  font-weight: 500;
 }
 
 // Navigation
@@ -185,12 +184,12 @@ hr {
 
 .feed-header {
   position: relative;
-  font-family: $h-font-smb;
+  font-weight: 600;
   font-size: 32px;
 }
 
 .feed-subheader {
-  font-family: $h-font-med;
+  font-weight: 500;
 }
 
 @media only screen and (max-width: 1200px) {

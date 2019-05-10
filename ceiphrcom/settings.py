@@ -27,6 +27,7 @@ OTP_TOTP_ISSUER = 'Ceiphr'
 HTML_MINIFY = True
 
 # Content Security Policy
+
 CSP_INCLUDE_NONCE_IN = ('script-src',)
 
 CSP_IMG_SRC = ("'self'", 'https://cdn.ceiphr.com', 'https://stats.ceiphr.com', 'https://i.creativecommons.org', 'https://licensebuttons.net', 'https://*.buysellads.net', 'https://ad.doubleclick.net')
@@ -184,7 +185,6 @@ PIPELINE = {
         'critical': {
             'source_filenames': (
                 'sass/index.scss',
-                'sass/fonts.scss',
                 'sass/rain.scss',
             ),
             'output_filename':
@@ -193,7 +193,6 @@ PIPELINE = {
         'article': {
             'source_filenames': (
                 'sass/article.scss',
-                'sass/fonts.scss',
                 'sass/monokai.scss',
             ),
             'output_filename':

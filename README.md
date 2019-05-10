@@ -49,8 +49,7 @@ Javascript/CSS
 Fonts
 
 - [Material Design Icons](https://material.io/)
-- [Roboto](https://fonts.google.com/specimen/Roboto)
-- [Roboto Mono](https://fonts.google.com/specimen/Roboto+Mono)
+- [IBM Plex](https://www.ibm.com/plex/)
 
 ## License
 

@@ -6,7 +6,7 @@ from django.core.mail import BadHeaderError, EmailMessage
 from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.shortcuts import render
 from .forms import ContactForm
-from sentry_sdk import capture_message
+from sentry_sdk import capture_message, last_event_id
 import random
 import datetime
 
@@ -71,8 +71,11 @@ def handler404(request, exception, template_name='404.html'):
 
 # Error catching with full page - 500
 
-def handler500(request):
+def handler500(request, *args, **argv):
     capture_message("Internal Server Error!", level="error")
+    return render(request, "500.html", {
+        'sentry_event_id': last_event_id(),
+    }, status=500)
 
 # FromtPage feed for index template
 

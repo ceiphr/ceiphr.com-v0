@@ -1,34 +1,31 @@
 {% extends "base.html" %}
-
-<body>
-    {% block content %} 
-    {% load staticfiles %}
+{% block content %} 
+{% load staticfiles %}
 
 
-    {% comment %} Rain background {% endcomment %}
-    <div id="full-wrapper">
-        <div id="cover--full">
-            <div id="rain--full">
-                {% for i in rain_range %}
-                <i class="rain__drop"></i>
-                {% endfor %}
-            </div>
+{% comment %} Rain background {% endcomment %}
+<div id="full-wrapper">
+    <div id="cover--full">
+        <div id="rain--full">
+            {% for i in rain_range %}
+            <i class="rain__drop"></i>
+            {% endfor %}
         </div>
+    </div>
 
 
-        {% comment %} Feed contents {% endcomment %}
-        <div id="feed">
-            <div class="container">
-                <div id="full__content" class="valign-wrapper">
-                    <div id="full__text" class="center-align">
-                        <div id="cover__subtext">
-                            404. Page not found.
-                        </div>
-                        <a href="/" class="waves-effect waves-light btn">Front Page</a>
+    {% comment %} Feed contents {% endcomment %}
+    <div id="feed">
+        <div class="container">
+            <div id="full__content" class="valign-wrapper">
+                <div id="full__text" class="center-align">
+                    <div id="cover__subtext">
+                        404. Page not found.
                     </div>
+                    <a href="/" class="waves-effect waves-light btn">Front Page</a>
                 </div>
             </div>
         </div>
     </div>
-    {% endblock content %}
-</body>
+</div>
+{% endblock content %}

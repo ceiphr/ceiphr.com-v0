@@ -67,7 +67,7 @@
 
   #cover__title {
     color: $secondary-color;
-    font-family: $h-font-bol;
+    font-weight: 700;
     white-space: nowrap;
     font-size: 300%;
   }
@@ -84,7 +84,7 @@
   color: white;
   font-size: 120%;
   padding-bottom: 12px;
-  font-family: $h-font-med;
+  font-weight: 500;
 }
 
 // Feed Header

@@ -1,34 +1,38 @@
 {% extends "base.html" %}
-
-<body>
-    {% block content %} 
-    {% load staticfiles %}
+{% block content %}
+{% load staticfiles %}
 
 
-    {% comment %} Rain background {% endcomment %}
-    <div id="full-wrapper">
-        <div id="cover--full">
-            <div id="rain">
-                {% for i in rain_range %}
-                <i class="rain__drop"></i>
-                {% endfor %}
-            </div>
+{% comment %} Rain background {% endcomment %}
+<div id="full-wrapper">
+    <div id="cover--full">
+        <div id="rain">
+            {% for i in rain_range %}
+            <i class="rain__drop"></i>
+            {% endfor %}
         </div>
+    </div>
 
 
-        {% comment %} Feed contents {% endcomment %}
-        <div id="feed">
-            <div class="container">
-                <div id="full__content" class="valign-wrapper">
-                    <div id="full__text" class="center-align">
-                        <div id="cover__subtext">
-                            500. Internal error occured.
-                        </div>
-                        <a href="/" class="waves-effect waves-light btn">Front Page</a>
+    {% comment %} Feed contents {% endcomment %}
+    <div id="feed">
+        <div class="container">
+            <div id="full__content" class="valign-wrapper">
+                <div id="full__text" class="center-align">
+                    {% if sentry_event_id %}
+                    <script>
+                        Sentry.init({ dsn: 'https://64705ba551e4407cb6cc1cf33e6336d8@sentry.io/1429770' });
+                        Sentry.showReportDialog({ eventId: '{{ sentry_event_id }}' })
+                    </script>
+                    {% endif %}
+                    <div id="cover__subtext">
+                        500. Internal error occured.
                     </div>
+                    <a href="/" class="waves-effect waves-light btn">Front Page</a>
                 </div>
             </div>
         </div>
     </div>
-    {% endblock content %}
-</body>
+</div>
+<script src="https://browser.sentry-cdn.com/5.2.0/bundle.min.js" crossorigin="anonymous"></script>
+{% endblock content %}
