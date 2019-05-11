@@ -20,7 +20,8 @@ DEBUG = ceiphrcom.production_config.debug
 
 ADMIN_ENABLED = True
 
-ALLOWED_HOSTS = ['ceiphr.com', '127.0.0.1', 'localhost', '0.0.0.0', '142.93.177.255']
+ALLOWED_HOSTS = ['ceiphr.com', '127.0.0.1',
+                 'localhost', '0.0.0.0', '142.93.177.255']
 
 OTP_TOTP_ISSUER = 'Ceiphr'
 
@@ -30,15 +31,17 @@ HTML_MINIFY = True
 
 CSP_INCLUDE_NONCE_IN = ('script-src',)
 
-CSP_IMG_SRC = ("'self'", 'https://cdn.ceiphr.com', 'https://stats.ceiphr.com', 'https://i.creativecommons.org', 'https://licensebuttons.net', 'https://*.buysellads.net', 'https://ad.doubleclick.net')
+CSP_IMG_SRC = ("'self'", 'https://cdn.ceiphr.com', 'https://stats.ceiphr.com', 'https://i.creativecommons.org',
+               'https://licensebuttons.net', 'https://*.buysellads.net', 'https://ad.doubleclick.net')
 
 CSP_STYLE_SRC = ("'self' 'unsafe-inline'")
 
-CSP_SCRIPT_SRC = ("'self'", 'https://stats.ceiphr.com', 'https://cdn.carbonads.com', 'https://cdnjs.cloudflare.com', 'https://*.google.com', 'https://*.gstatic.com', 'https://google.com', 'https://gstatic.com', 'https://srv.carbonads.net')
+CSP_SCRIPT_SRC = ("'self'", 'https://stats.ceiphr.com', 'https://*.carbonads.com',
+                  'https://cdnjs.cloudflare.com', 'https://*.google.com', 'https://*.gstatic.com', 'https://*.carbonads.net')
 
 CSP_FONT_SRC = ("'self' data:", 'https://cdnjs.cloudflare.com')
 
-CSP_FRAME_SRC = ("'self'", 'https://*.google.com', 'https://*.gstatic.com', 'https://google.com', 'https://gstatic.com')
+CSP_FRAME_SRC = ("'self'", 'https://*.google.com', 'https://*.gstatic.com')
 
 CSP_CONNECT_SRC = ("'self'", )
 
@@ -122,15 +125,15 @@ if DEBUG:
     }
 else:
     DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'ceiphrcom',
-        'USER': 'ceiphrcom',
-        'PASSWORD': ceiphrcom.production_config.postgresPW,
-        'HOST': 'localhost',
-        'PORT': '',
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql_psycopg2',
+            'NAME': 'ceiphrcom',
+            'USER': 'ceiphrcom',
+            'PASSWORD': ceiphrcom.production_config.postgresPW,
+            'HOST': 'localhost',
+            'PORT': '',
+        }
     }
-}
 
 
 # Password validation
@@ -189,6 +192,9 @@ PIPELINE = {
             ),
             'output_filename':
             'css/index.css',
+            'extra_context': {
+                'preload': True,
+            },
         },
         'article': {
             'source_filenames': (
@@ -197,6 +203,9 @@ PIPELINE = {
             ),
             'output_filename':
             'css/article.css',
+            'extra_context': {
+                'preload': True,
+            },
         },
         'frameworks': {
             'source_filenames': (
@@ -209,17 +218,27 @@ PIPELINE = {
 
     # Minimize and condense javascript into two files
     'JAVASCRIPT': {
-        'frameworks': {
+        'onload': {
             'source_filenames': (
-                'node_modules/jquery/dist/jquery.min.js',
-                'node_modules/materialize-css/dist/js/materialize.min.js',
                 'node_modules/lazysizes/lazysizes.js',
-                'js/base.js',
+                'node_modules/fg-loadcss/dist/cssrelpreload.min.js',
             ),
             'output_filename':
             'js/frameworks.js',
             'extra_context': {
                 'async': True,
+            },
+        },
+        'frameworks': {
+            'source_filenames': (
+                'node_modules/jquery/dist/jquery.min.js',
+                'node_modules/materialize-css/dist/js/materialize.min.js',
+                'js/base.js',
+            ),
+            'output_filename':
+            'js/frameworks.js',
+            'extra_context': {
+                'defer': True,
             },
         }
     }
@@ -244,8 +263,8 @@ MEDIA_URL = '/media/'
 # Production debugging via sentry.io
 if not DEBUG:
     sentry_sdk.init(
-    dsn="https://64705ba551e4407cb6cc1cf33e6336d8@sentry.io/1429770",
-    integrations=[DjangoIntegration()]
+        dsn="https://64705ba551e4407cb6cc1cf33e6336d8@sentry.io/1429770",
+        integrations=[DjangoIntegration()]
     )
 
 # Email System
@@ -301,4 +320,3 @@ else:
     RECAPTCHA_PUBLIC_KEY = ""
 
     RECAPTCHA_PRIVATE_KEY = ""
-

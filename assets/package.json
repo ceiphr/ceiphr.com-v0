@@ -6,6 +6,7 @@
   "private": true,
   "dependencies": {
     "@ibm/plex": "^1.4.1",
+    "fg-loadcss": "^2.1.0",
     "jquery": "^3.4.0",
     "lazysizes": "^4.1.7",
     "materialize-css": "^1.0.0",
