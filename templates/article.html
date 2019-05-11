@@ -5,7 +5,7 @@
 {% load markdownify %}
 {% load thumbnail %}
 
-<script type="application/ld+json">
+<script nonce="{{ request.csp_nonce }}" type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Article",

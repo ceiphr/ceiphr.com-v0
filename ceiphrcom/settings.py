@@ -1,6 +1,7 @@
 import os
 import ceiphrcom.production_config
 import sentry_sdk
+from csp import context_processors
 from sentry_sdk.integrations.django import DjangoIntegration
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -220,6 +221,7 @@ PIPELINE = {
             'js/frameworks.js',
             'extra_context': {
                 'async': True,
+                'nonce': context_processors.nonce,
             },
         }
     }
