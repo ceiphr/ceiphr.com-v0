@@ -127,8 +127,9 @@
 
     {% comment %} Critical CSS {% endcomment %}
     <script nonce="{{ request.csp_nonce }}">
-        cssPreload(); {
-            this.onload=null;this.rel='stylesheet';
+        function cssPreload() {
+            this.onload=null;
+            this.rel='stylesheet';
         }
     </script>
     {% stylesheet 'fonts' %}
