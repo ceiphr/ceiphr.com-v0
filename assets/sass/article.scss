@@ -19,43 +19,6 @@
   }
 }
 
-.article__heading {
-  position: relative;
-  top: 15vh;
-  transform: translateY(-50%);
-  z-index: 2;
-  color: white;
-  h1 {
-    font-weight: 600;
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
-  }
-}
-
-.article__cover_image {
-  @include no-highlight;
-  background-color: black;
-  position: absolute;
-  width: 100%;
-  height: $coverHeight;
-  @media only screen and (max-width: 992px) {
-    height: 40vh;
-  }
-  top: 0;
-  left: 0;
-  z-index: 0;
-  overflow: hidden;
-  img {
-    transform: translate(-50%, -50%);
-    position: relative;
-    object-fit: cover;
-    width: 100%;
-    height: 100%;
-    left: 50%;
-    top: 50%;
-  }
-}
-
 .article__body {
   overflow-wrap: break-word;
 
@@ -78,14 +41,6 @@
   h5,
   h6 {
     font-weight: 500;
-  }
-
-  .headerlink {
-    opacity: 0;
-    position: relative;
-    padding-left: 12px;
-    -webkit-transition: opacity $qk-duration ease-in-out;
-    transition: opacity $qk-duration ease-in-out;
   }
 
   h1:hover,

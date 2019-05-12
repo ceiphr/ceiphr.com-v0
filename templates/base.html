@@ -128,17 +128,143 @@
     {% comment %} Critical CSS {% endcomment %}
     {% stylesheet 'fonts' %}
     <style>
+        *,
+        *:before,
+        *:after {
+            box-sizing: inherit
+        }
+
         html,
         body {
             background: white;
             color: #29323c;
-            font-family: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif
+            font-family: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.15;
+            -ms-text-size-adjust: 100%;
+            -webkit-text-size-adjust: 100%
+        }
+
+        html {
+            box-sizing: border-box
+        }
+
+        body {
+            margin: 0
+        }
+
+        article,
+        aside,
+        footer,
+        header,
+        nav,
+        section {
+            display: block
         }
 
         html,
         body,
         a {
             outline: 0 !important;
+        }
+
+        a {
+            background-color: transparent;
+            -webkit-text-decoration-skip: objects;
+            color: #039be5;
+            text-decoration: none;
+            -webkit-tap-highlight-color: transparent
+        }
+
+        img {
+            border-style: none
+        }
+
+        svg:not(:root) {
+            overflow: hidden
+        }
+
+        ul:not(.browser-default) {
+            padding-left: 0;
+            list-style-type: none
+        }
+
+        ul:not(.browser-default)>li {
+            list-style-type: none
+        }
+
+        .z-depth-1,
+        .sidenav,
+        .collapsible,
+        .dropdown-content,
+        .btn-floating,
+        .btn,
+        .btn-small,
+        .btn-large,
+        .toast,
+        .card,
+        .card-panel,
+        nav {
+            box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14)
+        }
+
+        .z-depth-1:hover,
+        .sidenav:hover,
+        .collapsible:hover,
+        .dropdown-content:hover,
+        .btn-floating:hover,
+        .btn:hover,
+        .btn-small:hover,
+        .btn-large:hover,
+        .toast:hover,
+        .card:hover,
+        .card-panel:hover,
+        nav:hover {
+            box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.1)
+        }
+
+        .divider {
+            height: 1px;
+            overflow: hidden;
+            background-color: #e0e0e0
+        }
+
+        i {
+            line-height: inherit
+        }
+
+        .left {
+            float: left !important
+        }
+
+        .right {
+            float: right !important
+        }
+
+        .circle {
+            border-radius: 50%
+        }
+
+        .container {
+            margin: 0 auto;
+            max-width: 1280px;
+            width: 90%
+        }
+
+        @media only screen and (min-width : 601px) {
+            .container {
+                width: 85%
+            }
+        }
+
+        @media only screen and (min-width : 993px) {
+            .container {
+                width: 70%
+            }
+        }
+
+        .section {
+            padding-top: 1rem;
+            padding-bottom: 1rem
         }
 
         .menu-icon {
@@ -160,6 +286,62 @@
             height: inherit;
             line-height: inherit;
             margin-left: 16px;
+        }
+
+        .btn,
+        .btn-small,
+        .btn-large,
+        .btn-flat {
+            border: 0;
+            border-radius: 2px;
+            display: inline-block;
+            height: 36px;
+            line-height: 36px;
+            padding: 0 16px;
+            text-transform: uppercase;
+            vertical-align: middle;
+            -webkit-tap-highlight-color: transparent
+        }
+
+        .btn,
+        .btn-floating,
+        .btn-large,
+        .btn-small,
+        .btn-flat {
+            font-size: 14px;
+            outline: 0
+        }
+
+        .btn,
+        .btn-small,
+        .btn-large {
+            text-decoration: none;
+            color: #fff;
+            background-color: #03a9f4;
+            text-align: center;
+            letter-spacing: .5px;
+            transition: background-color .2s ease-out;
+            cursor: pointer
+        }
+
+        .btn-flat {
+            box-shadow: none;
+            background-color: transparent;
+            color: #343434;
+            cursor: pointer;
+            transition: background-color .2s
+        }
+
+        .waves-effect {
+            position: relative;
+            cursor: pointer;
+            display: inline-block;
+            overflow: hidden;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+            vertical-align: middle;
+            z-index: 1;
+            transition: .3s ease-out
         }
 
         .card-title {
@@ -186,6 +368,62 @@
             background: transparent !important;
             box-shadow: none !important;
             z-index: 100;
+        }
+
+        nav ul a {
+            transition: background-color .3s;
+            font-size: 1rem;
+            color: #fff;
+            display: block;
+            padding: 0 15px;
+            cursor: pointer
+        }
+
+        nav ul a.btn,
+        nav ul a.btn-small,
+        nav ul a.btn-large,
+        nav ul a.btn-flat,
+        nav ul a.btn-floating {
+            margin-top: -2px;
+            margin-left: 15px;
+            margin-right: 15px
+        }
+
+        nav ul {
+            margin: 0
+        }
+
+        nav ul li {
+            transition: background-color .3s;
+            float: left;
+            padding: 0
+        }
+
+        nav ul a {
+            transition: background-color .3s;
+            font-size: 1rem;
+            color: #fff;
+            display: block;
+            padding: 0 15px;
+            cursor: pointer
+        }
+
+        nav ul a.btn,
+        nav ul a.btn-small,
+        nav ul a.btn-large,
+        nav ul a.btn-flat,
+        nav ul a.btn-floating {
+            margin-top: -2px;
+            margin-left: 15px;
+            margin-right: 15px
+        }
+
+        nav ul a:hover {
+            background-color: rgba(0, 0, 0, 0.1)
+        }
+
+        nav ul.left {
+            float: left
         }
 
         .card-container .card-object {
@@ -232,6 +470,7 @@
             .article__body,
             #carbonads {
                 animation-name: slide;
+                animation-delay: 0.4s;
                 animation-duration: 1s;
             }
 
@@ -250,6 +489,63 @@
 
         .dim-image {
             filter: brightness(50%)
+        }
+
+        .card .card-image {
+            position: relative
+        }
+
+        .card .card-image img {
+            display: block;
+            border-radius: 8px 8px 0 0;
+            position: relative;
+            left: 0;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 100%
+        }
+
+        .card .card-image .card-title {
+            color: #fff;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            max-width: 100%;
+            padding: 24px
+        }
+
+        .card .card-content {
+            padding: 24px;
+            border-radius: 0 0 8px 8px
+        }
+
+        .card .card-content p {
+            margin: 0
+        }
+
+        .card .card-content .card-title {
+            display: block;
+            line-height: 32px;
+            margin-bottom: 8px
+        }
+
+        .card .card-action {
+            background-color: inherit;
+            border-top: 1px solid rgba(160, 160, 160, 0.2);
+            position: relative;
+            padding: 16px 24px
+        }
+
+        .card .card-action:last-child {
+            border-radius: 0 0 8px 8px
+        }
+
+        .card .card-action a:not(.btn):not(.btn-small):not(.btn-large):not(.btn-large):not(.btn-floating) {
+            color: #03a9f4;
+            margin-right: 24px;
+            transition: color .3s ease;
+            text-transform: uppercase
         }
 
         .lazyload,
@@ -346,6 +642,14 @@
             -moz-hyphens: auto;
             hyphens: auto;
             font-size: 16px
+        }
+
+        .headerlink {
+            opacity: 0;
+            position: relative;
+            padding-left: 12px;
+            -webkit-transition: opacity 400ms ease-in-out;
+            transition: opacity 400ms ease-in-out
         }
 
         .article__body h1,
