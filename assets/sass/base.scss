@@ -80,65 +80,6 @@ p {
   font-size: 16px;
 }
 
-.menu-icon {
-  display: block;
-  font-size: 24px;
-  height: 56px;
-  line-height: 56px;
-}
-
-.nav-icon {
-  float: left;
-  height: 48px;
-  line-height: 48px;
-  margin: 0 32px 0 0;
-  width: 24px;
-}
-
-.button-icon {
-  height: inherit;
-  line-height: inherit;
-  margin-left: 16px;
-}
-
-// Body
-html,
-body {
-  background: white;
-  color: $primary-color;
-  font-family: $p-font-reg;
-  a {
-    outline: 0 !important;
-  }
-}
-
-// Cards
-.card-title {
-  font-weight: 500;
-}
-
-// Navigation
-.brand-logo {
-  height: 64px;
-  img {
-    height: 64px;
-    left: 8px;
-    padding: 16px;
-  }
-}
-
-.background {
-  background: $primary-color;
-}
-
-nav {
-  position: absolute;
-  top: 0;
-  background: transparent !important;
-  box-shadow: none !important;
-  z-index: 100;
-}
-
 hr {
   margin: 16px 0 16px;
   border: 0;
@@ -155,73 +96,8 @@ hr {
   background-color: #cccccc;
 }
 
-.card-container .card-object {
-  width: 50%;
-  padding: 0 12px 0 12px;
-}
-
-.card-image {
-  background-color: black;
-  border-top-left-radius: 8px;
-  border-top-right-radius: 8px;
-}
-
-.card-image img {
-  object-fit: cover;
-  width: 300px;
-  height: 200px;
-}
-
-.card-container {
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-  flex-flow: row wrap;
-  width: 100%;
-}
-
-.feed-header {
-  position: relative;
-  font-weight: 600;
-  font-size: 32px;
-}
-
 .feed-subheader {
   font-weight: 500;
-}
-
-@media only screen and (max-width: 1200px) {
-  .card-container .card-object {
-    width: 100%;
-  }
-}
-
-.dim-image {
-  filter: brightness(50%);
-}
-
-// Load animation for feed contents
-// Desktop
-@media only screen and (min-width: 992px) {
-  .section,
-  .footer,
-  .article__body,
-  #carbonads {
-    animation-name: slide;
-    animation-duration: 1s;
-  }
-
-  @keyframes slide {
-    from {
-      transform: translateY(10px);
-      opacity: 0;
-    }
-
-    to {
-      transform: translateY(0px);
-      opacity: 1;
-    }
-  }
 }
 
 // Lazy loading transition
@@ -233,44 +109,6 @@ hr {
 .lazyloaded {
   opacity: 1;
 	transition: opacity $qk-duration;
-}
-
-// Footer
-
-.footer {
-  margin: $sd-margin/2;
-  padding-bottom: 24px;
-  text-align: center;
-
-  a {
-    transition-duration: $qk-duration;
-    color: $primary-color;
-
-    svg {
-      position: relative;
-      transition-duration: $qk-duration;
-      fill: $primary-color;
-      top: 4px;
-      width: 18px;
-      height: 18px;
-    }
-
-    &:hover {
-      color: $secondary-color;
-      svg {
-        fill: $secondary-color;
-      }
-    }
-
-    &:nth-of-type(1n)::after {
-      content: " - ";
-      color: $primary-color;
-    }
-
-    &:nth-last-of-type(1)::after {
-      content: "";
-    }
-  }
 }
 
 // Contact form
