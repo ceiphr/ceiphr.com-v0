@@ -524,6 +524,16 @@
             % else %
         }
 
+        #cover,
+        #cover--full {
+            background: linear-gradient(270deg, #29323c, #485563);
+            background-size: 400% 400%;
+            position: absolute;
+            width: 100%;
+            top: 0;
+            animation: rain__background 60s ease
+        }
+
         #cover {
             height: 30vh
         }
@@ -576,6 +586,8 @@
             % endif %
         }
     </style>
+    {% javascript 'onload' %}
+
 </head>
 
 <body>
@@ -848,12 +860,6 @@
             </a>
         </li>
     </ul>
-    {% if is_article %}
-    {% stylesheet 'article' %}
-    {% else %}
-    {% stylesheet 'critical' %}
-    {% endif %}
-    {% javascript 'onload' %}
     {% block content %}
     {% endblock content %}
     {% if view != "Thanks" and view != "404" %}
@@ -878,6 +884,11 @@
     </div>
     {% endif %}
     {% comment %} Imported CSS and JS frameworks {% endcomment %}
+    {% if is_article %}
+    {% stylesheet 'article' %}
+    {% else %}
+    {% stylesheet 'critical' %}
+    {% endif %}
     {% stylesheet 'frameworks' %}
     {% javascript 'frameworks' %}
     <script nonce="{{ request.csp_nonce }}">
