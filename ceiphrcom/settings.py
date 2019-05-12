@@ -54,8 +54,6 @@ CSP_FRAME_ANCESTORS = ("'none'", )
 
 CSP_FORM_ACTION = ("'self'")
 
-CSP_DEFAULT_SRC = ("'none'")
-
 # Application definition
 
 INSTALLED_APPS = [
