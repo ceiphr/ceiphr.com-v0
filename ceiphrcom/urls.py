@@ -69,7 +69,7 @@ if settings.ADMIN_ENABLED:
     urlpatterns += [
         path('jet/', include('jet.urls', 'jet')),  # Django JET URLS
         path('jet/dashboard/', include('jet.dashboard.urls', 'jet-dashboard')),
-        path(ceiphrcom.production_config.adminURLHash+'/admin', admin.site.urls),
+        path(ceiphrcom.production_config.admin_URL+'/admin', admin.site.urls),
     ]
 
 # For test server during development - allows for media to be retrieved

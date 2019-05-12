@@ -1,6 +1,7 @@
 import os
 import ceiphrcom.production_config
 import sentry_sdk
+from csp import context_processors
 from sentry_sdk.integrations.django import DjangoIntegration
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -12,7 +13,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 
-SECRET_KEY = ceiphrcom.production_config.secretKey
+SECRET_KEY = ceiphrcom.production_config.secret_key
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
@@ -29,14 +30,14 @@ HTML_MINIFY = True
 
 # Content Security Policy
 
-CSP_INCLUDE_NONCE_IN = ('script-src',)
+# CSP_INCLUDE_NONCE_IN = ('script-src',)
 
 CSP_IMG_SRC = ("'self'", 'https://cdn.ceiphr.com', 'https://stats.ceiphr.com', 'https://i.creativecommons.org',
                'https://licensebuttons.net', 'https://*.buysellads.net', 'https://ad.doubleclick.net')
 
 CSP_STYLE_SRC = ("'self' 'unsafe-inline'")
 
-CSP_SCRIPT_SRC = ("'self'", 'https://stats.ceiphr.com', 'https://*.carbonads.com',
+CSP_SCRIPT_SRC = ("'self' 'unsafe-inline'", 'https://stats.ceiphr.com', 'https://*.carbonads.com',
                   'https://cdnjs.cloudflare.com', 'https://*.google.com', 'https://*.gstatic.com', 'https://*.carbonads.net')
 
 CSP_FONT_SRC = ("'self' data:", 'https://cdnjs.cloudflare.com')
@@ -129,7 +130,7 @@ else:
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
             'NAME': 'ceiphrcom',
             'USER': 'ceiphrcom',
-            'PASSWORD': ceiphrcom.production_config.postgresPW,
+            'PASSWORD': ceiphrcom.production_config.postgres_PW,
             'HOST': 'localhost',
             'PORT': '',
         }
@@ -263,7 +264,7 @@ MEDIA_URL = '/media/'
 # Production debugging via sentry.io
 if not DEBUG:
     sentry_sdk.init(
-        dsn="https://64705ba551e4407cb6cc1cf33e6336d8@sentry.io/1429770",
+        dsn=ceiphrcom.production_config.sentry_dsn ,
         integrations=[DjangoIntegration()]
     )
 
@@ -272,7 +273,7 @@ if not DEBUG:
 if not DEBUG:
     EMAIL_BACKEND = "sendgrid_backend.SendgridBackend"
 
-    SENDGRID_API_KEY = ceiphrcom.production_config.sendgridAPIKey
+    SENDGRID_API_KEY = ceiphrcom.production_config.sendgrid_key
 
 else:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
@@ -312,9 +313,9 @@ if not DEBUG:
 # ReCaptcha System
 
 if not DEBUG:
-    RECAPTCHA_PUBLIC_KEY = ceiphrcom.production_config.ReCapSiteKey
+    RECAPTCHA_PUBLIC_KEY = ceiphrcom.production_config.recap_sitekey
 
-    RECAPTCHA_PRIVATE_KEY = ceiphrcom.production_config.ReCapPrivateKey
+    RECAPTCHA_PRIVATE_KEY = ceiphrcom.production_config.recap_privkey
 
 else:
     RECAPTCHA_PUBLIC_KEY = ""
