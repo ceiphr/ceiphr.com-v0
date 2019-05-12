@@ -596,12 +596,6 @@
 </head>
 
 <body>
-    <script nonce="{{ request.csp_nonce }}">
-        function cssPreload() {
-            this.onload = null;
-            this.rel = 'stylesheet';
-        }
-    </script>
     {% comment %} Desktop navigation {% endcomment %}
     <nav>
         <div class="nav-wrapper container">
