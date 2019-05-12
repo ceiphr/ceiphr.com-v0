@@ -223,7 +223,7 @@ PIPELINE = {
                 'node_modules/fg-loadcss/dist/cssrelpreload.min.js',
             ),
             'output_filename':
-            'js/frameworks.js',
+            'js/onload.js',
             'extra_context': {
                 'async': True,
             },
