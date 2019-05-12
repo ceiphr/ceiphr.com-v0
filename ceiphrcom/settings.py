@@ -30,14 +30,14 @@ HTML_MINIFY = True
 
 # Content Security Policy
 
-CSP_INCLUDE_NONCE_IN = ('script-src',)
+CSP_INCLUDE_NONCE_IN=['script-src']
 
 CSP_IMG_SRC = ("'self'", 'https://*.ceiphr.com', 'https://i.creativecommons.org',
                'https://licensebuttons.net', 'https://*.buysellads.net', 'https://ad.doubleclick.net')
 
 CSP_STYLE_SRC = ("'self' 'unsafe-inline'")
 
-CSP_SCRIPT_SRC = ("'self' 'sha256-7e38e9425555cb1b5ff6dd2c3c5f99b19c1c007274d7754f5edb0b4fa2c66af4'", 'https://*.ceiphr.com', 'https://*.carbonads.com',
+CSP_SCRIPT_SRC = ("'self' 'sha256-fjjpQlVVyxtf9t0sPF+ZsZwcAHJ013VPXtsLT6LGavQ='", 'https://*.ceiphr.com', 'https://*.carbonads.com',
                   'https://cdnjs.cloudflare.com', 'https://*.google.com', 'https://*.gstatic.com', 'https://*.carbonads.net')
 
 CSP_FONT_SRC = ("'self' data:", 'https://cdnjs.cloudflare.com')
