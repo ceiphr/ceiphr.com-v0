@@ -586,6 +586,11 @@
             % endif %
         }
     </style>
+    {% if is_article %}
+    {% stylesheet 'article' %}
+    {% else %}
+    {% stylesheet 'critical' %}
+    {% endif %}
     {% javascript 'onload' %}
 
 </head>
@@ -884,11 +889,6 @@
     </div>
     {% endif %}
     {% comment %} Imported CSS and JS frameworks {% endcomment %}
-    {% if is_article %}
-    {% stylesheet 'article' %}
-    {% else %}
-    {% stylesheet 'critical' %}
-    {% endif %}
     {% stylesheet 'frameworks' %}
     {% javascript 'frameworks' %}
     <script nonce="{{ request.csp_nonce }}">
