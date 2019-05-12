@@ -35,7 +35,7 @@ CSP_INCLUDE_NONCE_IN = ('script-src',)
 CSP_IMG_SRC = ("'self'", 'https://cdn.ceiphr.com', 'https://stats.ceiphr.com', 'https://i.creativecommons.org',
                'https://licensebuttons.net', 'https://*.buysellads.net', 'https://ad.doubleclick.net')
 
-CSP_STYLE_SRC = ("'self'", 'https://ceiphr.com')
+CSP_STYLE_SRC = ("'self' 'unsafe-inline")
 
 CSP_SCRIPT_SRC = ("'self'", 'https://ceiphr.com', 'https://stats.ceiphr.com', 'https://*.carbonads.com',
                   'https://cdnjs.cloudflare.com', 'https://*.google.com', 'https://*.gstatic.com', 'https://*.carbonads.net')

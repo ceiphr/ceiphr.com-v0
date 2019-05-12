@@ -1,2 +1,2 @@
-<link href="{{ url }}" nonce="{{ request.csp_nonce }}" {% if preload %} rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" {% else %} rel="stylesheet" {% endif %} type="{{ type }}"{% if media %} media="{{ media }}"{% endif %}{% if title %} title="{{ title|default:"all" }}"{% endif %}{% if charset %} charset="{{ charset }}"{% endif %} />
-{% if preload %} <noscript><link href="{{ url }}" nonce="{{ request.csp_nonce }}" rel="stylesheet"></noscript> {% endif %}
+<link href="{{ url }}" {% if preload %} rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'" {% else %} rel="stylesheet" {% endif %} type="{{ type }}"{% if media %} media="{{ media }}"{% endif %}{% if title %} title="{{ title|default:"all" }}"{% endif %}{% if charset %} charset="{{ charset }}"{% endif %} />
+{% if preload %} <noscript><link href="{{ url }}" rel="stylesheet"></noscript> {% endif %}
