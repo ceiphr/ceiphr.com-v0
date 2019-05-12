@@ -38,7 +38,8 @@ CSP_IMG_SRC = ("'self'", 'https://*.ceiphr.com', 'https://i.creativecommons.org'
 CSP_STYLE_SRC = ("'self' 'unsafe-inline'")
 
 CSP_SCRIPT_SRC = ("'self' 'sha256-fjjpQlVVyxtf9t0sPF+ZsZwcAHJ013VPXtsLT6LGavQ='", 'https://*.ceiphr.com', 'https://*.carbonads.com',
-                  'https://cdnjs.cloudflare.com', 'https://*.google.com', 'https://*.gstatic.com', 'https://*.carbonads.net')
+                  'https://cdnjs.cloudflare.com', 'https://*.google.com', 'https://*.gstatic.com', 'https://google.com', 
+                  'https://gstatic.com', 'https://*.carbonads.net')
 
 CSP_FONT_SRC = ("'self' data:", 'https://cdnjs.cloudflare.com')
 
