@@ -213,7 +213,7 @@ PIPELINE = {
             'output_filename':
             'css/fonts.css',
             'extra_context': {
-                'preload': True,
+                'preload': False,
             },
         },       
         'frameworks': {
