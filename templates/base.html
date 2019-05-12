@@ -127,11 +127,14 @@
     <link rel="mask-icon" href="{% static 'img/favicon.svg' %}" color="#000000">
 
     {% comment %} Critical CSS {% endcomment %}
+    {% stylesheet 'fonts' %}
+
     {% if is_article %}
     {% stylesheet 'article' %}
     {% else %}
     {% stylesheet 'critical' %}
     {% endif %}
+    
     {% javascript 'onload' %}
 </head>
 

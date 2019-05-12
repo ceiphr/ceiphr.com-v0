@@ -206,6 +206,16 @@ PIPELINE = {
                 'preload': False,
             },
         },
+        'fonts': {
+            'source_filenames': (
+                'node_modules/@ibm/plex/css/ibm-plex.css',
+            ),
+            'output_filename':
+            'css/fonts.css',
+            'extra_context': {
+                'preload': True,
+            },
+        },       
         'frameworks': {
             'source_filenames': (
                 'node_modules/materialize-css/sass/materialize.scss',
