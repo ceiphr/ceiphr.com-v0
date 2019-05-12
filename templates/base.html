@@ -126,6 +126,11 @@
     <link rel="mask-icon" href="{% static 'img/favicon.svg' %}" color="#000000">
 
     {% comment %} Critical CSS {% endcomment %}
+    <script nonce="{{ request.csp_nonce }}">
+        cssPreload(); {
+            this.onload=null;this.rel='stylesheet';
+        }
+    </script>
     {% stylesheet 'fonts' %}
     <style>
         html,
