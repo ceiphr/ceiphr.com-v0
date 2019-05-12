@@ -576,12 +576,6 @@
             % endif %
         }
     </style>
-    {% if is_article %}
-    {% stylesheet 'article' %}
-    {% else %}
-    {% stylesheet 'critical' %}
-    {% endif %}
-    {% javascript 'onload' %}
 </head>
 
 <body>
@@ -854,6 +848,12 @@
             </a>
         </li>
     </ul>
+    {% if is_article %}
+    {% stylesheet 'article' %}
+    {% else %}
+    {% stylesheet 'critical' %}
+    {% endif %}
+    {% javascript 'onload' %}
     {% block content %}
     {% endblock content %}
     {% if view != "Thanks" and view != "404" %}
