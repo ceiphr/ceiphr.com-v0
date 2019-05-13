@@ -459,9 +459,7 @@
             fill: #03a9f4;
         }
 
-            {
-            % if is_article %
-        }
+        {% if is_article %}
 
         .article__heading {
             position: relative;
@@ -528,9 +526,7 @@
             font-weight: 600
         }
 
-            {
-            % else %
-        }
+        {% else %}
 
         #cover,
         #cover--full {
@@ -590,9 +586,7 @@
             top: 8px;
         }
 
-            {
-            % endif %
-        }
+        {% endif %}
     </style>
     {% if is_article %}
     {% stylesheet 'article' %}
