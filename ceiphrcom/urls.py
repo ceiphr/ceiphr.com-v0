@@ -32,7 +32,7 @@ urlpatterns = [
         template_name="index.html"), name="Projects"),
 
     # Blog page filtered by tag - renders blog post feed contents
-    path('blog?t=<tag>/', Blog.as_view(template_name="index.html"), name="Blog"),
+    path('blog/?t=<tag>', Blog.as_view(template_name="index.html"), name="Blog"),
 
     # Blog page - renders blog post feed contents
     path('blog/', Blog.as_view(template_name="index.html"), name="Blog"),
@@ -54,7 +54,7 @@ urlpatterns = [
     path('contact/', Contact.as_view(), name="Contact"),
 
     # Contact page error catcher - renders contact page contents w/ error response
-    path('contact?e=<error>/', Contact.as_view()),
+    path('contact/?e=<error>', Contact.as_view()),
 
     # Thanks (email success) page - renders thank you message on full screen template
     path('thanks/', EmailSent.as_view()),
