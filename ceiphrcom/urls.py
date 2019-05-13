@@ -28,36 +28,36 @@ urlpatterns = [
     path('', FrontPage.as_view(template_name="index.html"), name="FrontPage"),
 
     # Projects page - renders project feed contents
-    path('projects', Projects.as_view(
+    path('projects/', Projects.as_view(
         template_name="index.html"), name="Projects"),
 
     # Blog page filtered by tag - renders blog post feed contents
-    path('blog?t=<tag>', Blog.as_view(template_name="index.html"), name="Blog"),
+    path('blog?t=<tag>/', Blog.as_view(template_name="index.html"), name="Blog"),
 
     # Blog page - renders blog post feed contents
-    path('blog', Blog.as_view(template_name="index.html"), name="Blog"),
+    path('blog/', Blog.as_view(template_name="index.html"), name="Blog"),
 
     # Article page - renders selected blog post
-    path('blog/<slug>', BlogPost.as_view(template_name="article.html")),
+    path('blog/<slug>/', BlogPost.as_view(template_name="article.html")),
 
     # Blog RSS/Atom feed
     path('rss20.xml', RssSiteNewsFeed()),
     path('atom.xml', AtomSiteNewsFeed()),
 
     # Events page - renders event feed contents
-    path('events', Events.as_view(template_name="index.html"), name="Events"),
+    path('events/', Events.as_view(template_name="index.html"), name="Events"),
 
     # Skills page - renders skill feed contents
-    path('skills', Skills.as_view(template_name="index.html"), name="Skills"),
+    path('skills/', Skills.as_view(template_name="index.html"), name="Skills"),
 
     # Contact page - renders contact page form
-    path('contact', Contact.as_view(), name="Contact"),
+    path('contact/', Contact.as_view(), name="Contact"),
 
     # Contact page error catcher - renders contact page contents w/ error response
-    path('contact?e=<error>', Contact.as_view()),
+    path('contact?e=<error>/', Contact.as_view()),
 
     # Thanks (email success) page - renders thank you message on full screen template
-    path('thanks', EmailSent.as_view()),
+    path('thanks/', EmailSent.as_view()),
 
     # Site map for SEO
     path('sitemap.xml', sitemap, {'sitemaps': sitemaps},

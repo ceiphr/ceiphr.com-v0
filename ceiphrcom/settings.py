@@ -21,6 +21,8 @@ DEBUG = ceiphrcom.production_config.debug
 
 ADMIN_ENABLED = True
 
+APPEND_SLASH = True
+
 ALLOWED_HOSTS = ['ceiphr.com', '127.0.0.1',
                  'localhost', '0.0.0.0', '142.93.177.255']
 
