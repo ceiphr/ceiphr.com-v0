@@ -126,25 +126,25 @@
     <link rel="mask-icon" href="{% static 'img/favicon.svg' %}" color="#000000">
     <script nonce="{{ request.csp_nonce }}" type="application/ld+json">
         {
-         "@context" : "http://schema.org",
-         "@type" : "Organization",
-         "name" : "Ceiphr",
-         "url" : "https://ceiphr",
-         "slogan": "{{ metadata.slogan }}",
-         "sameAs" : [
+        "@context": "http://schema.org",
+         "@type": "Organization",
+         "name": "Ceiphr",
+         "url": "https://ceiphr.com",
+         "slogan": "Aspiring Web Developer",
+         "sameAs": [
            "https://twitter.com/ceiphr",
            "https://www.instagram.com/ceiphr/?hl=en",
            "https://gitlab.com/ceiphr",
            "https://github.com/ceiphr",
            "https://keybase.io/ceiphr",
            "https://twitter.com/ceiphr",
-           "https://www.linkedin.com/in/ceiphr/",
+           "https://www.linkedin.com/in/ceiphr/"
           ],
           "logo": {
             "@type": "ImageObject",
-            {% thumbnail logo "196x196" format="JPEG" as jpeg %}
-            "url": "https://{{ request.get_host }}{{ jpeg.url }}"
-            {% endthumbnail %}
+            
+            "url": "https://ceiphr.com/media/cache/56/da/56da55ee554d1258c3a55be30ade7904.jpg"
+            
           }
         }
     </script>
