@@ -1,1 +1,1 @@
-<script{% if async %} async="true" {% endif %}{% if defer %} defer="true" {% endif %} type="{{ type }}" nonce="{{ request.csp_nonce }}" src="{{ url }}" charset="utf-8"></script>
+<script{% if async %} async {% endif %}{% if defer %} defer {% endif %} type="{{ type }}" nonce="{{ request.csp_nonce }}" src="{{ url }}"></script>
